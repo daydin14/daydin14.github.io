@@ -557,6 +557,14 @@ section {
 /*--------------------------------------------------------------
 # Portfolio Details
 --------------------------------------------------------------*/
+.pic {
+  background-image: url("https://c.tenor.com/eSr5QehBnWkAAAAC/vaporwave-palm-tree.gif");
+  border: 5px;
+  padding: 10px;
+  height: 200px;
+  object-fit: scale-down;
+}
+
 .portfolio-details {
   padding-top: 40px;
 }
