@@ -821,9 +821,9 @@ section {
 .contact .php-email-form {
   width: 100%;
   padding: 30px;
-  background: url(../img/challenger.png);
+  background: url(../img/noir.jpg);
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 85%;
   background-position: bottom;
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
 }
