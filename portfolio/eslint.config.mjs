@@ -14,7 +14,16 @@ export default [
       "**/src/assets/images/**/*"
     ],
   },
-  { languageOptions: { globals: globals.browser } },
+  {
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        // process: "readonly",
+        // module: "readonly",
+        // require: "readonly"
+      }
+    }
+  },
   pluginJs.configs.recommended,
   pluginReact.configs.flat.recommended,
   {
@@ -28,7 +37,7 @@ export default [
       // "no-empty": "off",
       // "no-cond-assign": "off",
       // "no-prototype-builtins": "off",
-      // "no-undef": "off",
+      "no-undef": "warn",
       // "no-fallthrough": "off",
       // "valid-typeof": "off",
       // "no-useless-escape": "off",

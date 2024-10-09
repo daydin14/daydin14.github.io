@@ -2,6 +2,7 @@
 
 # Commit History
 
+- Lint and Copilot it
 - Refactor Header component to include LeftSidePanel and toggle sidebar functionality
 - Added LeftSidePanel component for sidebar navigation
 - Add useIsMobile hook for responsive design

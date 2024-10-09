@@ -1,5 +1,6 @@
 // Dependencies
 import React from 'react'
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 // Components
@@ -41,5 +42,10 @@ const LeftSidePanel = ({ isOpen, toggleSidebar }) => {
         </div>
     )
 }
+
+LeftSidePanel.propTypes = {
+    isOpen: PropTypes.bool.isRequired,
+    toggleSidebar: PropTypes.func.isRequired,
+};
 
 export default LeftSidePanel
