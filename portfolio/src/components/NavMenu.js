@@ -3,7 +3,6 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 // Components
-import ThemeToggle from './ThemeToggle';
 
 const NavMenu = () => {
     return (
@@ -15,9 +14,6 @@ const NavMenu = () => {
                     {process.env.NODE_ENV === 'development' && (
                         <li><Link to="/sandbox" className="btn btn-ghost text-black dark:text-white">Sandbox</Link></li>
                     )}
-                    <li>
-                        <ThemeToggle />
-                    </li>
                 </ul>
             </nav>
         </>

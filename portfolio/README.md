@@ -2,6 +2,8 @@
 
 # Commit History
 
+- Refactor Header component to include LeftSidePanel and toggle sidebar functionality
+- Added LeftSidePanel component for sidebar navigation
 - Add useIsMobile hook for responsive design
 - Update both READMEs.md
 - Refactor About page to include profile pictures and social media icons
