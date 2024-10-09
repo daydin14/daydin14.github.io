@@ -1,12 +1,12 @@
 // Dependencies
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 // Styles
 import './assets/styles/App.css';
 
-// Pages
-import Home from './pages/Home';
+// Routes
+import AppRoutes from './AppRoutes';
 
 function App() {
   const companyName = 'daydin14';
@@ -28,10 +28,7 @@ function App() {
         </header>
         {/* Main */}
         <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            {/* <Route path="/about" element={<About />} /> */}
-          </Routes>
+          <AppRoutes />
         </main>
         {/* Footer */}
         <footer>
