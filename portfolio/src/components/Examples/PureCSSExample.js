@@ -1,6 +1,9 @@
 // Dependencies
 import React from 'react';
 
+// Dependencies
+import "purecss/build/pure-min.css";
+
 const PureCSSExample = () => {
     return (
         <div>

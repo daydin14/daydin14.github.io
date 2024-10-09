@@ -1,5 +1,6 @@
 // Dependencies
 import React, { useState, Suspense, lazy } from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
 
 // Components
 const BootstrapExample = lazy(() => import('./BootstrapExample.js'));
@@ -20,7 +21,11 @@ const Sampler = () => {
             case 'Bulma':
                 return <BulmaExample />;
             case 'ChakraUI':
-                return <ChakraUIExample />;
+                return (
+                    <ChakraProvider>
+                        <ChakraUIExample />
+                    </ChakraProvider>
+                );
             case 'DaisyUI':
                 return <DaisyUIExample />;
             case 'MaterialUI':

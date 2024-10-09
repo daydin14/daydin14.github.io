@@ -1,6 +1,9 @@
 // Dependencies
 import React from 'react';
 
+// Styles
+import "bulma/css/bulma.min.css";
+
 const BulmaExample = () => {
     return (
         <div className="container">

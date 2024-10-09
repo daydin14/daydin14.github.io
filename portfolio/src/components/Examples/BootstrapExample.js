@@ -1,6 +1,9 @@
 // Dependencies
 import React from 'react';
 
+// Styles
+import "bootstrap/dist/css/bootstrap.min.css";
+
 const BootstrapExample = () => {
     return (
         <div className="container">
