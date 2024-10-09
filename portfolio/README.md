@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+# ChangeLog
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Commit History
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Update both READMEs.md
+- Refactor About page to include profile pictures and social media icons
+- Moved Theme Toggle to NavMenu
+- Added official GitHub and LInkedin logo
+- Add About page AppRoutes and Navigation
+- Add About page with profile picture and bio
+- Added profile pictures
+- Add ThemeToggle component for toggling between light and dark mode
+- Add light&dark mode support to tailwind.config.js, Updated application to use Tailwind CSS
+- Add ThemeContext and ThemeProvider components for managing the theme of the application
+- Refactor CSS imports
+- Add Sandbox page and Sampler component to test and showcase different CSS libraries/frameworks
+- Added multiple CSS Libraries/Frameworks: Bootstrap, Bulma, ChakraUI, MaterialUI, PureCSS, Tailwind CSS, DaisyUI
+- Fixed babel-preset-react-app dependency warning
+- Refactor routing setup for sandbox feature testing
+- Linted
+- Added ESLint dev dependency and configuration
+- Refactor project structure and add Header, NavMenu, and Footer components
+- Refactor routing setup and create separate AppRoutes component
+- Added react-router-dom and created Home Page
+- Refactored project structure setup, Removed unused CSS, Updated imports, Added comments
+- Created a react application
+- Moved old project to temp folder 'old/'
