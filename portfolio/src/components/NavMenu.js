@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 const NavMenu = () => {
     return (
         <>
-            <nav>
-                <ul>
-                    <li><Link to="/">Home</Link></li>
+            <nav className="bg-gray-200 dark:bg-gray-800 shadow-lg">
+                <ul className="menu menu-horizontal p-0">
+                    <li><Link to="/" className="btn btn-ghost text-black dark:text-white">Home</Link></li>
                     {process.env.NODE_ENV === 'development' && (
-                        <li><Link to="/sandbox">Sandbox</Link></li>
+                        <li><Link to="/sandbox" className="btn btn-ghost text-black dark:text-white">Sandbox</Link></li>
                     )}
                 </ul>
             </nav>

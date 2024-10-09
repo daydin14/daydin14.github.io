@@ -8,9 +8,11 @@ const Footer = () => {
     const author = 'David Aydin';
     return (
         <>
-            <footer>
-                <p>{companyName} &copy; {year} {rights}</p>
-                <p>Created by {author}</p>
+            <footer className="bg-gray-200 dark:bg-gray-900 text-white py-4">
+                <div className="container mx-auto text-center text-black dark:text-white">
+                    <p>{companyName} &copy; {year} {rights}</p>
+                    <p>Created by {author}</p>
+                </div>
             </footer>
         </>
     )
