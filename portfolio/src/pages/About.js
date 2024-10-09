@@ -1,7 +1,11 @@
 // Dependencies
 import React from 'react';
 
+// Images
 import ProfilePicture_BC from '../assets/images/profile-pictures/profile-pic-business-casual.png';
+import GitHubMark from '../assets/images/github-mark/github-mark.png';
+import GitHubMarkWhite from '../assets/images/github-mark/github-mark-white.png';
+import LinkedInIcon from '../assets/images/LinkedIn-Logos/LI-In-Bug.png';
 
 const About = () => {
     return (
@@ -14,9 +18,18 @@ const About = () => {
                         className="w-32 h-32 rounded-full mb-4 mr-4"
                     />
                     <div className="flex flex-col ml-4">
-                        <h1 className="text-4xl font-bold mb-2">David aydin</h1>
+                        <h1 className="text-4xl font-bold mb-2">David Aydin</h1>
                         <h2 className="text-xl font-semibold mb-2">Software Engineer</h2>
                         <p className="text-center">Welcome to my portfolio! I am excited to share my journey and work with you.</p>
+                        <div className="flex space-x-4 mt-4">
+                            <a href="https://github.com/daydin14" target="_blank" rel="noopener noreferrer">
+                                <img src={GitHubMark} alt="GitHub" className="w-8 h-8 dark:hidden" />
+                                <img src={GitHubMarkWhite} alt="GitHub" className="w-8 h-8 hidden dark:block" />
+                            </a>
+                            <a href="https://www.linkedin.com/in/daydin14" target="_blank" rel="noopener noreferrer">
+                                <img src={LinkedInIcon} alt="LinkedIn" className="w-8 h-8" />
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <h1 className="text-3xl font-bold mb-4">About Me</h1>
