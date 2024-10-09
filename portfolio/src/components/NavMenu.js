@@ -8,6 +8,9 @@ const NavMenu = () => {
             <nav>
                 <ul>
                     <li><Link to="/">Home</Link></li>
+                    {process.env.NODE_ENV === 'development' && (
+                        <li><Link to="/sandbox">Sandbox</Link></li>
+                    )}
                 </ul>
             </nav>
         </>

@@ -13,18 +13,13 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 
 function App() {
-
-
   return (
     <Router>
-      <div >
-        {/* Header */}
+      <div>
         <Header />
-        {/* Main */}
         <main>
           <AppRoutes />
         </main>
-        {/* Footer */}
         <Footer />
       </div>
     </Router>
