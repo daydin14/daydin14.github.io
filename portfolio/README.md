@@ -2,6 +2,7 @@
 
 # Commit History
 
+- Top margin for main content & Home sections
 - Refactor Header component to include progress bar
 - Hamburger menu for sidebar navigation
 - Lint and Copilot it

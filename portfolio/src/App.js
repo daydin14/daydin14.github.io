@@ -29,7 +29,7 @@ const AppContent = () => {
   return (
     <div className="flex flex-col min-h-screen bg-white dark:bg-gray-800 text-black dark:text-white">
       <Header />
-      <main className="flex-grow p-4">
+      <main className="flex-grow p-4 mt-44">
         <AppRoutes />
       </main>
       <Footer />
