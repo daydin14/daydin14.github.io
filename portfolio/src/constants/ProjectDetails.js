@@ -1,4 +1,5 @@
 // Images
+
 // Recents
 import PasswordGenerator from '../assets/images/project-cards/Recent/password-generator.png'
 import ChalkboardGames from '../assets/images/project-cards/Recent/chalkboard-games.png'
@@ -6,6 +7,7 @@ import AllenhurstCleaners from '../assets/images/project-cards/Recent/allenhurst
 import JokerBlazor from '../assets/images/project-cards/Recent/joker-blazor.png'
 // import JokerService from '../assets/images/project-cards/Recent/joker-service.png'
 import WhatsAppClone from '../assets/images/project-cards/Recent/whatsapp-clone.png'
+
 // GA
 import CocktailRecipe from '../assets/images/project-cards/GA/cocktail-recipe.jpg'
 import OptioBlue from '../assets/images/project-cards/GA/optio-blue.jpg'
@@ -26,6 +28,12 @@ import MealFinder from '../assets/images/project-cards/Udemy/meal-finder.png'
 import ExpenseTracker from '../assets/images/project-cards/Udemy/expense-tracker.png'
 import MusicPlayer from '../assets/images/project-cards/Udemy/music-player.png'
 import Blog from '../assets/images/project-cards/Udemy/blog.png'
+
+// TODO: Put Air Force 1s, Mongo Logo, Unreal Enginge Logo
+// SJU
+// import SneakersDB from '../assets/images/project-cards/SJU/sneakers-db.png'
+// import MongoBongo from '../assets/images/project-cards/SJU/mongo-bongo.png'
+// import SShooter_sju from '../assets/images/project-cards/SJU/sshooter_sju.png'
 
 export const RecentProjects = [
     {
