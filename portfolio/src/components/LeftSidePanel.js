@@ -15,18 +15,13 @@ const LeftSidePanel = ({ isOpen, toggleSidebar }) => {
                     p-4 transition-transform transform z-20
                     ${isOpen ? 'translate-x-0' : '-translate-x-full'}`
             }>
-            {/* <h1 className="text-2xl font-bold mb-2 text-black dark:text-white">David Aydin</h1>
-                <div className="flex justify-end items-center mb-4">
-                    <button onClick={toggleSidebar} className="text-black dark:text-white mt-4 text-3xl">
-                        &times;
-                    </button>
-                </div> */}
             <div className="flex flex-row justify-between items-baseline mb-4">
                 <h1 className="text-2xl font-bold mb-2 mr-4 text-black dark:text-white">David Aydin</h1>
                 <button onClick={toggleSidebar} className="text-black dark:text-white mt-4 text-3xl">
                     &times;
                 </button>
             </div>
+            <ThemeToggle />
             <nav className="bg-gray-200 dark:bg-gray-800 shadow-lg rounded-lg">
                 <ul className="menu mb-4">
                     <li onClick={toggleSidebar}><Link to="/" className="btn btn-ghost text-black dark:text-white">Home</Link></li>
@@ -37,7 +32,6 @@ const LeftSidePanel = ({ isOpen, toggleSidebar }) => {
                     )}
                 </ul>
             </nav>
-            <ThemeToggle />
         </div>
     )
 }
