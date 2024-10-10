@@ -2,6 +2,7 @@
 
 # Commit History
 
+- Refactor project card links and add project modal
 - Added TODO
 - Added glow on hover for project cards
 - Added Project Images
