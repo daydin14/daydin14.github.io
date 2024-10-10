@@ -2,6 +2,7 @@
 
 # Commit History
 
+-
 - Refactor Home component to include Hero section and update section headings
 - Added Hero component
 - Added GitHub City to Projects section with Year Select and Color Picker

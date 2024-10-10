@@ -52,7 +52,7 @@ const Header = () => {
                 </div>
                 <NavMenu />
                 <div className="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2.5 mt-4">
-                    <div id="progress-bar" className="bg-blue-600 h-2.5 rounded-full" style={{ width: '0%' }}></div>
+                    <div id="progress-bar" className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 h-2.5 rounded-full" style={{ width: '0%' }}></div>
                 </div>
             </header>
             {/* Left Side Panel */}
