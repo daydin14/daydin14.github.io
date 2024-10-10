@@ -8,9 +8,6 @@ import ProjectDetails from '../../constants/ProjectDetails';
 import GitHubMark from '../../assets/images/github-mark/github-mark.png';
 import GitHubMarkWhite from '../../assets/images/github-mark/github-mark-white.png';
 
-// Icons
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
-
 const Projects = () => {
     const [selectedCategory, setSelectedCategory] = useState('All');
 
@@ -62,15 +59,29 @@ const Projects = () => {
                         <div className="card-body p-4">
                             <h3 className="card-title text-lg font-semibold truncate">{project.title}</h3>
                             <p className="text-sm text-gray-700 dark:text-gray-300 overflow-hidden overflow-ellipsis">{project.shortDescription}</p>
-                            <div className='flex flex-row justify-end items-center p-2'>
+                            <div className='flex flex-row justify-end items-center p-4 mr-2 mt-2'>
+                                {project.githubRepoLinks && (
+                                    <>
+                                        {project.githubRepoLinks.frontend &&
+                                            <a href={project.githubRepoLinks.frontend} target='_blank' rel='noopener noreferrer' className="text-blue-500 mr-2 tooltip transition-transform transform hover:scale-125" data-tip="Frontend">
+                                                <i className="fas fa-code w-5 h-5"></i>
+                                            </a>
+                                        }
+                                        {project.githubRepoLinks.backend &&
+                                            <a href={project.githubRepoLinks.backend} target='_blank' rel='noopener noreferrer' className="text-blue-500 tooltip transition-transform transform hover:scale-125" data-tip="Backend">
+                                                <i className="fas fa-server w-5 h-5"></i>
+                                            </a>
+                                        }
+                                    </>
+                                )}
                                 {project.githubRepoLink && (
-                                    <a href={project.githubRepoLink} target='_blank' rel='noopener noreferrer' className='mr-2'>
-                                        <img src={GitHubMark} alt="GitHub" className="w-8 h-8 dark:hidden" />
-                                        <img src={GitHubMarkWhite} alt="GitHub" className="w-8 h-8 hidden dark:block" />
+                                    <a href={project.githubRepoLink} target='_blank' rel='noopener noreferrer' className='mr-2 tooltip transition-transform transform hover:scale-125' data-tip='GitHub Repo'>
+                                        <img src={GitHubMark} alt="GitHub" className="w-6 h-6 dark:hidden" />
+                                        <img src={GitHubMarkWhite} alt="GitHub" className="w-6 h-6 hidden dark:block" />
                                     </a>
                                 )}
                                 {project.liveDemoLink && (
-                                    <a href={project.liveDemoLink} target='_blank' rel='noopener noreferrer' className="text-blue-500 hover:underline flex items-center">
+                                    <a href={project.liveDemoLink} target='_blank' rel='noopener noreferrer' className="text-blue-500 flex items-center tooltip transition-transform transform hover:scale-125" data-tip='Live Demo'>
                                         <i className="fas fa-play ml-2"></i>
                                     </a>
                                 )}
@@ -83,4 +94,4 @@ const Projects = () => {
     );
 };
 
-export default Projects;
+export default Projects

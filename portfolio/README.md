@@ -2,6 +2,7 @@
 
 # Commit History
 
+- Updated project links icons in project card
 - Refactor Header component to add theme toggle button
 - Refactor Projects component to improve project card layout
 - Refactor Projects component to improve project card layout and add GitHub and Live Demo links
