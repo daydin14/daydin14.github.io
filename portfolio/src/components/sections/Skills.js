@@ -1,4 +1,8 @@
+// Dependencies
 import React, { useState } from 'react';
+
+// Constants
+import SkillsDetails from '../../constants/SkillsDetails';
 
 const Skills = () => {
     const [hoveredCategory, setHoveredCategory] = useState(null);
@@ -14,21 +18,11 @@ const Skills = () => {
     return (
         <div>
             <ul className='flex flex-wrap gap-2 mb-4'>
-                <li className="category-item badge badge-outline" onMouseEnter={() => handleMouseEnter('editors')} onMouseLeave={handleMouseLeave}>IDEs/Editors</li>
-                <li className="category-item badge badge-outline" onMouseEnter={() => handleMouseEnter('version-control')} onMouseLeave={handleMouseLeave}>Version Control</li>
-                <li className="category-item badge badge-outline" onMouseEnter={() => handleMouseEnter('collaboration')} onMouseLeave={handleMouseLeave}>Code Collaboration Tools</li>
-                <li className="category-item badge badge-outline" onMouseEnter={() => handleMouseEnter('api-testing')} onMouseLeave={handleMouseLeave}>API Development and Testing</li>
-                <li className="category-item badge badge-outline" onMouseEnter={() => handleMouseEnter('languages')} onMouseLeave={handleMouseLeave}>Languages</li>
-                <li className="category-item badge badge-outline" onMouseEnter={() => handleMouseEnter('frameworks')} onMouseLeave={handleMouseLeave}>Frameworks, Platforms, and Libraries</li>
-                <li className="category-item badge badge-outline" onMouseEnter={() => handleMouseEnter('database')} onMouseLeave={handleMouseLeave}>Database Management</li>
-                <li className="category-item badge badge-outline" onMouseEnter={() => handleMouseEnter('deployment')} onMouseLeave={handleMouseLeave}>Deployment</li>
-                <li className="category-item badge badge-outline" onMouseEnter={() => handleMouseEnter('css-tools')} onMouseLeave={handleMouseLeave}>CSS Frameworks and Tools</li>
-                <li className="category-item badge badge-outline" onMouseEnter={() => handleMouseEnter('linting')} onMouseLeave={handleMouseLeave}>Linting and Formatting</li>
-                <li className="category-item badge badge-outline" onMouseEnter={() => handleMouseEnter('package-managers')} onMouseLeave={handleMouseLeave}>Package Managers</li>
-                <li className="category-item badge badge-outline" onMouseEnter={() => handleMouseEnter('build-tools')} onMouseLeave={handleMouseLeave}>Build Tools</li>
-                <li className="category-item badge badge-outline" onMouseEnter={() => handleMouseEnter('monitoring')} onMouseLeave={handleMouseLeave}>Monitoring and Logging</li>
-                <li className="category-item badge badge-outline" onMouseEnter={() => handleMouseEnter('documentation')} onMouseLeave={handleMouseLeave}>Documentation Tools</li>
-                <li className="category-item badge badge-outline" onMouseEnter={() => handleMouseEnter('markup')} onMouseLeave={handleMouseLeave}>Markup Languages</li>
+                {SkillsDetails.Categories.map((category) => (
+                    <li key={category.key} className="category-item badge badge-outline" onMouseEnter={() => handleMouseEnter(category.key)} onMouseLeave={handleMouseLeave}>
+                        {category.title}
+                    </li>
+                ))}
             </ul>
             <ul className="flex flex-wrap justify-center items-center">
                 {/* IDEs/Editors */}

@@ -2,6 +2,7 @@
 
 # Commit History
 
+- Refactor Skills component to dynamically render category items
 - Add SkillsDetails constant file
 - Add more FontAwesome icon dependencies
 - Refactor project card links and add project modal
