@@ -2,6 +2,7 @@
 
 # Commit History
 
+- Added Hero component
 - Added GitHub City to Projects section with Year Select and Color Picker
 - Refactor Skills component to dynamically render category items and add SkillsDetails constant file
 - Added react-icons dependency
