@@ -2,6 +2,7 @@
 
 # Commit History
 
+- Refactor Projects component to improve project card layout and add GitHub and Live Demo links
 - Refactored Projects with ProjectDetails constant
 - Update README.md
 - Added basic projects info
