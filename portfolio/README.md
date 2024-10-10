@@ -2,6 +2,7 @@
 
 # Commit History
 
+- Update package dependencies and add Google Analytics integration
 - Misc UI updates
 - Update README.md
 - Refactor progress bar styling in Header component and added Hero images

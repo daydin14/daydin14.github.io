@@ -10,6 +10,11 @@ import App from './App';
 
 // Utils
 import reportWebVitals from './utils/reportWebVitals';
+import { initGA, logPageView } from './utils/GoogleAnalytics';
+
+// Initialize Google Analytics
+// initGA();
+// logPageView();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
