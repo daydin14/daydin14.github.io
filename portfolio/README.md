@@ -2,6 +2,7 @@
 
 # Commit History
 
+- Hamburger menu for sidebar navigation
 - Lint and Copilot it
 - Refactor Header component to include LeftSidePanel and toggle sidebar functionality
 - Added LeftSidePanel component for sidebar navigation
