@@ -2,7 +2,8 @@
 
 # Commit History
 
--
+- Update README.md
+- Refactor progress bar styling in Header component and added Hero images
 - Refactor Home component to include Hero section and update section headings
 - Added Hero component
 - Added GitHub City to Projects section with Year Select and Color Picker
