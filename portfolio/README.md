@@ -2,6 +2,7 @@
 
 # Commit History
 
+- Add SkillsDetails constant file
 - Add more FontAwesome icon dependencies
 - Refactor project card links and add project modal
 - Added TODO
