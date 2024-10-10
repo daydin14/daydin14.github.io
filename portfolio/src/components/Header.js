@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 // Components
 import NavMenu from './NavMenu';
 import LeftSidePanel from './LeftSidePanel';
+import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -38,13 +39,16 @@ const Header = () => {
     return (
         <>
             <header className="bg-gray-200 dark:bg-gray-900 p-4 fixed top-0 left-0 w-full z-10">
-                <div className="flex justify-start items-center">
-                    <button onClick={toggleSidebar} className="hamburger-menu text-black dark:text-white mr-4">
-                        <span className="block w-6 h-0.5 bg-black dark:bg-white mb-1"></span>
-                        <span className="block w-6 h-0.5 bg-black dark:bg-white mb-1"></span>
-                        <span className="block w-6 h-0.5 bg-black dark:bg-white"></span>
-                    </button>
-                    <h1 className="text-3xl font-bold mb-2 text-black dark:text-white">David Aydin</h1>
+                <div className="flex justify-between items-center">
+                    <div className="flex items-center">
+                        <button onClick={toggleSidebar} className="hamburger-menu text-black dark:text-white mr-4">
+                            <span className="block w-6 h-0.5 bg-black dark:bg-white mb-1"></span>
+                            <span className="block w-6 h-0.5 bg-black dark:bg-white mb-1"></span>
+                            <span className="block w-6 h-0.5 bg-black dark:bg-white"></span>
+                        </button>
+                        <h1 className="text-3xl font-bold mb-2 text-black dark:text-white">David Aydin</h1>
+                    </div>
+                    <ThemeToggle />
                 </div>
                 <NavMenu />
                 <div className="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2.5 mt-4">

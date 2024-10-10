@@ -2,6 +2,7 @@
 
 # Commit History
 
+- Refactor Header component to add theme toggle button
 - Refactor Projects component to improve project card layout
 - Refactor Projects component to improve project card layout and add GitHub and Live Demo links
 - Refactored Projects with ProjectDetails constant
