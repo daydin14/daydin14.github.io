@@ -2,6 +2,8 @@
 
 # Commit History
 
+- Update README.md
+- Added basic projects info
 - Minor refactor LeftSidePanel component and update ThemeToggle component
 - Refactor meta tags in index.html and manifest.json
 - Refactor ThemeToggle component to use a toggle switch for theme selection
