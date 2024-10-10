@@ -15,15 +15,15 @@ const Hero = () => {
     };
 
     return (
-        <div className="flex flex-col justify-center items-center mt-8">
+        <div className="flex flex-col justify-center items-center mt-8 ">
             <div className="mb-4 flex justify-center items-center">
                 {/* Year Select */}
-                <label htmlFor="year-select" className="mr-2">Select Year:</label>
+                <label htmlFor="year-select" className="mr-2 ">Select Year:</label>
                 <select
                     id="year-select"
                     value={year}
                     onChange={handleYearChange}
-                    className="p-2 border rounded cursor-pointer"
+                    className="p-2 border rounded cursor-pointer bg-white dark:bg-gray-800 text-black dark:text-white"
                 >
                     {Array.from({ length: currentYear - firstYear + 1 }, (_, i) => firstYear + i).map((yr) => (
                         <option key={yr} value={yr}>{yr}</option>
@@ -36,7 +36,7 @@ const Hero = () => {
                     id="color-picker"
                     value={borderColor}
                     onChange={handleColorChange}
-                    className="p-2 ml-2 h-10 w-10 border rounded cursor-pointer"
+                    className="p-2 ml-2 h-10 w-10 border rounded cursor-pointer bg-white dark:bg-gray-800 text-black dark:text-white"
                 />
             </div>
             {/* GitHub City */}

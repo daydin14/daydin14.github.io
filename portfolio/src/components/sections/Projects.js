@@ -39,11 +39,11 @@ const Projects = () => {
     return (
         <div className="container mx-auto p-4">
             <div className="mb-8">
-                <ul className="flex justify-evenly space-x-4 bg-gray-200 dark:bg-gray-800 p-4 rounded-lg w-full max-w-4xl mx-auto">
+                <ul className="flex justify-evenly space-x-4 bg-gray-200 dark:bg-gray-800 p-4 rounded-full w-full max-w-4xl mx-auto">
                     {['Recent', 'All', 'Udemy', 'GA', 'SJU'].map((category) => (
                         <li
                             key={category}
-                            className={`cursor-pointer p-2 rounded ${selectedCategory === category
+                            className={`cursor-pointer p-2 rounded-lg ${selectedCategory === category
                                 ? 'bg-blue-500 text-white'
                                 : 'text-black dark:text-white'
                                 }`}

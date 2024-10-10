@@ -2,6 +2,7 @@
 
 # Commit History
 
+- Misc UI updates
 - Update README.md
 - Refactor progress bar styling in Header component and added Hero images
 - Refactor Home component to include Hero section and update section headings
