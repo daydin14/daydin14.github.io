@@ -2,6 +2,7 @@
 
 # Commit History
 
+- Refactor Projects component to use separate cards for each project category
 - Refactor Home page to use separate components for Projects, Skills, and Contact sections
 - Removed trailing spaces and normalizing page formats
 - Refactor NavMenu component to use anchor tags, added placeholder content in Home page
