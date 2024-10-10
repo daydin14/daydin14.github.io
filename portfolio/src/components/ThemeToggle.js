@@ -1,5 +1,7 @@
 // Dependencies
 import React, { useContext } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 
 // Contexts
 import { ThemeContext } from '../contexts/ThemeContext';
@@ -9,9 +11,10 @@ const ThemeToggle = () => {
 
     return (
         <button className="btn btn-primary" onClick={toggleTheme}>
-            Toggle to {theme === 'dark' ? 'light' : 'dark'} mode
+            <FontAwesomeIcon icon={theme === 'dark' ? faSun : faMoon} />
+            {theme === 'dark' ? ' Light Mode' : ' Dark Mode'}
         </button>
     );
 };
 
-export default ThemeToggle
+export default ThemeToggle;

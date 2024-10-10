@@ -2,6 +2,7 @@
 
 # Commit History
 
+- Update package dependencies for FontAwesomeScript and update ThemeToggle component
 - Add FontAwesomeScript component to dynamically load Font Awesome icons
 - Add FontAwesomeScript component to dynamically load Font Awesome icons
 - Refactor Contact component to add form functionality and Google Maps embed
