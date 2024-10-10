@@ -50,10 +50,10 @@ const Projects = () => {
                 )}
             </div>
 
-            <div className="flex flex-wrap justify-center gap-4 mb-4 w-full max-w-6xl mx-auto">
+            <div className="flex flex-wrap justify-center gap-4 gap-y-8 mb-4 w-full max-w-6xl mx-auto">
                 {filteredProjects.map((project, index) => (
-                    <div key={index} className="card bg-gray-200 dark:bg-gray-800 shadow-xl h-100 overflow-hidden w-80">
-                        <figure className="h-32 overflow-hidden">
+                    <div key={index} className="card bg-gray-200 dark:bg-gray-800 shadow-xl h-100 w-80 transition-transform duration-300 ease-in-out transform hover:scale-105 hover:brightness-110 hover:border-1 hover:border-blue-500 hover:shadow-[0_0_15px_5px_rgba(59,130,246,0.5)]">
+                        <figure className="h-32 overflow-hidden relative">
                             <img src={project.image} alt={project.title} className="object-cover w-full h-full" />
                         </figure>
                         <div className="card-body p-4">

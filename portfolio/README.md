@@ -2,6 +2,7 @@
 
 # Commit History
 
+- Added glow on hover for project cards
 - Added Project Images
 - Refactored ProjectDetails descriptions and links
 - Updated project links icons in project card
