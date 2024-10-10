@@ -2,6 +2,8 @@
 
 # Commit History
 
+- Refactor Skills component to dynamically render category items and add SkillsDetails constant file
+- Added react-icons dependency
 - Refactor Skills component to dynamically render category items
 - Add SkillsDetails constant file
 - Add more FontAwesome icon dependencies
