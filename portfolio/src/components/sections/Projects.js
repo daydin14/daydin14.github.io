@@ -9,6 +9,7 @@ import GitHubMarkWhite from '../../assets/images/github-mark/github-mark-white.p
 import ProjectDetails from '../../constants/ProjectDetails';
 
 // Components
+import GitHubCity from '../projects/GitHubCity';
 import Modal from '../projects/Modal';
 import ProjectLinks from '../projects/ProjectLinks';
 
@@ -92,6 +93,8 @@ const Projects = () => {
                     project={selectedProject}
                 />
             )}
+
+            <GitHubCity />
         </div>
     );
 };
