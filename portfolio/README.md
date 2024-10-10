@@ -2,6 +2,7 @@
 
 # Commit History
 
+- Refactor meta tags in index.html and manifest.json
 - Refactor ThemeToggle component to use a toggle switch for theme selection
 - Update package dependencies for FontAwesomeScript and update ThemeToggle component
 - Add FontAwesomeScript component to dynamically load Font Awesome icons
