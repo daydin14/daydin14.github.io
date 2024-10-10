@@ -2,6 +2,7 @@
 
 # Commit History
 
+- Removed trailing spaces and normalizing page formats
 - Refactor NavMenu component to use anchor tags, added placeholder content in Home page
 - Created About component to include profile picture, name, title, and description
 - Top margin for main content & Home sections

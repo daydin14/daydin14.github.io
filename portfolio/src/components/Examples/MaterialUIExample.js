@@ -50,4 +50,4 @@ const MaterialUIExample = () => {
     );
 };
 
-export default MaterialUIExample;
+export default MaterialUIExample

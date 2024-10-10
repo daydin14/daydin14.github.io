@@ -9,7 +9,6 @@ const BootstrapExample = () => {
         <div className="container">
             <h1 className="text-primary">Bootstrap Example</h1>
             <button className="btn btn-primary">Bootstrap Button</button>
-
             <div className="row">
                 <div className="col-md-6">
                     <div className="card">
@@ -47,4 +46,4 @@ const BootstrapExample = () => {
     );
 };
 
-export default BootstrapExample;
+export default BootstrapExample

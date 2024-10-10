@@ -69,4 +69,4 @@ const DaisyUIExample = () => {
     );
 };
 
-export default DaisyUIExample;
+export default DaisyUIExample

@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 
 const LeftSidePanel = ({ isOpen, toggleSidebar }) => {
-
     return (
         <div
             className={

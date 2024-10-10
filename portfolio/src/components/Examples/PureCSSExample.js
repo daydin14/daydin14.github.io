@@ -86,4 +86,4 @@ const PureCSSExample = () => {
     );
 };
 
-export default PureCSSExample;
+export default PureCSSExample

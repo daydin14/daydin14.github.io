@@ -46,4 +46,4 @@ const TailwindExample = () => {
     );
 };
 
-export default TailwindExample;
+export default TailwindExample

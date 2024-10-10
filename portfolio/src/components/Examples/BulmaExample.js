@@ -139,4 +139,4 @@ const BulmaExample = () => {
     );
 };
 
-export default BulmaExample;
+export default BulmaExample

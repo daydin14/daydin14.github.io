@@ -83,4 +83,4 @@ const ChakraUIExample = () => {
     );
 };
 
-export default ChakraUIExample;
+export default ChakraUIExample
