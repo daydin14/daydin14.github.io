@@ -15,6 +15,9 @@ import { ThemeProvider, ThemeContext } from './contexts/ThemeContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
+// Utils
+import FontAwesomeScript from './utils/FontAwesomeScript';
+
 const AppContent = () => {
   const { theme } = useContext(ThemeContext);
 
@@ -41,6 +44,7 @@ function App() {
   return (
     <ThemeProvider>
       <Router>
+        <FontAwesomeScript />
         <AppContent />
       </Router>
     </ThemeProvider>
