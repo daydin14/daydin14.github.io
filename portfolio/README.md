@@ -2,6 +2,7 @@
 
 # Commit History
 
+- Refactor Header component to include progress bar
 - Hamburger menu for sidebar navigation
 - Lint and Copilot it
 - Refactor Header component to include LeftSidePanel and toggle sidebar functionality

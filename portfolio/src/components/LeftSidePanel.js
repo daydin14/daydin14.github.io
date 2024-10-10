@@ -13,7 +13,7 @@ const LeftSidePanel = ({ isOpen, toggleSidebar }) => {
             className={
                 `fixed top-0 left-0 h-full 
                     bg-gray-200 dark:bg-gray-900
-                    p-4 transition-transform transform
+                    p-4 transition-transform transform z-20
                     ${isOpen ? 'translate-x-0' : '-translate-x-full'}`
             }>
             {/* <h1 className="text-2xl font-bold mb-2 text-black dark:text-white">David Aydin</h1>
