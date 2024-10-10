@@ -2,6 +2,7 @@
 
 # Commit History
 
+- Refactored Projects with ProjectDetails constant
 - Update README.md
 - Added basic projects info
 - Minor refactor LeftSidePanel component and update ThemeToggle component
