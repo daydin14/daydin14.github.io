@@ -2,6 +2,7 @@
 
 # Commit History
 
+- Added Project Images
 - Refactored ProjectDetails descriptions and links
 - Updated project links icons in project card
 - Refactor Header component to add theme toggle button
