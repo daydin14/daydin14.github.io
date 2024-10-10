@@ -2,7 +2,7 @@
 import React from 'react'
 
 // Components
-import Sampler from '../components/Examples/Sampler'
+import Sampler from '../components/examples/Sampler'
 
 const Sandbox = () => {
     return (
