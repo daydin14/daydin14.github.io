@@ -1,10 +1,12 @@
 // Images
-import PlaceHolder150 from '../assets/images/placeholder-150.png'
+import PlaceHolder150 from '../assets/images/project-cards/placeholder-150.png'
+
 // Recents
 import PasswordGenerator from '../assets/images/project-cards/Recent/password-generator.png'
 import ChalkboardGames from '../assets/images/project-cards/Recent/chalkboard-games.png'
 import AllenhurstCleaners from '../assets/images/project-cards/Recent/allenhurst-cleaners.png'
 import JokerBlazor from '../assets/images/project-cards/Recent/joker-blazor.png'
+// TODO: Put Batman's Joker Smile
 // import JokerService from '../assets/images/project-cards/Recent/joker-service.png'
 import WhatsAppClone from '../assets/images/project-cards/Recent/whatsapp-clone.png'
 
