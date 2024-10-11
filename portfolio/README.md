@@ -2,6 +2,7 @@
 
 # Commit History
 
+- Refactor Contact component to use GmapEmbeded and update email with constants
 - Update package dependencies and add Google Analytics integration
 - Misc UI updates
 - Update README.md
