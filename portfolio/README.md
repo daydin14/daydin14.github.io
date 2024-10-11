@@ -2,6 +2,12 @@
 
 # Commit History
 
+- `Pull Request` : BugFixes
+  - Added dedicated PlaceHolder image and updated ProjectDetails constant to fix Error in production
+  ```
+  Access to image at 'https://via.placeholder.com/150' from origin 'https://daydin14.github.io' has been blocked
+  by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+  ```
 - removed old project
 - Refactor FontAwesomeScript to handle Font Awesome Kit ID error and script appending
 - Added error handling for Google Analytics and enabled initialization

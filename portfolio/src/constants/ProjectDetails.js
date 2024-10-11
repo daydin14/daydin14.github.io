@@ -1,5 +1,5 @@
 // Images
-
+import PlaceHolder150 from '../assets/images/placeholder-150.png'
 // Recents
 import PasswordGenerator from '../assets/images/project-cards/Recent/password-generator.png'
 import ChalkboardGames from '../assets/images/project-cards/Recent/chalkboard-games.png'
@@ -74,7 +74,7 @@ export const RecentProjects = [
     },
     {
         category: 'Recent',
-        image: 'https://via.placeholder.com/150',
+        image: PlaceHolder150,
         title: 'Joker Service',
         shortDescription: 'A .NET Worker Windows Service using BackgroundService. Logs Computer Programming Jokes and can send emails.',
         longDescription: 'Joker Service is a .NET Worker Windows Service that uses BackgroundService to perform background tasks. The service logs computer programming jokes and has the capability to send emails. It is designed to run continuously in the background, providing a reliable and efficient way to manage and log jokes. The project demonstrates the use of .NET Worker Services for creating background processes and integrating email functionality.',
@@ -257,7 +257,7 @@ export const GAProjects = [
 export const SJUProjects = [
     {
         category: 'SJU',
-        image: 'https://via.placeholder.com/150',
+        image: PlaceHolder150,
         title: 'SneakersDB',
         shortDescription: 'Database Management Systems Final Project, created a sneaker db using MySQL',
         longDescription: 'MySQL and phpmyadmin Sneaker Database Management Systems project. Designed a MySQL database using PhpMyAdmin, XAMPP, and Apache. Established an Entity Relationship Diagram (ERD) and Relational Schema. Incorporated HTML forms to add, delete, and retrieve information within a table of the database. Connected database and embedded functions via PHP. Assembled a homepage link to test all forms and get table data on the web-client side.',
@@ -266,7 +266,7 @@ export const SJUProjects = [
     },
     {
         category: 'SJU',
-        image: 'https://via.placeholder.com/150',
+        image: PlaceHolder150,
         title: 'MongoBongo',
         shortDescription: 'Final Project for Internet Application Development, creating a database using Mongo, a nosql database, for a pharmaceutical company',
         longDescription: 'Final Project for Internet Application Development, creating a database using Mongo, a NoSQL database, for a pharmaceutical company. Stored data from clinical trials of new drugs following a standard format/schema. Connected a NoSQL, non-relational database, and implemented Create, Read, Update, and Delete functions. Embedded PHP functions within HTML pages. Developed using Secure Shell Protocol (SSH) and Nano. Performed SSH File Transfer Protocol (SFTP).',
@@ -275,7 +275,7 @@ export const SJUProjects = [
     },
     {
         category: 'SJU',
-        image: 'https://via.placeholder.com/150',
+        image: PlaceHolder150,
         title: 'SShooter_sju',
         shortDescription: 'Computer Science Senior Year Final Project, worked alongside my classmate Joe Toczylowskij. Together we created a puzzle shooter game using Epic Game\'s Unreal Engine 4.20 visual blueprints code as well as Microsoft\'s Visual Studio 2017 c++ code.',
         longDescription: 'Computer Science Senior Year Final Project, worked alongside my classmate Joe Toczylowskij. Together we created a first-person puzzle shooter game using Epic Game\'s Unreal Engine 4.20 visual blueprints code as well as Microsoft\'s Visual Studio 2017 C++ code. Constructed a first-person puzzle-shooter game. Built using C++ and Epic Games Unreal Engine (4.20) Visual Blueprints languages in Microsoft\'s Visual Studio (2017). Developed and collaborated via GitHub version control platform in pairs.',
