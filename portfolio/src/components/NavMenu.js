@@ -1,8 +1,6 @@
 // Dependencies
 import React from 'react';
 
-// Components
-
 const NavMenu = () => {
     return (
         <nav className="bg-gray-200 dark:bg-gray-800 shadow-lg rounded-lg">

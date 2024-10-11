@@ -19,6 +19,8 @@
 ![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
 ![Github Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)
 
+![Google Analytics](https://img.shields.io/badge/Google%20Analytics-E37400?style=for-the-badge&logo=google%20analytics&logoColor=white)
+
 - Deployed to GH-Pages: https://daydin14.github.io/
 
 ## Table of Contents
@@ -62,6 +64,12 @@ To get started with the project, follow these steps:
 - **Single-Page Application**: Built using React, providing a smooth and seamless user experience.
 - **Responsive Design**: Ensures the application works well on both desktop and mobile devices.
 - **Theme Toggle**: Allows users to switch between light and dark themes for better accessibility and user experience.
+- **Progress Bar**: Displays a progress bar to indicate page status or length down the page.
+- **Google Maps Integration**: Embeds Google Maps for county-based location features and services.
+- **Google Analytics**: Tracks and reports website traffic for better insights and analytics.
+- **Font Awesome and React Icons**: Utilizes Font Awesome and React Icons for a wide range of icons and symbols.
+- **Contact Form**: Includes a contact form for users to get in touch easily.
+- **Gradients**: Implements gradient backgrounds and elements for a modern and visually appealing design.
 
 ## Technologies Used
 
@@ -86,6 +94,8 @@ To get started with the project, follow these steps:
 - **NPM**: A package manager for JavaScript, used to install dependencies.
 - **React**: A JavaScript library for building user interfaces.
 - **React Router**: A library for routing in React applications.
+- **react-ga4**: A library for integrating Google Analytics 4 with React applications.
+- **react-gtm-module**: A library for integrating Google Tag Manager with React applications.
 
 ### CSS Frameworks and Tools
 
@@ -103,8 +113,8 @@ To get started with the project, follow these steps:
 
 ## Screenshots
 
-<!-- <img src="./assets/images/web-view.png" alt="Password Generator with configuration options. - Web View" width="400" height="400" />&emsp;
-<img src="./assets/images/mobile-view.png" alt="Password Generator with configuration options. - Mobile View" height="400" /> -->
+<img src="./assets/screenshots/home-light.png" alt="Home Landing" height="250" />
+<img src="./assets/screenshots/projects-light.png" alt="Projects" height="250" />
 
 ## Project Structure
 
@@ -136,11 +146,11 @@ app/
 │   ├── AppRoutes.js
 │   └── index.js
 ├── .gitignore
+├── README.md
 ├── .eslint.config.mjs
 ├── package-lock.json
 ├── package.json
 ├── postcss.config.js
-├── README.md
 └── tailwind.config.js
 ```
 

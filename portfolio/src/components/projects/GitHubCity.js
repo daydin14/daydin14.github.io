@@ -19,7 +19,7 @@ const GitHubCity = () => {
 
     return (
         <div className="flex flex-col justify-center items-center mt-8">
-            <div className="mb-4 flex justify-center items-center">
+            <div className="mb-8 flex justify-center items-center">
                 {/* Year Select */}
                 <label htmlFor="year-select" className="mr-2">Select Year:</label>
                 <select
@@ -58,4 +58,4 @@ const GitHubCity = () => {
     );
 }
 
-export default GitHubCity;
+export default GitHubCity

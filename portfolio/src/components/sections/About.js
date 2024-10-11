@@ -22,11 +22,11 @@ const About = () => {
                         <h2 className="text-xl font-semibold mb-2">Software Engineer</h2>
                         <p className="text-center">Welcome to my portfolio! I am excited to share my journey and work with you.</p>
                         <div className="flex space-x-4 mt-4">
-                            <a href="https://github.com/daydin14" target="_blank" rel="noopener noreferrer">
+                            <a href="https://github.com/daydin14" target="_blank" rel="noopener noreferrer" className="transform transition-transform duration-300 hover:scale-110">
                                 <img src={GitHubMark} alt="GitHub" className="w-8 h-8 dark:hidden" />
                                 <img src={GitHubMarkWhite} alt="GitHub" className="w-8 h-8 hidden dark:block" />
                             </a>
-                            <a href="https://www.linkedin.com/in/daydin14" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.linkedin.com/in/daydin14" target="_blank" rel="noopener noreferrer" className="transform transition-transform duration-300 hover:scale-110">
                                 <img src={LinkedInIcon} alt="LinkedIn" className="w-8 h-8" />
                             </a>
                         </div>
