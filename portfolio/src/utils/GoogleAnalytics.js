@@ -8,8 +8,6 @@ import ReactGA from 'react-ga4';
  * @name initGA
  * @returns {void}
  * @description This function retrieves the Google Tag ID from the environment variables and initializes Google Analytics using the ReactGA library. If the Google Tag ID is not defined, it logs an error message to the console.
- * @example
- * // Ensure REACT_APP_GOOGLE_TAG_ID is set in your environment variables
  * initGA();
  */
 export const initGA = () => {
@@ -18,7 +16,11 @@ export const initGA = () => {
         console.error('Google Tag ID is not defined in the environment variables');
         return;
     }
-    ReactGA.initialize(googleTagId);
+    try {
+        ReactGA.initialize(googleTagId);
+    } catch (error) {
+        console.error('Error initializing Google Analytics:', error);
+    }
 };
 
 /**
@@ -31,7 +33,11 @@ export const initGA = () => {
  * @memberof module:utils/GoogleAnalytics
  */
 export const logPageView = () => {
-    ReactGA.send({ hitType: 'pageview', page: window.location.pathname + window.location.search });
+    try {
+        ReactGA.send({ hitType: 'pageview', page: window.location.pathname + window.location.search });
+    } catch (error) {
+        console.error('Error logging page view:', error);
+    }
 };
 
 /**
@@ -42,11 +48,15 @@ export const logPageView = () => {
  * @param {string} label - The label of the event.
  */
 export const logEvent = (category, action, label) => {
-    ReactGA.event({
-        category: category,
-        action: action,
-        label: label,
-    });
+    try {
+        ReactGA.event({
+            category: category,
+            action: action,
+            label: label,
+        });
+    } catch (error) {
+        console.error('Error logging event:', error);
+    }
 };
 
 /**
@@ -61,20 +71,24 @@ export const logEvent = (category, action, label) => {
  * logTiming('Video', 'Load Time', 2000, 'Home Page Video');
  */
 export const logTiming = (category, variable, value, label) => {
-    ReactGA.event({
-        category: category,
-        action: variable,
-        value: value,
-        label: label,
-    });
+    try {
+        ReactGA.event({
+            category: category,
+            action: variable,
+            value: value,
+            label: label,
+        });
+    } catch (error) {
+        console.error('Error logging timing:', error);
+    }
 };
 
 // Assign object to a variable before exporting as module default
-const Ganalytics = {
+const GoogleAnalytics = {
     initGA,
     logPageView,
     logEvent,
     logTiming,
 };
 
-export default Ganalytics;
+export default GoogleAnalytics;

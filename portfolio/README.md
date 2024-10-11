@@ -2,6 +2,7 @@
 
 # Commit History
 
+- Added error handling for Google Analytics and enabled initialization
 - Bug Fixes: Refactored GitHubCity to use Gold Hexcode, Replaced 'class' with 'className' in Hero
 - Added HelmetProvider dependencies and script titles
 - Refactor PropTypes in GmapEmbeded, Modal, and ProjectLinks components
