@@ -1,6 +1,7 @@
 // Dependencies
 import React, { useContext, useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import TagManager from 'react-gtm-module';
 
 // Styles
 import './assets/styles/App.css';
@@ -17,6 +18,7 @@ import Footer from './components/Footer';
 
 // Utils
 import FontAwesomeScript from './utils/FontAwesomeScript';
+import GoogleTagManager from './utils/GoogleTagManager';
 
 const AppContent = () => {
   const { theme } = useContext(ThemeContext);
@@ -41,10 +43,18 @@ const AppContent = () => {
 };
 
 function App() {
+  useEffect(() => {
+    const tagManagerArgs = {
+      gtmId: process.env.REACT_APP_GOOGLE_TAG_MANAGER_ID,
+    };
+    TagManager.initialize(tagManagerArgs);
+  }, []);
+
   return (
     <ThemeProvider>
-      <Router basename='/'>
+      <Router basename="/">
         <FontAwesomeScript />
+        <GoogleTagManager gtmId={process.env.REACT_APP_GOOGLE_TAG_MANAGER_ID} />
         <AppContent />
       </Router>
     </ThemeProvider>
