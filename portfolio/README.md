@@ -3,6 +3,7 @@
 # Commit History
 
 - `Pull Request` : BugFixes
+  - UI bug fixes
   - Added dedicated PlaceHolder image and updated ProjectDetails constant to fix Error in production
   ```
   Access to image at 'https://via.placeholder.com/150' from origin 'https://daydin14.github.io' has been blocked
