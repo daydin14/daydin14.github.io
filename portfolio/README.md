@@ -2,6 +2,8 @@
 
 # Commit History
 
+- Refactor useIsMobile hook to include isPortrait state
+- Refactor package dependencies and add Google Tag Manager integration
 - Added custom favicon
 - Refactor package dependencies and add GH-Pages Deployment and configuration
 - Refactor Contact component to use GmapEmbeded and update email with constants

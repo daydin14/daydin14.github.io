@@ -3,12 +3,17 @@ import { useState, useEffect } from 'react';
 
 const useIsMobile = (breakpoint = 768) => {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= breakpoint);
+    const [isPortrait, setIsPortrait] = useState(window.innerHeight > window.innerWidth);
 
     useEffect(() => {
         const handleResize = () => {
             const newIsMobile = window.innerWidth <= breakpoint;
+            const newIsPortrait = window.innerHeight > window.innerWidth;
             if (newIsMobile !== isMobile) {
                 setIsMobile(newIsMobile);
+            }
+            if (newIsPortrait !== isPortrait) {
+                setIsPortrait(newIsPortrait);
             }
         };
 
@@ -18,9 +23,9 @@ const useIsMobile = (breakpoint = 768) => {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [breakpoint, isMobile]);
+    }, [breakpoint, isMobile, isPortrait]);
 
-    return isMobile;
+    return { isMobile, isPortrait };
 };
 
-export default useIsMobile
+export default useIsMobile;
