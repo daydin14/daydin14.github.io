@@ -3,6 +3,7 @@
 # Commit History
 
 - `Pull Request` : BugFixes
+  - Refactor Hero component styles for hover effect
   - Added screenshots to readme and updated features section in readme
   - Refactor import path for Sampler component
   - UI bug fixes
