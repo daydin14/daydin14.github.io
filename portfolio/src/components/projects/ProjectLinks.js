@@ -1,5 +1,6 @@
 // Dependencies
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // Images
 import GitHubMark from '../../assets/images/github-mark/github-mark.png';
@@ -35,6 +36,16 @@ const ProjectLinks = ({ project }) => {
             )}
         </div>
     );
+};
+ProjectLinks.propTypes = {
+    project: PropTypes.shape({
+        githubRepoLinks: PropTypes.shape({
+            frontend: PropTypes.string,
+            backend: PropTypes.string,
+        }),
+        githubRepoLink: PropTypes.string,
+        liveDemoLink: PropTypes.string,
+    }).isRequired,
 };
 
 export default ProjectLinks

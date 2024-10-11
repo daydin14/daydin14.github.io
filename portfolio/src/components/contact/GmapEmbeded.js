@@ -1,5 +1,6 @@
 // Dependencies
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // Constants
 import MapDetails from '../../constants/MapDetails';
@@ -20,4 +21,9 @@ const GmapEmbeded = ({ width, height }) => {
     );
 };
 
-export default GmapEmbeded;
+GmapEmbeded.propTypes = {
+    width: PropTypes.string,
+    height: PropTypes.string.isRequired,
+};
+
+export default GmapEmbeded

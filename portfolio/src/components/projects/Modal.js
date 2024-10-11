@@ -1,5 +1,6 @@
 // Dependencies
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // Hooks
 import useIsMobile from '../../hooks/useIsMobile';
@@ -30,6 +31,16 @@ const Modal = ({ isOpen, onClose, project }) => {
             </div>
         </div>
     );
+};
+
+Modal.propTypes = {
+    isOpen: PropTypes.bool.isRequired,
+    onClose: PropTypes.func.isRequired,
+    project: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        image: PropTypes.string.isRequired,
+        longDescription: PropTypes.string.isRequired,
+    }).isRequired,
 };
 
 export default Modal
