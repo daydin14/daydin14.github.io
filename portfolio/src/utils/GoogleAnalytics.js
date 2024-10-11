@@ -91,4 +91,4 @@ const GoogleAnalytics = {
     logTiming,
 };
 
-export default GoogleAnalytics;
+export default GoogleAnalytics

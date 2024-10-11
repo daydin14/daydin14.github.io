@@ -3,6 +3,7 @@
 # Commit History
 
 - `Pull Request` : BugFixes
+  - Nit picky clean up
   - Use constants in Footer component with FooterDetails constant
   - Refactor import path for PlaceHolder image in ProjectDetails.js
   - Refactor Hero component styles for hover effect

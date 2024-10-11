@@ -58,4 +58,4 @@ const GitHubCity = () => {
     );
 }
 
-export default GitHubCity;
+export default GitHubCity
