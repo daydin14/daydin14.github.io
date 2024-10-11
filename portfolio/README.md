@@ -3,6 +3,7 @@
 # Commit History
 
 - `Pull Request` : BugFixes
+  - Refactor import path for Sampler component
   - UI bug fixes
   - Added dedicated PlaceHolder image and updated ProjectDetails constant to fix Error in production
   ```
