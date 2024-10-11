@@ -2,6 +2,7 @@
 
 # Commit History
 
+- Refactor package dependencies and add GH-Pages Deployment and configuration
 - Refactor Contact component to use GmapEmbeded and update email with constants
 - Update package dependencies and add Google Analytics integration
 - Misc UI updates

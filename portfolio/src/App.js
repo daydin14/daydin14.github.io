@@ -43,7 +43,7 @@ const AppContent = () => {
 function App() {
   return (
     <ThemeProvider>
-      <Router>
+      <Router basename='/'>
         <FontAwesomeScript />
         <AppContent />
       </Router>
