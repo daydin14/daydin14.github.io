@@ -1,10 +1,13 @@
+// Dependencies
 import React, { useState } from 'react';
 
-const Hero = () => {
-    const currentYear = new Date().getFullYear();
-    const firstYear = 2020;
-    const [year, setYear] = useState(currentYear);
+// Hooks
+import useIsMobile from '../../hooks/useIsMobile';
+
+const GitHubCity = () => {
+    const [year, setYear] = useState(new Date().getFullYear());
     const [borderColor, setBorderColor] = useState('gold');
+    const { isMobile, isPortrait } = useIsMobile();
 
     const handleYearChange = (event) => {
         setYear(event.target.value);
@@ -15,22 +18,22 @@ const Hero = () => {
     };
 
     return (
-        <div className="flex flex-col justify-center items-center mt-8 ">
+        <div className="flex flex-col justify-center items-center mt-8">
             <div className="mb-4 flex justify-center items-center">
                 {/* Year Select */}
-                <label htmlFor="year-select" className="mr-2 ">Select Year:</label>
+                <label htmlFor="year-select" className="mr-2">Select Year:</label>
                 <select
                     id="year-select"
                     value={year}
                     onChange={handleYearChange}
                     className="p-2 border rounded cursor-pointer bg-white dark:bg-gray-800 text-black dark:text-white"
                 >
-                    {Array.from({ length: currentYear - firstYear + 1 }, (_, i) => firstYear + i).map((yr) => (
+                    {Array.from({ length: new Date().getFullYear() - 2008 + 1 }, (_, i) => 2008 + i).map((yr) => (
                         <option key={yr} value={yr}>{yr}</option>
                     ))}
                 </select>
                 {/* Color Picker */}
-                <label htmlFor="color-picker" className="mr-2"></label>
+                <label htmlFor="color-picker" className="mr-2">Border Color:</label>
                 <input
                     type="color"
                     id="color-picker"
@@ -44,10 +47,15 @@ const Hero = () => {
                 src={`https://honzaap.github.io/GithubCity/?name=daydin14&year=${year}`}
                 title="daydin14's Git City"
                 className="rounded-lg shadow-lg"
-                style={{ width: '1000px', height: '400px', border: `1px solid ${borderColor}`, boxShadow: `0 0 40px ${borderColor}` }}
+                style={{
+                    width: isMobile ? (isPortrait ? '300px' : '500px') : '800px',
+                    height: isMobile ? (isPortrait ? '300px' : '500px') : '400px',
+                    border: `1px solid ${borderColor}`,
+                    boxShadow: `0 0 40px ${borderColor}`
+                }}
             ></iframe>
         </div>
     );
 }
 
-export default Hero;
+export default GitHubCity;

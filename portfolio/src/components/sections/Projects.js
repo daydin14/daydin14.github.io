@@ -5,6 +5,9 @@ import React, { useState } from 'react';
 import GitHubMark from '../../assets/images/github-mark/github-mark.png';
 import GitHubMarkWhite from '../../assets/images/github-mark/github-mark-white.png';
 
+// Hooks
+import useIsMobile from '../../hooks/useIsMobile';
+
 // Constants
 import ProjectDetails from '../../constants/ProjectDetails';
 
@@ -14,9 +17,10 @@ import Modal from '../projects/Modal';
 import ProjectLinks from '../projects/ProjectLinks';
 
 const Projects = () => {
-    const [selectedCategory, setSelectedCategory] = useState('All');
+    const [selectedCategory, setSelectedCategory] = useState('Recent');
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedProject, setSelectedProject] = useState(null);
+    const { isMobile } = useIsMobile();
 
     const handleCategoryClick = (category) => {
         setSelectedCategory(category);
@@ -37,9 +41,9 @@ const Projects = () => {
         : ProjectDetails.filter(project => project.category === selectedCategory);
 
     return (
-        <div className="container mx-auto p-4">
+        <div className={`container mx-auto ${isMobile ? '' : 'p-4'}`}>
             <div className="mb-8">
-                <ul className="flex justify-evenly space-x-4 bg-gray-200 dark:bg-gray-800 p-4 rounded-full w-full max-w-4xl mx-auto">
+                <ul className={`flex justify-evenly space-x-4 bg-gray-200 dark:bg-gray-800 p-4 rounded-full max-w-4xl mx-auto ${isMobile ? 'w-screen' : 'w-full'}`}>
                     {['Recent', 'All', 'Udemy', 'GA', 'SJU'].map((category) => (
                         <li
                             key={category}
@@ -67,7 +71,7 @@ const Projects = () => {
                 )}
             </div>
 
-            <div className="flex flex-wrap justify-center gap-4 gap-y-8 mb-4 w-full max-w-6xl mx-auto">
+            <div className={`flex flex-wrap justify-center gap-4 gap-y-8 mb-4 max-w-6xl mx-auto ${isMobile ? 'w-screen' : 'w-full'}`}>
                 {filteredProjects.map((project, index) => (
                     <div
                         key={index}

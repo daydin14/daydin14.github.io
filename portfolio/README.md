@@ -2,6 +2,7 @@
 
 # Commit History
 
+- Updated mobile view for Header, Projects and Contact sections
 - Refactor useIsMobile hook to include isPortrait state
 - Refactor package dependencies and add Google Tag Manager integration
 - Added custom favicon

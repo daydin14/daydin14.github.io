@@ -1,6 +1,9 @@
 // Dependencies
 import React, { useState } from 'react';
 
+// Hooks
+import useIsMobile from '../../hooks/useIsMobile';
+
 // Component
 import GmapEmbeded from '../contact/GmapEmbeded';
 
@@ -9,6 +12,7 @@ const Contact = () => {
     const subject = 'Website Contact Form Submission from ';
     const [name, setName] = useState('');
     const [message, setMessage] = useState('');
+    const { isMobile } = useIsMobile();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -25,21 +29,21 @@ const Contact = () => {
     };
 
     return (
-        <div className='flex flex-row justify-center items-center'>
-            <GmapEmbeded width='100%' height='500px' />
-            <form className="flex flex-col space-y-4 ml-16 w-full max-w-md" onSubmit={handleSubmit}>
+        <div className={`flex ${isMobile ? 'flex-col' : 'flex-row'} justify-center items-center`}>
+            <GmapEmbeded width={`${isMobile ? '400px' : '800px'}`} height={`${isMobile ? '250px' : '500px'}`} />
+            <form className={`flex flex-col space-y-4 ${isMobile ? 'w-screen mt-4' : 'w-full ml-16'} max-w-md`} onSubmit={handleSubmit}>
                 <h2 className="text-2xl font-semibold text-center">Message Me!</h2>
                 <input
                     type="text"
                     placeholder="Your Name"
-                    className="input input-bordered w-full bg-gray-200 dark:bg-gray-800"
+                    className={`input input-bordered ${isMobile ? 'w-64 ml-20' : 'w-full'} bg-gray-200 dark:bg-gray-800`}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
                 />
                 <textarea
                     placeholder="Your Message"
-                    className="textarea textarea-bordered w-full bg-gray-200 dark:bg-gray-800"
+                    className={`textarea textarea-bordered ${isMobile ? 'w-96 ml-6' : 'w-full'} bg-gray-200 dark:bg-gray-800`}
                     rows="4"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
@@ -47,7 +51,7 @@ const Contact = () => {
                 ></textarea>
                 <button
                     type="submit"
-                    className="btn btn-primary w-full"
+                    className={`btn btn-primary ${isMobile ? 'w-64 ml-20' : 'w-full'}`}
                 >
                     Send Message
                 </button>

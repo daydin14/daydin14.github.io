@@ -2,6 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
+// Hooks
+import useIsMobile from '../hooks/useIsMobile';
+
 // Components
 import NavMenu from './NavMenu';
 import LeftSidePanel from './LeftSidePanel';
@@ -10,6 +13,7 @@ import ThemeToggle from './ThemeToggle';
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation();
+    const { isMobile } = useIsMobile();
 
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
@@ -38,7 +42,7 @@ const Header = () => {
 
     return (
         <>
-            <header className="bg-gray-200 dark:bg-gray-900 p-4 fixed top-0 left-0 w-full z-10">
+            <header className={`bg-gray-200 dark:bg-gray-900 p-4 fixed top-0 left-0 z-10 ${isMobile ? 'w-screen' : 'w-full'}`}>
                 <div className="flex justify-between items-center">
                     <div className="flex items-center">
                         <button onClick={toggleSidebar} className="hamburger-menu text-black dark:text-white mr-4">
