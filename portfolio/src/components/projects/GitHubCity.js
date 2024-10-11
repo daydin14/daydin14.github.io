@@ -6,7 +6,7 @@ import useIsMobile from '../../hooks/useIsMobile';
 
 const GitHubCity = () => {
     const [year, setYear] = useState(new Date().getFullYear());
-    const [borderColor, setBorderColor] = useState('gold');
+    const [borderColor, setBorderColor] = useState('#FFD700');
     const { isMobile, isPortrait } = useIsMobile();
 
     const handleYearChange = (event) => {
