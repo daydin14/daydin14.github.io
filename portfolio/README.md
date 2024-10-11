@@ -2,6 +2,7 @@
 
 # Commit History
 
+- Added HelmetProvider dependencies and script titles
 - Refactor PropTypes in GmapEmbeded, Modal, and ProjectLinks components
 - Updated mobile view for Header, Projects and Contact sections
 - Refactor useIsMobile hook to include isPortrait state
