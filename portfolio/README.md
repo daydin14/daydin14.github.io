@@ -2,6 +2,7 @@
 
 # Commit History
 
+- Refactor FontAwesomeScript to handle Font Awesome Kit ID error and script appending
 - Added error handling for Google Analytics and enabled initialization
 - Bug Fixes: Refactored GitHubCity to use Gold Hexcode, Replaced 'class' with 'className' in Hero
 - Added HelmetProvider dependencies and script titles
