@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.53ec4fe5.css",
-    "main.js": "/static/js/main.d5d15778.js",
+    "main.css": "/static/css/main.0be1c9d6.css",
+    "main.js": "/static/js/main.ed080ed0.js",
     "static/js/346.a07ac4c4.chunk.js": "/static/js/346.a07ac4c4.chunk.js",
     "static/js/302.4e6097bc.chunk.js": "/static/js/302.4e6097bc.chunk.js",
     "static/js/843.6dc22dbd.chunk.js": "/static/js/843.6dc22dbd.chunk.js",
@@ -41,8 +41,8 @@
     "static/media/movie-seat-booking.png": "/static/media/movie-seat-booking.aa8236da4572ce6a777a.png",
     "static/media/hangman.png": "/static/media/hangman.02388998361eb1b3d868.png",
     "index.html": "/index.html",
-    "main.53ec4fe5.css.map": "/static/css/main.53ec4fe5.css.map",
-    "main.d5d15778.js.map": "/static/js/main.d5d15778.js.map",
+    "main.0be1c9d6.css.map": "/static/css/main.0be1c9d6.css.map",
+    "main.ed080ed0.js.map": "/static/js/main.ed080ed0.js.map",
     "346.a07ac4c4.chunk.js.map": "/static/js/346.a07ac4c4.chunk.js.map",
     "302.4e6097bc.chunk.js.map": "/static/js/302.4e6097bc.chunk.js.map",
     "843.6dc22dbd.chunk.js.map": "/static/js/843.6dc22dbd.chunk.js.map",
@@ -59,7 +59,7 @@
     "850.3d9db72b.chunk.css.map": "/static/css/850.3d9db72b.chunk.css.map"
   },
   "entrypoints": [
-    "static/css/main.53ec4fe5.css",
-    "static/js/main.d5d15778.js"
+    "static/css/main.0be1c9d6.css",
+    "static/js/main.ed080ed0.js"
   ]
 }
