@@ -12,6 +12,15 @@
 
 # Commit History
 
+- `Pull Request` : About Page - Updated About page with Features and Tech-stack information.
+  - Update README
+  - Refactored About page with Features and Tech-stack information
+  - Refactor Header component styles for progress bar
+  - Refactor Hero component styles for personal branding name
+  - Version Bump
+
+---
+
 - `Pull Request` : BugFixes - Minor tweaks and cleanup after React live deploy.
   - README updates
   - Version Bump: Official Version `1.0.0`
