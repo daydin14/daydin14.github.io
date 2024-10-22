@@ -1,6 +1,6 @@
 // Dependencies
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 // Hooks
 import useIsMobile from '../hooks/useIsMobile';
@@ -50,14 +50,32 @@ const Header = () => {
                             <span className="block w-6 h-0.5 bg-black dark:bg-white mb-1"></span>
                             <span className="block w-6 h-0.5 bg-black dark:bg-white"></span>
                         </button>
-                        <h1 className="text-3xl font-bold mb-2 text-black dark:text-white">David Aydin</h1>
+
+                        <Link to="/">
+                            <h1 className="text-3xl font-bold mb-2 text-black dark:text-white">David Aydin</h1>
+                        </Link>
                     </div>
                     <ThemeToggle />
                 </div>
                 <NavMenu />
                 <div className="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2.5 mt-4">
-                    <div id="progress-bar" className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 h-2.5 rounded-full" style={{ width: '0%' }}></div>
+                    <div
+                        id="progress-bar"
+                        className="h-2.5 rounded-full bg-gradient-to-r from-pink-300 via-red-500 to-yellow-500 dark:from-purple-600 dark:via-blue-500 dark:to-green-500"
+                        style={{ width: '0%' }}
+                    ></div>
                 </div>
+                {/* //Mobile Conditional for Colors? Just a thought...
+                    <div
+                        id="progress-bar"
+                        className="h-2.5 rounded-full"
+                        style={{
+                            width: '0%',
+                            background: isMobile
+                                ? 'linear-gradient(to right, #00c6ff, #0072ff)' // Cool colors for light mode
+                                : 'linear-gradient(to right, #ff7e5f, #feb47b)' // Warm colors for dark mode
+                        }}
+                    ></div> */}
             </header>
             {/* Left Side Panel */}
             <LeftSidePanel isOpen={isOpen} toggleSidebar={toggleSidebar} />
