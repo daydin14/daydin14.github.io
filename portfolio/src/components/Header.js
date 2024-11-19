@@ -65,18 +65,8 @@ const Header = () => {
                         style={{ width: '0%' }}
                     ></div>
                 </div>
-                {/* //Mobile Conditional for Colors? Just a thought...
-                    <div
-                        id="progress-bar"
-                        className="h-2.5 rounded-full"
-                        style={{
-                            width: '0%',
-                            background: isMobile
-                                ? 'linear-gradient(to right, #00c6ff, #0072ff)' // Cool colors for light mode
-                                : 'linear-gradient(to right, #ff7e5f, #feb47b)' // Warm colors for dark mode
-                        }}
-                    ></div> */}
             </header>
+
             {/* Left Side Panel */}
             <LeftSidePanel isOpen={isOpen} toggleSidebar={toggleSidebar} />
         </>

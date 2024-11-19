@@ -3,9 +3,6 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-// Components
-import ThemeToggle from './ThemeToggle';
-
 const LeftSidePanel = ({ isOpen, toggleSidebar }) => {
     return (
         <div
@@ -21,7 +18,6 @@ const LeftSidePanel = ({ isOpen, toggleSidebar }) => {
                     &times;
                 </button>
             </div>
-            <ThemeToggle />
             <nav className="bg-gray-200 dark:bg-gray-800 shadow-lg rounded-lg">
                 <ul className="menu mb-4">
                     <li onClick={toggleSidebar}><Link to="/" className="btn btn-ghost text-black dark:text-white">Home</Link></li>
