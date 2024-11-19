@@ -43,18 +43,19 @@ const AppContent = () => {
 };
 
 function App() {
+  const googleTagManagerId = process.env.REACT_APP_GOOGLE_TAG_MANAGER_ID;
   useEffect(() => {
     const tagManagerArgs = {
-      gtmId: process.env.REACT_APP_GOOGLE_TAG_MANAGER_ID,
+      gtmId: googleTagManagerId,
     };
     TagManager.initialize(tagManagerArgs);
-  }, []);
+  }, [googleTagManagerId]);
 
   return (
     <ThemeProvider>
       <Router basename="/">
         <FontAwesomeScript />
-        <GoogleTagManager gtmId={process.env.REACT_APP_GOOGLE_TAG_MANAGER_ID} />
+        <GoogleTagManager gtmId={googleTagManagerId} />
         <AppContent />
       </Router>
     </ThemeProvider>

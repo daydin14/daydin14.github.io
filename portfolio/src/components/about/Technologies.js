@@ -41,7 +41,7 @@ const Technologies = () => {
                 <ul className="list-disc pl-5 space-y-2">
                     <li><strong>ESLint</strong>: A tool for identifying and fixing problems in JavaScript code.</li>
                     <li><strong>eslint-plugin-react</strong>: An ESLint plugin for React-specific linting rules.</li>
-                    <li><strong>@eslint/js</strong>: ESLint's built-in JavaScript rules.</li>
+                    <li><strong>@eslint/js</strong>: ESLint&apos;s built-in JavaScript rules.</li>
                     <li><strong>globals</strong>: A library of global variables for ESLint.</li>
                 </ul>
             </div>

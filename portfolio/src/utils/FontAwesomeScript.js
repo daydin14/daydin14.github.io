@@ -1,15 +1,17 @@
+// Dependencies
 import { useEffect } from 'react';
 
 const FontAwesomeScript = () => {
     useEffect(() => {
         const appendScript = () => {
-            if (!process.env.REACT_APP_FONT_AWESOME_KIT_ID) {
+            const fontAwesomeKitId = process.env.REACT_APP_FONT_AWESOME_KIT_ID;
+            if (!fontAwesomeKitId) {
                 console.error('Font Awesome Kit ID is not defined');
                 return;
             }
 
             const script = document.createElement('script');
-            script.src = `https://kit.fontawesome.com/${process.env.REACT_APP_FONT_AWESOME_KIT_ID}.js`;
+            script.src = `https://kit.fontawesome.com/${fontAwesomeKitId}.js`;
             script.crossOrigin = 'anonymous';
             script.async = true;
 

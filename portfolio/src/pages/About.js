@@ -1,3 +1,6 @@
+// Dependencies
+import React from 'react';
+
 // Hooks
 import useIsMobile from '../hooks/useIsMobile';
 

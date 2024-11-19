@@ -15,6 +15,7 @@
 ### Version 1.0.2
 
 - `Pull Request` : About Page - Updated About page with Features, Tech-stack, and Project Structure components and constants .
+  - ESLinted
   - Update README
   - Refactored Features and Technologies into components added on About page
   - Refactor NavMenu to dynamically render menu items based on the current route

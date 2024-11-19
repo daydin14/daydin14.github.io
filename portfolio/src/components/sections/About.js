@@ -41,7 +41,7 @@ const About = () => {
                     <br />
                     I am a developer with a strong background in full-stack development.
                     Proficient in both front-end and back-end technologies, with a passion for creating responsive web applications, data visualizations, and service integrations.
-                    I'm committed to delivering high-quality code and optimizing performance to enhance user experiences.
+                    I am committed to delivering high-quality code and optimizing performance to enhance user experiences.
                     Seeking opportunities to contribute my expertise and passion for problem-solving to a dynamic software development team.
                 </p>
             </div>
