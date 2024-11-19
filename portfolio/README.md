@@ -12,6 +12,22 @@
 
 # Commit History
 
+### Version 1.0.2
+
+- `Pull Request` : About Page - Updated About page with Features, Tech-stack, and Project Structure components and constants .
+  - Update README
+  - Refactored Features and Technologies into components added on About page
+  - Refactor NavMenu to dynamically render menu items based on the current route
+  - Add ProjectStructure component and project structure constants
+  - Update social media links with tooltips in About section
+  - Remove unused ThemeToggle component from LeftSidePanel
+  - Remove commented-out mobile progress bar code from Header component
+  - Version Bump
+
+---
+
+### Version 1.0.1
+
 - `Pull Request` : About Page - Updated About page with Features and Tech-stack information.
   - Update README
   - Refactored About page with Features and Tech-stack information
@@ -20,6 +36,8 @@
   - Version Bump
 
 ---
+
+### Version 1.0.0
 
 - `Pull Request` : BugFixes - Minor tweaks and cleanup after React live deploy.
   - README updates
@@ -38,6 +56,8 @@
   ```
 
 ---
+
+### Journey to Version 1.0.0
 
 - `Pull Request` : React - Complete project rewrite-conversion from static `HTML` to a complete `REACT` application.
   - removed old project
