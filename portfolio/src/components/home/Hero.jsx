@@ -1,22 +1,28 @@
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import profilePicture from '../../assets/images/profile-pictures/david-aydin-headshot.webp';
 
+const tiltZones = [0, 1, 2, 3, 4, 5, 6, 7];
+
 export default function Hero() {
   return (
     <section id="home" className="hero scroll-mt-24 bg-base-200">
       <div className="hero-content w-full max-w-6xl flex-col gap-10 py-16 lg:flex-row lg:py-24">
-        <div className="indicator mb-4">
-          <span className="indicator-item indicator-start indicator-top badge badge-success gap-2">
+        <div className="indicator">
+          <span className="indicator-item badge badge-success gap-2">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success-content opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-success-content" />
             </span>
             Open to Connect
           </span>
-          <div className="avatar">
-            <div className="w-40 rounded-full ring ring-primary ring-offset-4 ring-offset-base-100 shadow-[0_0_28px] shadow-primary/50 md:w-48">
-              <img src={profilePicture} alt="Portrait of David Aydin" />
+          <div className="hover-3d w-44 sm:w-52">
+            <div className="mockup-phone">
+              <div className="mockup-phone-camera" />
+              <div className="mockup-phone-display">
+                <img src={profilePicture} alt="Portrait of David Aydin" />
+              </div>
             </div>
+            {tiltZones.map((zone) => <div key={zone} aria-hidden="true" />)}
           </div>
         </div>
         <div className="max-w-xl">

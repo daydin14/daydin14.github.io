@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { motion } from 'motion/react';
 
 const sections = [
   { id: 'home', label: 'Home' },
@@ -74,7 +75,11 @@ export function SideGuide() {
           <li key={section.id}>
             {index > 0 && <hr />}
             <div className="timeline-middle">
-              <span className={`block h-3 w-3 rounded-full ${active === section.id ? 'bg-primary' : 'bg-base-300'}`} />
+              <motion.span
+                className={`block h-3 w-3 rounded-full ${active === section.id ? 'bg-primary' : 'bg-base-300'}`}
+                animate={{ scale: active === section.id ? 1.45 : 1 }}
+                transition={{ type: 'spring', stiffness: 420, damping: 24 }}
+              />
             </div>
             <div className="timeline-end">
               <GuideButton section={section} active={active} onSelect={onSelect} />

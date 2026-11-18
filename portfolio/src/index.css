@@ -1,6 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark, corporate, emerald, nord, dim, business, synthwave;
+}
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+}
 
 html {
   scroll-padding-top: 5.5rem;
@@ -8,13 +14,13 @@ html {
 
 body {
   overflow-x: clip;
-  font-family: Outfit, ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-sans);
 }
 
 h1,
 h2,
 .font-display {
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
 }
 
 .skip-link {
@@ -43,6 +49,17 @@ h2,
   width: 1px;
   height: 1px;
   overflow: hidden;
+}
+
+.aura > .card {
+  color: var(--color-base-content);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .hover-3d > :first-child {
+    transform: none !important;
+    scale: 1 !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

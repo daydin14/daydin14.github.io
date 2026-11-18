@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { MotionConfig } from 'motion/react';
 import { BrowserRouter, useLocation } from 'react-router-dom';
 import SiteHeader from './components/layout/SiteHeader';
 import SiteFooter from './components/layout/SiteFooter';
@@ -42,10 +43,12 @@ function AppShell() {
 
 export default function App() {
   return (
-    <ThemeProvider>
-      <BrowserRouter basename="/">
-        <AppShell />
-      </BrowserRouter>
-    </ThemeProvider>
+    <MotionConfig reducedMotion="user">
+      <ThemeProvider>
+        <BrowserRouter basename="/">
+          <AppShell />
+        </BrowserRouter>
+      </ThemeProvider>
+    </MotionConfig>
   );
 }

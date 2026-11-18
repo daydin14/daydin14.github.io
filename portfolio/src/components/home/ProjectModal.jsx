@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { motion } from 'motion/react';
 import ProjectLinks from './ProjectLinks';
 import techBadges from './techBadges';
 
@@ -44,12 +45,17 @@ export default function ProjectModal({ project, onClose }) {
 
   return (
     <dialog className="modal modal-open" ref={dialogRef} aria-labelledby="project-dialog-title">
-      <div className="modal-box w-11/12 max-w-3xl">
+      <motion.div
+          className="modal-box w-11/12 max-w-3xl"
+          initial={{ opacity: 0, y: 16, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.25 }}
+        >
         <button type="button" className="btn btn-sm btn-circle btn-ghost absolute right-3 top-3" data-close onClick={onClose} aria-label="Close">
           ×
         </button>
         <h2 id="project-dialog-title" className="pr-10 text-3xl font-bold">{project.title}</h2>
-        <img className="my-4 max-h-80 w-full rounded-box object-cover" src={project.image} alt={project.title} />
+        <img className="my-4 aspect-video w-full rounded-box object-cover" src={project.image} alt={project.title} />
         <div className="mb-4 flex flex-wrap gap-2">
           <span className="badge badge-primary badge-outline">{project.category}</span>
           {techBadges(project).map((tech) => (
@@ -74,7 +80,7 @@ export default function ProjectModal({ project, onClose }) {
         <div className="modal-action flex-wrap">
           <ProjectLinks project={project} />
         </div>
-      </div>
+      </motion.div>
       <form method="dialog" className="modal-backdrop">
         <button type="button" onClick={onClose}>Close</button>
       </form>

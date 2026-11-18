@@ -110,7 +110,7 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="scroll-mt-24 bg-base-100 px-4 py-16 md:py-24" aria-labelledby="contact-heading">
-      <div className="mx-auto w-full max-w-xl">
+      <div className="mx-auto w-full max-w-2xl">
         <h2 id="contact-heading" className="mb-6 text-4xl font-bold md:text-5xl">Contact Me</h2>
         {emailJsConfigured ? (
           <form className="card border border-base-300 bg-base-100 shadow-xl" onSubmit={handleSubmit} noValidate>
@@ -129,9 +129,9 @@ export default function ContactSection() {
                   />
                 </label>
               </div>
-              <label className="form-control" htmlFor="contact-name">
-                <div className="label"><span className="label-text">Your Name</span></div>
-                <div className={`input input-bordered flex items-center gap-2 ${errors.name ? 'input-error' : ''}`}>
+              <fieldset className="fieldset">
+                <legend className="fieldset-legend">Your Name</legend>
+                <label className={`input w-full ${errors.name ? 'input-error' : ''}`}>
                   <FaUser className="opacity-70" aria-hidden="true" />
                   <input
                     id="contact-name"
@@ -147,12 +147,12 @@ export default function ContactSection() {
                     onChange={(event) => setName(event.target.value)}
                     required
                   />
-                </div>
+                </label>
                 {errors.name && <span id="contact-name-error" className="pt-1 text-sm text-error">{errors.name}</span>}
-              </label>
-              <label className="form-control" htmlFor="contact-email">
-                <div className="label"><span className="label-text">Your Email</span></div>
-                <div className={`input input-bordered flex items-center gap-2 ${errors.email ? 'input-error' : ''}`}>
+              </fieldset>
+              <fieldset className="fieldset">
+                <legend className="fieldset-legend">Your Email</legend>
+                <label className={`input w-full ${errors.email ? 'input-error' : ''}`}>
                   <FaEnvelope className="opacity-70" aria-hidden="true" />
                   <input
                     id="contact-email"
@@ -168,12 +168,12 @@ export default function ContactSection() {
                     onChange={(event) => setEmail(event.target.value)}
                     required
                   />
-                </div>
+                </label>
                 {errors.email && <span id="contact-email-error" className="pt-1 text-sm text-error">{errors.email}</span>}
-              </label>
-              <label className="form-control" htmlFor="contact-message">
-                <div className="label"><span className="label-text">Your Message</span></div>
-                <div className={`textarea textarea-bordered flex items-start gap-2 ${errors.message ? 'textarea-error' : ''}`}>
+              </fieldset>
+              <fieldset className="fieldset">
+                <legend className="fieldset-legend">Your Message</legend>
+                <label className={`textarea w-full ${errors.message ? 'textarea-error' : ''}`}>
                   <FaPen className="mt-1 opacity-70" aria-hidden="true" />
                   <textarea
                     id="contact-message"
@@ -188,9 +188,9 @@ export default function ContactSection() {
                     onChange={(event) => setMessage(event.target.value)}
                     required
                   />
-                </div>
+                </label>
                 {errors.message && <span id="contact-message-error" className="pt-1 text-sm text-error">{errors.message}</span>}
-              </label>
+              </fieldset>
               <button type="submit" className="btn btn-primary mt-2 w-full" disabled={sending}>
                 {sending ? 'Sending...' : 'Send Message'}
               </button>
