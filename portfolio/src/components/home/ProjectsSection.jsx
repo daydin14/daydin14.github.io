@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
 import { FaGithub } from 'react-icons/fa';
 import ProjectDetails from '../../data/projects';
 import ProjectLinks from './ProjectLinks';
@@ -12,7 +13,7 @@ function ProjectPreview({ project }) {
   if (!standoutTitles.has(project.title)) {
     return (
       <figure>
-        <img className="h-44 w-full object-cover" src={project.image} alt="" />
+        <img className="aspect-video w-full object-cover" src={project.image} alt="" />
       </figure>
     );
   }
@@ -24,7 +25,7 @@ function ProjectPreview({ project }) {
       <div className="mockup-browser-toolbar">
         <div className="input truncate">{address}</div>
       </div>
-      <img className="h-44 w-full bg-base-200 object-cover" src={project.image} alt="" />
+      <img className="aspect-video w-full bg-base-200 object-cover" src={project.image} alt="" />
     </div>
   );
 }
@@ -54,8 +55,10 @@ function ProjectCard({ project, onOpen }) {
   }
 
   return (
-    <div
-      className="card card-bordered h-full min-w-0 cursor-pointer overflow-hidden bg-base-200 shadow-md transition duration-300 hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+    <motion.div
+      className="card card-border h-full min-w-0 cursor-pointer overflow-hidden bg-base-200 shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+      whileHover={{ y: -6 }}
+      transition={{ duration: 0.2 }}
       role="button"
       tabIndex={0}
       aria-label={`Details for ${project.title}`}
@@ -73,7 +76,7 @@ function ProjectCard({ project, onOpen }) {
           <ProjectLinks project={project} />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -113,7 +116,7 @@ export default function ProjectsSection() {
     <section id="projects" className="scroll-mt-24 bg-base-100 px-4 py-16 md:py-24" aria-labelledby="projects-heading">
       <div className="mx-auto w-full max-w-6xl">
         <h2 id="projects-heading" className="mb-6 text-4xl font-bold md:text-5xl">Projects</h2>
-        <div role="tablist" className="tabs tabs-boxed mb-8 w-full flex-nowrap overflow-x-auto" aria-label="Project categories">
+        <div role="tablist" className="tabs tabs-box mb-8 w-full flex-nowrap overflow-x-auto" aria-label="Project categories">
           {categories.map((category) => (
             <button
               key={category}
@@ -157,15 +160,29 @@ export default function ProjectsSection() {
             >
               ‹
             </button>
-            <div
-              className="grid min-w-0 flex-1 touch-pan-y grid-cols-3 items-stretch gap-6"
-              onPointerDown={onCarouselPointerDown}
-              onPointerUp={onCarouselPointerUp}
-            >
-              {pageProjects.map((project) => (
-                <ProjectCard key={`${project.category}-${project.title}-page`} project={project} onOpen={setSelectedProject} />
-              ))}
-            </div>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`${selectedCategory}-${safePage}`}
+                className="grid min-w-0 flex-1 touch-pan-y grid-cols-3 items-stretch gap-6"
+                initial={{ opacity: 0, x: 28 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -28 }}
+                transition={{ duration: 0.28 }}
+                onPointerDown={onCarouselPointerDown}
+                onPointerUp={onCarouselPointerUp}
+              >
+                {pageProjects.map((project, index) => (
+                  <motion.div
+                    key={`${project.category}-${project.title}-page`}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.04, duration: 0.25 }}
+                  >
+                    <ProjectCard project={project} onOpen={setSelectedProject} />
+                  </motion.div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
             <button
               type="button"
               className="btn btn-circle btn-outline"
@@ -181,11 +198,13 @@ export default function ProjectsSection() {
               <button
                 key={index}
                 type="button"
-                className={`btn btn-xs btn-circle ${index === safePage ? 'btn-primary' : 'btn-ghost'}`}
+                className="btn btn-ghost btn-xs px-1"
                 aria-label={`Project page ${index + 1}`}
                 aria-current={index === safePage ? 'true' : undefined}
                 onClick={() => showPage(index)}
-              />
+              >
+                <span className={`status ${index === safePage ? 'status-primary animate-bounce' : ''}`} />
+              </button>
             ))}
           </div>
         </div>
