@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import ProjectLinks from './ProjectLinks';
+import techBadges from './techBadges';
 
 const todo = 'TODO: David has not written this yet.';
 
@@ -49,6 +50,12 @@ export default function ProjectModal({ project, onClose }) {
         </button>
         <h2 id="project-dialog-title" className="pr-10 text-3xl font-bold">{project.title}</h2>
         <img className="my-4 max-h-80 w-full rounded-box object-cover" src={project.image} alt={project.title} />
+        <div className="mb-4 flex flex-wrap gap-2">
+          <span className="badge badge-primary badge-outline">{project.category}</span>
+          {techBadges(project).map((tech) => (
+            <span key={tech} className="badge badge-outline">{tech}</span>
+          ))}
+        </div>
         <p className="text-base-content/80">{project.longDescription}</p>
         <div className="mt-6 space-y-4">
           <div>

@@ -1,12 +1,12 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { FaGithub } from 'react-icons/fa';
 import ProjectDetails from '../../data/projects';
 import ProjectLinks from './ProjectLinks';
 import ProjectModal from './ProjectModal';
-import techBadges from './techBadges';
 
 const categories = ['Recent', 'All', 'Udemy', 'GA', 'SJU'];
 const standoutTitles = new Set(['Chalkboard Games', 'JokerBlazor']);
+const pageSize = 6;
 
 function ProjectPreview({ project }) {
   if (!standoutTitles.has(project.title)) {
@@ -29,14 +29,85 @@ function ProjectPreview({ project }) {
   );
 }
 
+function ProjectCard({ project, onOpen }) {
+  const drag = useRef({ x: 0, moved: false });
+
+  function onPointerDown(event) {
+    drag.current = { x: event.clientX, moved: false };
+  }
+
+  function onPointerMove(event) {
+    if (Math.abs(event.clientX - drag.current.x) > 10) drag.current.moved = true;
+  }
+
+  function onClick() {
+    if (drag.current.moved) return;
+    onOpen(project);
+  }
+
+  function onKeyDown(event) {
+    if (event.target !== event.currentTarget) return;
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      onOpen(project);
+    }
+  }
+
+  return (
+    <div
+      className="card card-bordered h-full min-w-0 cursor-pointer overflow-hidden bg-base-200 shadow-md transition duration-300 hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+      role="button"
+      tabIndex={0}
+      aria-label={`Details for ${project.title}`}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onClick={onClick}
+      onKeyDown={onKeyDown}
+    >
+      <ProjectPreview project={project} />
+      <div className="card-body">
+        <span className="badge badge-primary badge-outline w-fit">{project.category}</span>
+        <h3 className="card-title">{project.title}</h3>
+        <p className="line-clamp-4 text-base-content/80">{project.shortDescription}</p>
+        <div className="card-actions mt-auto flex-wrap items-center justify-end">
+          <ProjectLinks project={project} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ProjectsSection() {
   const [selectedCategory, setSelectedCategory] = useState('Recent');
+  const [page, setPage] = useState(0);
   const [selectedProject, setSelectedProject] = useState(null);
   const closeModal = useCallback(() => setSelectedProject(null), []);
+  const drag = useRef({ x: 0 });
 
   const filteredProjects = selectedCategory === 'All'
     ? ProjectDetails
     : ProjectDetails.filter((project) => project.category === selectedCategory);
+  const pageCount = Math.max(1, Math.ceil(filteredProjects.length / pageSize));
+  const safePage = Math.min(page, pageCount - 1);
+  const pageProjects = filteredProjects.slice(safePage * pageSize, safePage * pageSize + pageSize);
+
+  useEffect(() => {
+    setPage(0);
+  }, [selectedCategory]);
+
+  function showPage(next) {
+    setPage(Math.min(pageCount - 1, Math.max(0, next)));
+  }
+
+  function onCarouselPointerDown(event) {
+    drag.current.x = event.clientX;
+  }
+
+  function onCarouselPointerUp(event) {
+    const delta = event.clientX - drag.current.x;
+    if (delta > 48) showPage(safePage - 1);
+    if (delta < -48) showPage(safePage + 1);
+  }
 
   return (
     <section id="projects" className="scroll-mt-24 bg-base-100 px-4 py-16 md:py-24" aria-labelledby="projects-heading">
@@ -70,28 +141,53 @@ export default function ProjectsSection() {
             </a>
           </div>
         )}
-        <div className="grid min-w-0 items-stretch gap-6 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="grid min-w-0 items-stretch gap-6 sm:grid-cols-2 md:hidden">
           {filteredProjects.map((project) => (
-            <article key={`${project.category}-${project.title}`} className="card card-bordered h-full min-w-0 overflow-hidden bg-base-200 shadow-md">
-              <ProjectPreview project={project} />
-              <div className="card-body">
-                <div className="flex flex-wrap gap-2">
-                  <span className="badge badge-primary badge-outline">{project.category}</span>
-                  {techBadges(project).map((tech) => (
-                    <span key={tech} className="badge badge-outline">{tech}</span>
-                  ))}
-                </div>
-                <h3 className="card-title">{project.title}</h3>
-                <p className="line-clamp-4 text-base-content/80">{project.shortDescription}</p>
-                <div className="card-actions mt-auto flex-wrap items-center justify-end">
-                  <button type="button" className="btn btn-sm btn-ghost" onClick={() => setSelectedProject(project)}>
-                    Details
-                  </button>
-                  <ProjectLinks project={project} />
-                </div>
-              </div>
-            </article>
+            <ProjectCard key={`${project.category}-${project.title}`} project={project} onOpen={setSelectedProject} />
           ))}
+        </div>
+        <div className="hidden md:block">
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              className="btn btn-circle btn-outline"
+              aria-label="Previous projects"
+              onClick={() => showPage(safePage - 1)}
+              disabled={safePage === 0}
+            >
+              ‹
+            </button>
+            <div
+              className="grid min-w-0 flex-1 touch-pan-y grid-cols-3 items-stretch gap-6"
+              onPointerDown={onCarouselPointerDown}
+              onPointerUp={onCarouselPointerUp}
+            >
+              {pageProjects.map((project) => (
+                <ProjectCard key={`${project.category}-${project.title}-page`} project={project} onOpen={setSelectedProject} />
+              ))}
+            </div>
+            <button
+              type="button"
+              className="btn btn-circle btn-outline"
+              aria-label="Next projects"
+              onClick={() => showPage(safePage + 1)}
+              disabled={safePage >= pageCount - 1}
+            >
+              ›
+            </button>
+          </div>
+          <div className="mt-6 flex justify-center gap-2" role="tablist" aria-label="Project pages">
+            {Array.from({ length: pageCount }, (_, index) => (
+              <button
+                key={index}
+                type="button"
+                className={`btn btn-xs btn-circle ${index === safePage ? 'btn-primary' : 'btn-ghost'}`}
+                aria-label={`Project page ${index + 1}`}
+                aria-current={index === safePage ? 'true' : undefined}
+                onClick={() => showPage(index)}
+              />
+            ))}
+          </div>
         </div>
         {selectedProject && <ProjectModal project={selectedProject} onClose={closeModal} />}
       </div>
