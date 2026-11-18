@@ -89,81 +89,83 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="section shell" aria-labelledby="contact-heading">
-      <div className="section-heading">
-        <p className="eyebrow">04</p>
-        <h2 id="contact-heading">Contact Me</h2>
-      </div>
-      <div className="contact-grid">
+    <section id="contact" className="scroll-mt-24 bg-base-100 px-4 py-16 md:py-24" aria-labelledby="contact-heading">
+      <div className="mx-auto w-full max-w-xl">
+        <h2 id="contact-heading" className="mb-6 text-4xl font-bold md:text-5xl">Contact Me</h2>
         {emailJsConfigured ? (
-          <form className="card contact-form border border-base-300 bg-base-100 shadow-xl" onSubmit={handleSubmit} noValidate>
-            <h3>Message Me!</h3>
-            <div className="honeypot" aria-hidden="true">
-              <label>
-                Company
+          <form className="card border border-base-300 bg-base-100 shadow-xl" onSubmit={handleSubmit} noValidate>
+            <div className="card-body">
+              <h3 className="card-title text-2xl">Message Me!</h3>
+              <div className="honeypot" aria-hidden="true">
+                <label>
+                  Company
+                  <input
+                    type="text"
+                    name="company"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={honeypot}
+                    onChange={(event) => setHoneypot(event.target.value)}
+                  />
+                </label>
+              </div>
+              <label className="form-control" htmlFor="contact-name">
+                <div className="label"><span className="label-text">Your Name</span></div>
                 <input
+                  id="contact-name"
+                  name="from_name"
                   type="text"
-                  name="company"
-                  tabIndex={-1}
-                  autoComplete="off"
-                  value={honeypot}
-                  onChange={(event) => setHoneypot(event.target.value)}
+                  className={`input input-bordered w-full ${errors.name ? 'input-error' : ''}`}
+                  placeholder="Your Name"
+                  autoComplete="name"
+                  maxLength={100}
+                  value={name}
+                  aria-invalid={Boolean(errors.name)}
+                  aria-describedby={errors.name ? 'contact-name-error' : undefined}
+                  onChange={(event) => setName(event.target.value)}
+                  required
                 />
+                {errors.name && <span id="contact-name-error" className="pt-1 text-sm text-error">{errors.name}</span>}
               </label>
+              <label className="form-control" htmlFor="contact-email">
+                <div className="label"><span className="label-text">Your Email</span></div>
+                <input
+                  id="contact-email"
+                  name="reply_to"
+                  type="email"
+                  className={`input input-bordered w-full ${errors.email ? 'input-error' : ''}`}
+                  placeholder="Your Email"
+                  autoComplete="email"
+                  maxLength={200}
+                  value={email}
+                  aria-invalid={Boolean(errors.email)}
+                  aria-describedby={errors.email ? 'contact-email-error' : undefined}
+                  onChange={(event) => setEmail(event.target.value)}
+                  required
+                />
+                {errors.email && <span id="contact-email-error" className="pt-1 text-sm text-error">{errors.email}</span>}
+              </label>
+              <label className="form-control" htmlFor="contact-message">
+                <div className="label"><span className="label-text">Your Message</span></div>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  className={`textarea textarea-bordered w-full ${errors.message ? 'textarea-error' : ''}`}
+                  placeholder="Your Message"
+                  rows="4"
+                  maxLength={5000}
+                  value={message}
+                  aria-invalid={Boolean(errors.message)}
+                  aria-describedby={errors.message ? 'contact-message-error' : undefined}
+                  onChange={(event) => setMessage(event.target.value)}
+                  required
+                />
+                {errors.message && <span id="contact-message-error" className="pt-1 text-sm text-error">{errors.message}</span>}
+              </label>
+              <button type="submit" className="btn btn-primary mt-2 w-full" disabled={sending}>
+                {sending ? 'Sending...' : 'Send Message'}
+              </button>
             </div>
-            <label className="field" htmlFor="contact-name">
-              <span>Your Name</span>
-              <input
-                id="contact-name"
-                name="from_name"
-                type="text"
-                placeholder="Your Name"
-                autoComplete="name"
-                maxLength={100}
-                value={name}
-                aria-invalid={Boolean(errors.name)}
-                aria-describedby={errors.name ? 'contact-name-error' : undefined}
-                onChange={(event) => setName(event.target.value)}
-                required
-              />
-              {errors.name && <small id="contact-name-error">{errors.name}</small>}
-            </label>
-            <label className="field" htmlFor="contact-email">
-              <span>Your Email</span>
-              <input
-                id="contact-email"
-                name="reply_to"
-                type="email"
-                placeholder="Your Email"
-                autoComplete="email"
-                maxLength={200}
-                value={email}
-                aria-invalid={Boolean(errors.email)}
-                aria-describedby={errors.email ? 'contact-email-error' : undefined}
-                onChange={(event) => setEmail(event.target.value)}
-                required
-              />
-              {errors.email && <small id="contact-email-error">{errors.email}</small>}
-            </label>
-            <label className="field" htmlFor="contact-message">
-              <span>Your Message</span>
-              <textarea
-                id="contact-message"
-                name="message"
-                placeholder="Your Message"
-                rows="4"
-                maxLength={5000}
-                value={message}
-                aria-invalid={Boolean(errors.message)}
-                aria-describedby={errors.message ? 'contact-message-error' : undefined}
-                onChange={(event) => setMessage(event.target.value)}
-                required
-              />
-              {errors.message && <small id="contact-message-error">{errors.message}</small>}
-            </label>
-            <button type="submit" className="btn btn-primary w-full" disabled={sending}>
-              {sending ? 'Sending...' : 'Send Message'}
-            </button>
           </form>
         ) : (
           <div className="alert alert-info" role="status">

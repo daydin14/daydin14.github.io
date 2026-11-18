@@ -6,7 +6,7 @@ export default function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="footer footer-center site-footer bg-transparent text-base-content">
+    <footer className="footer footer-center border-t border-base-300 bg-base-200 p-10 text-base-content">
       <aside>
         <p>{companyName} &copy; {year} {rights}</p>
         <p>Created by {author}</p>

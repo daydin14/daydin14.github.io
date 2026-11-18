@@ -1,13 +1,12 @@
 export default function AboutSection() {
   return (
-    <section id="about" className="section shell" aria-labelledby="about-heading">
-      <div className="section-heading">
-        <p className="eyebrow">01</p>
-        <h2 id="about-heading">About Me</h2>
-      </div>
-      <div className="about-layout about-copy">
-        <p className="pullquote">Fun fact: I&apos;m a triplet!</p>
-        <p>
+    <section id="about" className="scroll-mt-24 bg-base-100 px-4 py-16 md:py-24" aria-labelledby="about-heading">
+      <div className="mx-auto w-full max-w-3xl">
+        <h2 id="about-heading" className="mb-6 text-4xl font-bold md:text-5xl">About Me</h2>
+        <blockquote className="mb-6 border-l-4 border-secondary pl-4 text-2xl">
+          Fun fact: I&apos;m a triplet!
+        </blockquote>
+        <p className="text-lg leading-relaxed text-base-content/80">
           Hello!
           <br />
           I am a developer with a strong background in full-stack development.

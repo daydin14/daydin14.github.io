@@ -2,14 +2,19 @@
 
 - **Single-Page Application**: Built using React, providing a smooth and seamless user experience.
 - **Responsive Design**: Ensures the application works well on both desktop and mobile devices.
-- **Theme Toggle**: Allows users to switch between light and dark themes for better accessibility and user experience.
+- **Theme picker**: Lets visitors choose a DaisyUI theme, starting from the system light or dark preference.
 - **Progress Bar**: Displays a progress bar to indicate page status or length down the page.
 - **Google Analytics**: Tracks and reports website traffic for better insights and analytics.
 - **React Icons**: Utilizes React Icons for a wide range of icons and symbols.
 - **Contact Form**: Includes a contact form for users to get in touch easily.
-- **Gradients**: Implements gradient backgrounds and elements for a modern and visually appealing design.
 
 # Commit History
+
+### Version 1.1.2
+
+- Rebuilt the page around DaisyUI's built-in themes and components, with a theme picker.
+
+---
 
 ### Version 1.1.1
 

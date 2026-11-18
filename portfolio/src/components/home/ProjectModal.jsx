@@ -8,7 +8,7 @@ export default function ProjectModal({ project, onClose }) {
     const dialog = dialogRef.current;
     const previous = document.activeElement;
     const previousOverflow = document.body.style.overflow;
-    dialog?.querySelector('.modal-close')?.focus();
+    dialog?.querySelector('[data-close]')?.focus();
     document.body.style.overflow = 'hidden';
 
     function onKeyDown(event) {
@@ -17,15 +17,11 @@ export default function ProjectModal({ project, onClose }) {
         return;
       }
       if (event.key !== 'Tab' || !dialog) return;
-
-      const nodes = dialog.querySelectorAll(
-        'a[href], button:not([disabled]), textarea, input, select',
-      );
+      const nodes = dialog.querySelectorAll('a[href], button:not([disabled]), textarea, input, select');
       const items = Array.from(nodes);
       if (!items.length) return;
       const first = items[0];
       const last = items[items.length - 1];
-
       if (event.shiftKey && document.activeElement === first) {
         event.preventDefault();
         last.focus();
@@ -44,23 +40,21 @@ export default function ProjectModal({ project, onClose }) {
   }, [onClose, project]);
 
   return (
-    <div className="modal-root">
-      <button type="button" className="modal-backdrop" aria-label="Close project details" onClick={onClose} />
-      <div
-        className="modal-card"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="project-dialog-title"
-        ref={dialogRef}
-      >
-        <button type="button" className="icon-button modal-close" onClick={onClose} aria-label="Close">
-          <span aria-hidden="true">×</span>
+    <dialog className="modal modal-open" ref={dialogRef} aria-labelledby="project-dialog-title">
+      <div className="modal-box w-11/12 max-w-3xl">
+        <button type="button" className="btn btn-sm btn-circle btn-ghost absolute right-3 top-3" data-close onClick={onClose} aria-label="Close">
+          ×
         </button>
-        <h2 id="project-dialog-title">{project.title}</h2>
-        <img src={project.image} alt={project.title} />
-        <p>{project.longDescription}</p>
-        <ProjectLinks project={project} />
+        <h2 id="project-dialog-title" className="pr-10 text-3xl font-bold">{project.title}</h2>
+        <img className="my-4 max-h-80 w-full rounded-box object-cover" src={project.image} alt={project.title} />
+        <p className="text-base-content/80">{project.longDescription}</p>
+        <div className="modal-action">
+          <ProjectLinks project={project} />
+        </div>
       </div>
-    </div>
+      <form method="dialog" className="modal-backdrop">
+        <button type="button" onClick={onClose}>Close</button>
+      </form>
+    </dialog>
   );
 }

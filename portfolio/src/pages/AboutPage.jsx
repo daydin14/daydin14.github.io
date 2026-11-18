@@ -4,12 +4,11 @@ import Technologies from '../components/about/Technologies';
 
 export default function AboutPage() {
   return (
-    <div className="shell">
-      <header className="page-intro">
-        <p className="eyebrow">Notes</p>
-        <h1>About this web application: </h1>
+    <div className="mx-auto w-full max-w-3xl px-4 py-12">
+      <header className="mb-8">
+        <h1 className="text-4xl font-bold">About this web application: </h1>
       </header>
-      <div className="stack">
+      <div className="grid gap-6">
         <Features />
         <Technologies />
         <ProjectStructure />

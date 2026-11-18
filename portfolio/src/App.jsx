@@ -30,7 +30,7 @@ function AppShell() {
 
   return (
     <>
-      <a className="skip-link" href="#content">Skip to content</a>
+      <a className="btn btn-primary btn-sm skip-link" href="#content">Skip to content</a>
       <SiteHeader />
       <main id="content" className="main-flow">
         <AppRoutes />
