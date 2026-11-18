@@ -14,7 +14,7 @@
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![DaisyUI](https://img.shields.io/badge/daisyui-5A0EF8?style=for-the-badge&logo=daisyui&logoColor=white)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 
 ![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
 ![Github Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)
@@ -67,7 +67,7 @@ To get started with the project, follow these steps:
 - **Progress Bar**: Displays a progress bar to indicate page status or length down the page.
 - **Google Maps Integration**: Embeds Google Maps for county-based location features and services.
 - **Google Analytics**: Tracks and reports website traffic for better insights and analytics.
-- **Font Awesome and React Icons**: Utilizes Font Awesome and React Icons for a wide range of icons and symbols.
+- **React Icons**: Utilizes React Icons for a wide range of icons and symbols.
 - **Contact Form**: Includes a contact form for users to get in touch easily.
 - **Gradients**: Implements gradient backgrounds and elements for a modern and visually appealing design.
 
@@ -94,13 +94,14 @@ To get started with the project, follow these steps:
 - **NPM**: A package manager for JavaScript, used to install dependencies.
 - **React**: A JavaScript library for building user interfaces.
 - **React Router**: A library for routing in React applications.
+- **Vite**: The build tool and development server.
 - **react-ga4**: A library for integrating Google Analytics 4 with React applications.
 - **react-gtm-module**: A library for integrating Google Tag Manager with React applications.
+- **react-icons**: Icon components for skills, social links, and project actions.
 
 ### CSS Frameworks and Tools
 
 - **Tailwind CSS:** A utility-first CSS framework for rapid UI development.
-- **DaisyUI:** A plugin for Tailwind CSS that provides pre-designed components.
 - **PostCSS:** A tool for transforming CSS with JavaScript plugins.
 - **Autoprefixer:** A PostCSS plugin to parse CSS and add vendor prefixes.
 
@@ -108,6 +109,8 @@ To get started with the project, follow these steps:
 
 - **ESLint:** A tool for identifying and fixing problems in JavaScript code.
 - **eslint-plugin-react:** An ESLint plugin for React-specific linting rules.
+- **eslint-plugin-react-hooks:** An ESLint plugin for React hooks rules.
+- **eslint-plugin-jsx-a11y:** An ESLint plugin for accessibility linting in JSX.
 - **@eslint/js:** ESLint's built-in JavaScript rules.
 - **globals:** A library of global variables for ESLint.
 
@@ -119,73 +122,47 @@ To get started with the project, follow these steps:
 ## Project Structure
 
 ```
-app/
+portfolio/
 ├── public/
 │   └── ...
 ├── src/
 │   ├── assets/
-│   │   ├── images/
-│   │   │   └── ...
-│   │   ├── styles/
-│   │   │   └── ...
+│   │   └── images/
 │   ├── components/
-│   │   │   └── ...
-│   ├── constants/
-│   │   │   └── ...
-│   ├── contexts/
-│   │   │   └── ...
-│   ├── hooks/
-│   │   │   └── ...
+│   │   ├── about/
+│   │   ├── home/
+│   │   └── layout/
+│   ├── context/
+│   ├── data/
+│   ├── lib/
 │   ├── pages/
-│   │   │   └── ...
-│   ├── tests/
-│   │   │   └── ...
-│   ├── utils/
-│   │   │   └── ...
-│   ├── App.js
-│   ├── AppRoutes.js
-│   └── index.js
+│   ├── routes/
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
 ├── .gitignore
 ├── README.md
-├── .eslint.config.mjs
+├── eslint.config.js
+├── index.html
 ├── package-lock.json
 ├── package.json
 ├── postcss.config.js
-└── tailwind.config.js
+├── tailwind.config.js
+└── vite.config.js
 ```
 
 ## Deployment on GitHub Pages
 
-This project uses the gh-pages node package to deploy the application to GitHub Pages.
-Follow these steps to deploy your application:
+This project uses the gh-pages package to publish the production build. There is no GitHub Actions workflow. `npm run build` writes the site to `portfolio/build`, and `npm run deploy` pushes that folder to the `gh-pages` branch.
 
-1. **Install gh-pages**: Install the gh-pages package as a development dependency:
-   ```bash
-   npm install gh-pages --save-dev
-   ```
-2. **Update package.json**: Add the following scripts to your package.json file:
-   ```json
-   "scripts": {
-        <!--
-            ... {Other existing scripts} i.e.
-            "start": "react-scripts start",
-        -->
-       "predeploy": "npm run build",
-       "deploy": "gh-pages -d build",
-   }
-   ```
-3. **Add homepage field**: Add the homepage field to your package.json file with the URL of your GitHub Pages site:
+From the `portfolio` directory:
 
-   ```json
-   "homepage": "https://<your-username>.github.io/"
+```bash
+npm run deploy
+```
 
-    - If you want to host a project in a subdirectory,
-        update the "homepage" field to include the project name
-        (e.g., `https://<your-username>.github.io/project-name`).
-    - Be sure to change the url within the "homepage" json text to your GitHub username
-   ```
+That runs `predeploy` (`npm run build`) and then `gh-pages -d build`. The `homepage` field in `package.json` is `https://daydin14.github.io/`, and Vite's `base` is `/`, which matches a user site at the domain root.
 
-4. **Deploy the application**: Run the deploy script to build and deploy the application to GitHub Pages:
-   ```bash
-   npm run deploy
-   ```
+`public/404.html` sends unknown paths (such as a refresh on `/about`) back to the app so client-side routes keep working on GitHub Pages.
+
+Optional analytics and the embedded map read environment variables when they are set. Copy `.env.example` to `.env`. Both `VITE_*` and the older `REACT_APP_*` names work. The site builds and runs with them left blank: analytics stays off, and Contact links to Google Maps for Monmouth County instead of embedding a map.

@@ -6,11 +6,19 @@
 - **Progress Bar**: Displays a progress bar to indicate page status or length down the page.
 - **Google Maps Integration**: Embeds Google Maps for county-based location features and services.
 - **Google Analytics**: Tracks and reports website traffic for better insights and analytics.
-- **Font Awesome and React Icons**: Utilizes Font Awesome and React Icons for a wide range of icons and symbols.
+- **React Icons**: Utilizes React Icons for a wide range of icons and symbols.
 - **Contact Form**: Includes a contact form for users to get in touch easily.
 - **Gradients**: Implements gradient backgrounds and elements for a modern and visually appealing design.
 
 # Commit History
+
+### Version 1.1.0
+
+- Rebuilt the app with Vite. `npm start`, `npm run build`, and `npm run deploy` still work, and the deploy output directory is still `build`.
+- Removed the development-only component sandbox and the UI kits it was the only user of.
+- Restyled the portfolio and kept the existing bio, projects, skills, and contact copy.
+
+---
 
 ### Version 1.0.2
 
