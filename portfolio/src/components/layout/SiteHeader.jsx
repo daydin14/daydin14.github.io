@@ -5,8 +5,8 @@ import ThemePicker from './ThemePicker';
 const homeLinks = [
   { to: '/#home', label: 'Home' },
   { to: '/#about', label: 'About' },
-  { to: '/#experience', label: 'Experience' },
   { to: '/#projects', label: 'Projects' },
+  { to: '/#github-city', label: 'GitHub City' },
   { to: '/#skills', label: 'Skills' },
   { to: '/#contact', label: 'Contact' },
 ];

@@ -1,39 +1,37 @@
 import { FaCode, FaGithub, FaPlay, FaServer } from 'react-icons/fa';
 
-function IconLink({ href, label, children }) {
+function TextLink({ href, label, children, variant }) {
   if (!href) return null;
 
   return (
-    <div className="tooltip" data-tip={label}>
-      <a
-        className="btn btn-ghost btn-sm btn-circle"
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={(event) => event.stopPropagation()}
-      >
-        {children}
-        <span className="sr-only">{label}</span>
-      </a>
-    </div>
+    <a
+      className={`btn btn-sm ${variant}`}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={(event) => event.stopPropagation()}
+    >
+      {children}
+      {label}
+    </a>
   );
 }
 
 export default function ProjectLinks({ project }) {
   return (
-    <div className="flex justify-end gap-1">
-      <IconLink href={project.githubRepoLinks?.frontend} label="Frontend">
+    <>
+      <TextLink href={project.githubRepoLinks?.frontend} label="Frontend" variant="btn-outline">
         <FaCode aria-hidden="true" />
-      </IconLink>
-      <IconLink href={project.githubRepoLinks?.backend} label="Backend">
+      </TextLink>
+      <TextLink href={project.githubRepoLinks?.backend} label="Backend" variant="btn-outline">
         <FaServer aria-hidden="true" />
-      </IconLink>
-      <IconLink href={project.githubRepoLink} label="GitHub Repo">
+      </TextLink>
+      <TextLink href={project.githubRepoLink} label="GitHub" variant="btn-outline">
         <FaGithub aria-hidden="true" />
-      </IconLink>
-      <IconLink href={project.liveDemoLink} label="Live Demo">
+      </TextLink>
+      <TextLink href={project.liveDemoLink} label="Live Demo" variant="btn-primary">
         <FaPlay aria-hidden="true" />
-      </IconLink>
-    </div>
+      </TextLink>
+    </>
   );
 }
