@@ -1,19 +1,20 @@
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import profilePicture from '../../assets/images/profile-pictures/profile-pic-business-casual.png';
-import heroPhoto from '../../assets/images/hero/hero-bg.jpg';
 
 export default function Hero() {
   return (
     <section id="home" className="hero scroll-mt-24 bg-base-200">
-      <div className="hero-content w-full max-w-6xl flex-col gap-10 py-12 lg:flex-row-reverse lg:py-20">
-        <div className="relative mx-auto w-full max-w-md pb-8">
-          <img
-            className="aspect-[16/11] w-full rounded-box object-cover object-[72%_42%] shadow-xl"
-            src={heroPhoto}
-            alt="David Aydin on a river"
-          />
-          <div className="avatar absolute -bottom-2 -left-2">
-            <div className="w-32 rounded-full ring ring-primary ring-offset-2 ring-offset-base-200 md:w-36">
+      <div className="hero-content w-full max-w-6xl flex-col gap-10 py-16 lg:flex-row lg:py-24">
+        <div className="indicator mb-6">
+          <span className="indicator-item indicator-bottom badge badge-success gap-2">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success-content opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-success-content" />
+            </span>
+            Open to Work
+          </span>
+          <div className="avatar">
+            <div className="w-40 rounded-full ring ring-primary ring-offset-4 ring-offset-base-100 md:w-48">
               <img src={profilePicture} alt="Portrait of David Aydin" />
             </div>
           </div>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { send } from '@emailjs/browser';
+import { FaEnvelope, FaPen, FaUser } from 'react-icons/fa';
 import {
   emailJsConfigured,
   emailJsPublicKey,
@@ -12,6 +13,21 @@ const sendCooldownMs = 30000;
 const sentAtKey = 'contact-sent-at';
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function formatSubmissionTime(date = new Date()) {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/New_York',
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true,
+  }).formatToParts(date);
+  const value = (type) => parts.find((part) => part.type === type)?.value ?? '';
+  return `${value('weekday')}, ${value('month')} ${value('day')}, ${value('year')}, ${value('hour')}:${value('minute')} ${value('dayPeriod')} ET`;
+}
 
 function readSentAt() {
   const value = Number(sessionStorage.getItem(sentAtKey));
@@ -63,6 +79,7 @@ export default function ContactSection() {
     }
 
     const trimmedName = name.trim();
+    const trimmedEmail = email.trim();
     setSending(true);
     try {
       await send(
@@ -70,9 +87,12 @@ export default function ContactSection() {
         emailJsTemplateId,
         {
           from_name: trimmedName,
-          reply_to: email.trim(),
+          name: trimmedName,
+          reply_to: trimmedEmail,
+          email: trimmedEmail,
           message: message.trim(),
           subject: `${subjectPrefix}${trimmedName}`,
+          time: formatSubmissionTime(),
         },
         { publicKey: emailJsPublicKey },
       );
@@ -111,55 +131,64 @@ export default function ContactSection() {
               </div>
               <label className="form-control" htmlFor="contact-name">
                 <div className="label"><span className="label-text">Your Name</span></div>
-                <input
-                  id="contact-name"
-                  name="from_name"
-                  type="text"
-                  className={`input input-bordered w-full ${errors.name ? 'input-error' : ''}`}
-                  placeholder="Your Name"
-                  autoComplete="name"
-                  maxLength={100}
-                  value={name}
-                  aria-invalid={Boolean(errors.name)}
-                  aria-describedby={errors.name ? 'contact-name-error' : undefined}
-                  onChange={(event) => setName(event.target.value)}
-                  required
-                />
+                <div className={`input input-bordered flex items-center gap-2 ${errors.name ? 'input-error' : ''}`}>
+                  <FaUser className="opacity-70" aria-hidden="true" />
+                  <input
+                    id="contact-name"
+                    name="from_name"
+                    type="text"
+                    className="grow"
+                    placeholder="Your Name"
+                    autoComplete="name"
+                    maxLength={100}
+                    value={name}
+                    aria-invalid={Boolean(errors.name)}
+                    aria-describedby={errors.name ? 'contact-name-error' : undefined}
+                    onChange={(event) => setName(event.target.value)}
+                    required
+                  />
+                </div>
                 {errors.name && <span id="contact-name-error" className="pt-1 text-sm text-error">{errors.name}</span>}
               </label>
               <label className="form-control" htmlFor="contact-email">
                 <div className="label"><span className="label-text">Your Email</span></div>
-                <input
-                  id="contact-email"
-                  name="reply_to"
-                  type="email"
-                  className={`input input-bordered w-full ${errors.email ? 'input-error' : ''}`}
-                  placeholder="Your Email"
-                  autoComplete="email"
-                  maxLength={200}
-                  value={email}
-                  aria-invalid={Boolean(errors.email)}
-                  aria-describedby={errors.email ? 'contact-email-error' : undefined}
-                  onChange={(event) => setEmail(event.target.value)}
-                  required
-                />
+                <div className={`input input-bordered flex items-center gap-2 ${errors.email ? 'input-error' : ''}`}>
+                  <FaEnvelope className="opacity-70" aria-hidden="true" />
+                  <input
+                    id="contact-email"
+                    name="reply_to"
+                    type="email"
+                    className="grow"
+                    placeholder="Your Email"
+                    autoComplete="email"
+                    maxLength={200}
+                    value={email}
+                    aria-invalid={Boolean(errors.email)}
+                    aria-describedby={errors.email ? 'contact-email-error' : undefined}
+                    onChange={(event) => setEmail(event.target.value)}
+                    required
+                  />
+                </div>
                 {errors.email && <span id="contact-email-error" className="pt-1 text-sm text-error">{errors.email}</span>}
               </label>
               <label className="form-control" htmlFor="contact-message">
                 <div className="label"><span className="label-text">Your Message</span></div>
-                <textarea
-                  id="contact-message"
-                  name="message"
-                  className={`textarea textarea-bordered w-full ${errors.message ? 'textarea-error' : ''}`}
-                  placeholder="Your Message"
-                  rows="4"
-                  maxLength={5000}
-                  value={message}
-                  aria-invalid={Boolean(errors.message)}
-                  aria-describedby={errors.message ? 'contact-message-error' : undefined}
-                  onChange={(event) => setMessage(event.target.value)}
-                  required
-                />
+                <div className={`textarea textarea-bordered flex items-start gap-2 ${errors.message ? 'textarea-error' : ''}`}>
+                  <FaPen className="mt-1 opacity-70" aria-hidden="true" />
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    className="grow bg-transparent"
+                    placeholder="Your Message"
+                    rows="4"
+                    maxLength={5000}
+                    value={message}
+                    aria-invalid={Boolean(errors.message)}
+                    aria-describedby={errors.message ? 'contact-message-error' : undefined}
+                    onChange={(event) => setMessage(event.target.value)}
+                    required
+                  />
+                </div>
                 {errors.message && <span id="contact-message-error" className="pt-1 text-sm text-error">{errors.message}</span>}
               </label>
               <button type="submit" className="btn btn-primary mt-2 w-full" disabled={sending}>

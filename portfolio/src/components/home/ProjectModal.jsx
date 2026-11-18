@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react';
 import ProjectLinks from './ProjectLinks';
 
+const todo = 'TODO: David has not written this yet.';
+
 export default function ProjectModal({ project, onClose }) {
   const dialogRef = useRef(null);
 
@@ -48,7 +50,21 @@ export default function ProjectModal({ project, onClose }) {
         <h2 id="project-dialog-title" className="pr-10 text-3xl font-bold">{project.title}</h2>
         <img className="my-4 max-h-80 w-full rounded-box object-cover" src={project.image} alt={project.title} />
         <p className="text-base-content/80">{project.longDescription}</p>
-        <div className="modal-action">
+        <div className="mt-6 space-y-4">
+          <div>
+            <h3 className="text-lg font-bold">Problem</h3>
+            <p className="text-warning">{todo}</p>
+          </div>
+          <div>
+            <h3 className="text-lg font-bold">Solution</h3>
+            <p className="text-warning">{todo}</p>
+          </div>
+          <div>
+            <h3 className="text-lg font-bold">Challenges</h3>
+            <p className="text-warning">{todo}</p>
+          </div>
+        </div>
+        <div className="modal-action flex-wrap">
           <ProjectLinks project={project} />
         </div>
       </div>
