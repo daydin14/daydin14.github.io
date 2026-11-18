@@ -1,6 +1,6 @@
 export default function AboutSection() {
   return (
-    <section id="about" className="scroll-mt-24 bg-base-100 px-4 py-16 md:py-24" aria-labelledby="about-heading">
+    <section id="about" className="bg-base-100 px-4 py-16 md:py-24" aria-labelledby="about-heading">
       <div className="mx-auto w-full max-w-3xl">
         <h2 id="about-heading" className="mb-6 text-4xl font-bold md:text-5xl">About Me</h2>
         <div className="space-y-4 text-lg leading-relaxed text-base-content/80">

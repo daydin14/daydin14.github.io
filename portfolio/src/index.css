@@ -8,8 +8,17 @@
   --font-display: "Fraunces", Georgia, serif;
 }
 
+:root {
+  --site-header-height: 4.25rem;
+  --site-header-offset: 5.25rem;
+}
+
 html {
-  scroll-padding-top: 5.5rem;
+  scroll-padding-top: var(--site-header-offset);
+}
+
+:where(#home, #about, #projects, #github-city, #skills, #contact, #features, #technologies, #project-structure) {
+  scroll-margin-top: var(--site-header-offset);
 }
 
 body {
@@ -51,11 +60,13 @@ h2,
   overflow: hidden;
 }
 
-.aura > .card {
+.aura > .card,
+.aura > .mockup-window,
+.aura > .mockup-browser {
   color: var(--color-base-content);
 }
 
-@media (hover: none), (pointer: coarse) {
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
   .hover-3d > :first-child {
     transform: none !important;
     scale: 1 !important;

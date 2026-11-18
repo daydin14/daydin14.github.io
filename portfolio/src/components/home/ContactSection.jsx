@@ -109,7 +109,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="scroll-mt-24 bg-base-100 px-4 py-16 md:py-24" aria-labelledby="contact-heading">
+    <section id="contact" className="bg-base-100 px-4 py-16 md:py-24" aria-labelledby="contact-heading">
       <div className="mx-auto w-full max-w-2xl">
         <h2 id="contact-heading" className="mb-6 text-4xl font-bold md:text-5xl">Contact Me</h2>
         {emailJsConfigured ? (

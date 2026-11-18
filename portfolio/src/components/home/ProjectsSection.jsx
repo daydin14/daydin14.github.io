@@ -113,7 +113,7 @@ export default function ProjectsSection() {
   }
 
   return (
-    <section id="projects" className="scroll-mt-24 bg-base-100 px-4 py-16 md:py-24" aria-labelledby="projects-heading">
+    <section id="projects" className="bg-base-100 px-4 py-16 md:py-24" aria-labelledby="projects-heading">
       <div className="mx-auto w-full max-w-6xl">
         <h2 id="projects-heading" className="mb-6 text-4xl font-bold md:text-5xl">Projects</h2>
         <div role="tablist" className="tabs tabs-box mb-8 w-full flex-nowrap overflow-x-auto" aria-label="Project categories">

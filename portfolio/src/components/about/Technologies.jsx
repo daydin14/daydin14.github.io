@@ -1,6 +1,6 @@
 export default function Technologies() {
   return (
-    <article id="technologies" className="card scroll-mt-24 bg-base-200 shadow-md" aria-labelledby="technologies-heading">
+    <article id="technologies" className="card bg-base-200 shadow-md" aria-labelledby="technologies-heading">
       <div className="card-body">
       <h2 id="technologies-heading">Technologies Used</h2>
       <h3>IDEs/Editors</h3>
