@@ -65,7 +65,6 @@ To get started with the project, follow these steps:
 - **Responsive Design**: Ensures the application works well on both desktop and mobile devices.
 - **Theme Toggle**: Allows users to switch between light and dark themes for better accessibility and user experience.
 - **Progress Bar**: Displays a progress bar to indicate page status or length down the page.
-- **Google Maps Integration**: Embeds Google Maps for county-based location features and services.
 - **Google Analytics**: Tracks and reports website traffic for better insights and analytics.
 - **React Icons**: Utilizes React Icons for a wide range of icons and symbols.
 - **Contact Form**: Includes a contact form for users to get in touch easily.
@@ -98,10 +97,12 @@ To get started with the project, follow these steps:
 - **react-ga4**: A library for integrating Google Analytics 4 with React applications.
 - **react-gtm-module**: A library for integrating Google Tag Manager with React applications.
 - **react-icons**: Icon components for skills, social links, and project actions.
+- **EmailJS**: Sends contact form messages from the page.
 
 ### CSS Frameworks and Tools
 
 - **Tailwind CSS:** A utility-first CSS framework for rapid UI development.
+- **DaisyUI:** A plugin for Tailwind CSS that provides pre-designed components.
 - **PostCSS:** A tool for transforming CSS with JavaScript plugins.
 - **Autoprefixer:** A PostCSS plugin to parse CSS and add vendor prefixes.
 
@@ -165,4 +166,4 @@ That runs `predeploy` (`npm run build`) and then `gh-pages -d build`. The `homep
 
 `public/404.html` sends unknown paths (such as a refresh on `/about`) back to the app so client-side routes keep working on GitHub Pages.
 
-Optional analytics and the embedded map read environment variables when they are set. Copy `.env.example` to `.env`. Both `VITE_*` and the older `REACT_APP_*` names work. The site builds and runs with them left blank: analytics stays off, and Contact links to Google Maps for Monmouth County instead of embedding a map.
+Optional analytics and the contact form read environment variables when they are set. Copy `.env.example` to `.env`. Analytics accepts `VITE_*` or the older `REACT_APP_*` names. EmailJS uses `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, and `VITE_EMAILJS_PUBLIC_KEY`. The site builds and runs with them left blank: analytics stays off, and Contact shows that the form is unavailable.

@@ -52,7 +52,7 @@ export const RecentProjects = [
         category: 'Recent',
         image: AllenhurstCleaners,
         title: 'Allenhurst Cleaners',
-        shortDescription: 'This web application integrates with the Google Maps API Platform and Google Analytics. Built with React and Material UI. Environment variable management and duel deployment, GH-Pages & Netlify.',
+        shortDescription: 'This web application integrates with the Google Maps API Platform and Google Analytics. Built with React and Material UI. Environment variable management and dual deployment, GH-Pages & Netlify.',
         longDescription: 'Allenhurst Cleaners is a web application designed to integrate with the Google Maps API Platform and Google Analytics. The app is built using React for the front-end and Material UI for the user interface components. It includes features such as environment variable management and dual deployment on both GitHub Pages and Netlify. The integration with Google Maps allows users to locate the cleaners easily, while Google Analytics provides insights into user interactions.',
         githubRepoLink: 'https://github.com/daydin14/allenhurstcleaners_v2',
         liveDemoLink: 'https://daydin14.github.io/allenhurstcleaners_v2/'
@@ -78,9 +78,9 @@ export const RecentProjects = [
     {
         category: 'Recent',
         image: WhatsAppClone,
-        title: 'WhatsApp -Clone',
+        title: 'WhatsApp Clone',
         shortDescription: 'A real-time messaging app clone built with React, Firebase, and Material-UI.',
-        longDescription: 'WhatsApp -Clone is a real-time messaging application that replicates the core features of WhatsApp. Built with React for the front-end, Firebase for the backend and real-time database, and Material-UI for the user interface components, this project demonstrates how to create a fully functional chat application. Features include user authentication, real-time messaging, and a responsive design. The app provides a seamless and interactive user experience, similar to the original WhatsApp application.',
+        longDescription: 'WhatsApp Clone is a real-time messaging application that replicates the core features of WhatsApp. Built with React for the front-end, Firebase for the backend and real-time database, and Material-UI for the user interface components, this project demonstrates how to create a fully functional chat application. Features include user authentication, real-time messaging, and a responsive design. The app provides a seamless and interactive user experience, similar to the original WhatsApp application.',
         githubRepoLink: 'https://github.com/daydin14/whatsapp-clone',
         liveDemoLink: ''
     },

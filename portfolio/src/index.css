@@ -229,48 +229,8 @@ select {
   border-radius: 0 999px 999px 0;
 }
 
-.drawer-root {
-  position: fixed;
-  inset: 0;
-  z-index: 45;
-}
-
-.drawer-backdrop {
-  position: absolute;
-  inset: 0;
-  border: 0;
-  background: rgba(14, 19, 22, 0.46);
-  cursor: pointer;
-}
-
-.drawer {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: min(20rem, 88vw);
-  background: var(--bg-elevated);
-  color: var(--text);
-  padding: 1.25rem;
-  box-shadow: var(--shadow);
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.drawer-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.75rem;
-}
-
-.drawer a {
-  color: var(--text);
-  text-decoration: none;
-  padding: 0.7rem 0.4rem;
-  border-bottom: 1px solid var(--line);
-  font-weight: 550;
+.site-header {
+  position: sticky;
 }
 
 .main-flow {
@@ -337,11 +297,23 @@ h3 {
   margin: 1rem 0 0;
 }
 
-.hero {
+.hero.section {
   display: grid;
+  place-items: stretch;
+  background: transparent;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.hero-content.hero-layout {
+  display: grid;
+  width: min(1120px, calc(100% - 2.5rem));
+  margin-inline: auto;
+  max-width: none;
+  padding: 0;
   gap: 2.5rem;
   align-items: center;
-  padding-top: 3.5rem;
+  justify-items: stretch;
 }
 
 .socials {
@@ -591,15 +563,20 @@ h3 {
   font-weight: 550;
 }
 
-.skill-chip svg {
-  width: 1.1rem;
-  height: 1.1rem;
+.skill-list .badge svg {
+  width: 1.05rem;
+  height: 1.05rem;
   flex: none;
+}
+
+.project-card .card-body p {
+  margin: 0;
+  color: var(--muted);
 }
 
 .contact-grid {
   display: grid;
-  gap: 1.5rem;
+  max-width: 40rem;
 }
 
 .contact-form,
@@ -662,61 +639,27 @@ html.dark .email-line a {
   min-height: 8rem;
 }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-height: 2.9rem;
-  border: 0;
-  border-radius: 999px;
-  background: var(--accent);
-  color: var(--accent-contrast);
-  font-weight: 700;
-  cursor: pointer;
-  text-decoration: none;
+.field small {
+  color: #b91c1c;
 }
 
-.btn:hover {
-  filter: brightness(1.08);
+html.dark .field small {
+  color: #fca5a5;
 }
 
-.form-hint {
-  margin: 0.7rem 0 0;
-  color: var(--muted);
-  font-size: 0.9rem;
+.honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
-.map-frame,
 .city-frame {
   width: 100%;
   border: 0;
   display: block;
   background: var(--bg);
-}
-
-.map-frame {
-  aspect-ratio: 4 / 3;
-  min-height: 16rem;
-  border-radius: var(--radius);
-}
-
-.map-fallback {
-  display: grid;
-  gap: 0.35rem;
-  align-content: center;
-  min-height: 16rem;
-  padding: 1.5rem;
-  text-decoration: none;
-  color: var(--text);
-  background:
-    linear-gradient(160deg, var(--accent-soft), transparent 55%),
-    var(--bg-elevated);
-}
-
-.map-fallback strong {
-  font-family: Fraunces, Georgia, serif;
-  font-size: 1.8rem;
 }
 
 .city {
@@ -848,15 +791,8 @@ html.dark .email-line a {
 }
 
 @media (min-width: 900px) {
-  .hero {
+  .hero-content.hero-layout {
     grid-template-columns: 1.15fr 0.85fr;
-    padding-top: 3.5rem;
-    padding-bottom: 2rem;
-  }
-
-  .contact-grid {
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-    align-items: stretch;
   }
 
   .about-layout {

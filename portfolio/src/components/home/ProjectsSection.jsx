@@ -27,7 +27,7 @@ export default function ProjectsSection() {
           <button
             key={category}
             type="button"
-            className="filter"
+            className={`btn btn-sm rounded-full ${selectedCategory === category ? 'btn-primary' : 'btn-ghost'}`}
             aria-pressed={selectedCategory === category}
             onClick={() => setSelectedCategory(category)}
           >
@@ -52,16 +52,20 @@ export default function ProjectsSection() {
       )}
       <div className="project-grid">
         {filteredProjects.map((project) => (
-          <article key={`${project.category}-${project.title}`} className="project-card">
+          <article key={`${project.category}-${project.title}`} className="card project-card border border-base-300 bg-base-100 shadow-xl">
             <button type="button" className="project-open" aria-label={project.title} onClick={() => setSelectedProject(project)}>
-              <img src={project.image} alt="" />
-              <div className="project-copy">
-                <span className="project-kicker">{project.category}</span>
-                <h3>{project.title}</h3>
+              <figure>
+                <img src={project.image} alt="" />
+              </figure>
+              <div className="card-body gap-2 text-left">
+                <span className="badge badge-outline badge-sm w-fit">{project.category}</span>
+                <h3 className="card-title">{project.title}</h3>
                 <p>{project.shortDescription}</p>
               </div>
             </button>
-            <ProjectLinks project={project} />
+            <div className="card-actions justify-end">
+              <ProjectLinks project={project} />
+            </div>
           </article>
         ))}
       </div>

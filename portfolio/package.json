@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "private": true,
   "homepage": "https://daydin14.github.io/",
   "type": "module",
@@ -15,6 +15,8 @@
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
+    "@emailjs/browser": "^5.0.3",
+    "daisyui": "^4.12.24",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-ga4": "^3.0.1",

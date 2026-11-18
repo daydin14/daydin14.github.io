@@ -8,15 +8,17 @@ export default function ThemeToggle() {
   const label = isDark ? 'Switch to light theme' : 'Switch to dark theme';
 
   return (
-    <button
-      type="button"
-      className="theme-toggle"
-      onClick={toggleTheme}
-      aria-pressed={isDark}
-      aria-label={label}
-      title={label}
-    >
-      {isDark ? <FiSun aria-hidden="true" /> : <FiMoon aria-hidden="true" />}
-    </button>
+    <label className="swap swap-rotate btn btn-ghost btn-circle theme-toggle">
+      <input
+        type="checkbox"
+        className="theme-controller"
+        value="dark"
+        checked={isDark}
+        onChange={toggleTheme}
+        aria-label={label}
+      />
+      <FiSun className="swap-on" aria-hidden="true" />
+      <FiMoon className="swap-off" aria-hidden="true" />
+    </label>
   );
 }

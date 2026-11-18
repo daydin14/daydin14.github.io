@@ -1,88 +1,21 @@
-import { AiOutlineDotNet } from 'react-icons/ai';
-import { BiLogoNetlify } from 'react-icons/bi';
-import { DiDotnet, DiPostgresql, DiVisualstudio } from 'react-icons/di';
-import {
-  FaCss3,
-  FaFigma,
-  FaGitAlt,
-  FaGithub,
-  FaGithubAlt,
-  FaHtml5,
-  FaMarkdown,
-  FaNode,
-  FaNpm,
-  FaPython,
-  FaReact,
-  FaSlack,
-  FaTrello,
-} from 'react-icons/fa';
-import { IoLogoJavascript } from 'react-icons/io5';
-import { RiFirebaseLine, RiTailwindCssFill } from 'react-icons/ri';
-import {
-  SiBabel,
-  SiBlazor,
-  SiD3,
-  SiDaisyui,
-  SiDjango,
-  SiEslint,
-  SiExpress,
-  SiGithubpages,
-  SiGooglemaps,
-  SiGoogleanalytics,
-  SiMongodb,
-  SiMui,
-  SiMysql,
-  SiNuget,
-  SiPostman,
-  SiSharp,
-  SiTypescript,
-  SiWebpack,
-} from 'react-icons/si';
-import { TbBrandAzure } from 'react-icons/tb';
-import { VscVscode } from 'react-icons/vsc';
+import { FaCss3, FaFileCsv, FaGitAlt, FaHtml5, FaPython, FaReact } from 'react-icons/fa';
+import { SiBlazor, SiDotnet, SiJavascript, SiJson, SiMarkdown, SiSharp } from 'react-icons/si';
+import { TbSql } from 'react-icons/tb';
 
 const skillIcons = {
-  SiVisualstudio: DiVisualstudio,
-  SiVisualstudiocode: VscVscode,
   FaGitAlt,
-  FaGithub,
-  FaGithubAlt,
-  SiGithubpages,
-  FaSlack,
-  FaTrello,
-  FaFigma,
-  SiPostman,
-  SiCsharp: SiSharp,
-  SiTypescript,
-  IoLogoJavascript,
-  FaPython,
-  DiDotnet,
-  AiOutlineDotNet,
-  SiBlazor,
-  FaReact,
-  FaNode,
-  SiExpress,
-  SiD3Dotjs: SiD3,
-  SiDjango,
-  SiMysql,
-  SiMongodb,
-  DiPostgresql,
-  SiMicrosoftazure: TbBrandAzure,
-  BiLogoNetlify,
-  FaCss3,
-  RiTailwindCssFill,
-  SiMui,
-  SiDaisyui,
-  SiEslint,
-  FaNpm,
-  SiNuget,
-  SiWebpack,
-  SiBabel,
-  SiGooglemaps,
-  SiGoogleanalytics,
-  RiFirebaseLine,
-  FaMarkdown,
   FaHtml5,
+  FaCss3,
+  SiJavascript,
+  FaReact,
+  FaPython,
+  SiSharp,
+  SiBlazor,
+  SiDotnet,
+  TbSql,
+  SiJson,
+  FaFileCsv,
+  SiMarkdown,
 };
 
 export default skillIcons;

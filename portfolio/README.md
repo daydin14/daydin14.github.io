@@ -4,13 +4,19 @@
 - **Responsive Design**: Ensures the application works well on both desktop and mobile devices.
 - **Theme Toggle**: Allows users to switch between light and dark themes for better accessibility and user experience.
 - **Progress Bar**: Displays a progress bar to indicate page status or length down the page.
-- **Google Maps Integration**: Embeds Google Maps for county-based location features and services.
 - **Google Analytics**: Tracks and reports website traffic for better insights and analytics.
 - **React Icons**: Utilizes React Icons for a wide range of icons and symbols.
 - **Contact Form**: Includes a contact form for users to get in touch easily.
 - **Gradients**: Implements gradient backgrounds and elements for a modern and visually appealing design.
 
 # Commit History
+
+### Version 1.1.1
+
+- Brought DaisyUI back for the navbar, drawer, hero, cards, badges, theme control, toasts, and footer.
+- Shortened the skills list and switched the contact form to EmailJS. Removed the map.
+
+---
 
 ### Version 1.1.0
 
