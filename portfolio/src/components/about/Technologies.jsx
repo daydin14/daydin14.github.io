@@ -27,10 +27,12 @@ export default function Technologies() {
         <li><strong>react-ga4</strong>: A library for integrating Google Analytics 4 with React applications.</li>
         <li><strong>react-gtm-module</strong>: A library for integrating Google Tag Manager with React applications.</li>
         <li><strong>react-icons</strong>: A library of icon components used for skills, social links, and project actions.</li>
+        <li><strong>EmailJS</strong>: Sends contact form messages from the page.</li>
       </ul>
       <h3>CSS Frameworks and Tools</h3>
       <ul>
         <li><strong>Tailwind CSS</strong>: A utility-first CSS framework for rapid UI development.</li>
+        <li><strong>DaisyUI</strong>: A plugin for Tailwind CSS that provides pre-designed components.</li>
         <li><strong>PostCSS</strong>: A tool for transforming CSS with JavaScript plugins.</li>
         <li><strong>Autoprefixer</strong>: A PostCSS plugin to parse CSS and add vendor prefixes.</li>
       </ul>

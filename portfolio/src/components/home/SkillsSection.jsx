@@ -1,4 +1,4 @@
-import SkillsDetails from '../../data/skills';
+import skills from '../../data/skills';
 import skillIcons from './skillIcons';
 
 export default function SkillsSection() {
@@ -8,27 +8,17 @@ export default function SkillsSection() {
         <p className="eyebrow">03</p>
         <h2 id="skills-heading">Skills</h2>
       </div>
-      <div className="skill-groups">
-        {SkillsDetails.Categories.map((category) => {
-          const skills = SkillsDetails.Skills.filter((skill) => skill.category === category.key);
+      <ul className="skill-list">
+        {skills.map((skill) => {
+          const Icon = skillIcons[skill.icon];
           return (
-            <section key={category.key} className="skill-group" aria-labelledby={`skill-${category.key}`}>
-              <h3 id={`skill-${category.key}`}>{category.title}</h3>
-              <ul className="skill-list">
-                {skills.map((skill) => {
-                  const Icon = skillIcons[skill.icon];
-                  return (
-                    <li key={`${skill.category}-${skill.name}`} className="skill-chip">
-                      {Icon ? <Icon aria-hidden="true" /> : null}
-                      <span>{skill.name}</span>
-                    </li>
-                  );
-                })}
-              </ul>
-            </section>
+            <li key={skill.name} className="badge badge-lg gap-2 border-base-300 bg-base-100 py-4 font-medium text-base-content">
+              {Icon ? <Icon aria-hidden="true" /> : null}
+              <span>{skill.name}</span>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </section>
   );
 }

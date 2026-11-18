@@ -4,7 +4,8 @@ import heroPhoto from '../../assets/images/hero/hero-bg.jpg';
 
 export default function Hero() {
   return (
-    <section id="home" className="section hero shell">
+    <section id="home" className="hero section bg-transparent min-h-0">
+      <div className="hero-content hero-layout max-w-none">
       <div className="hero-copy">
         <p className="eyebrow">daydin14</p>
         <h1>David Aydin</h1>
@@ -24,6 +25,7 @@ export default function Hero() {
       <div className="hero-photos">
         <img className="portrait" src={profilePicture} alt="Portrait of David Aydin" />
         <img className="scene" src={heroPhoto} alt="David Aydin on a river" />
+      </div>
       </div>
     </section>
   );

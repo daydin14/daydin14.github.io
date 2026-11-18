@@ -18,6 +18,7 @@ const siteLinks = [
 
 export default function SiteHeader() {
   const location = useLocation();
+  const drawerId = useId();
   const menuId = useId();
   const [open, setOpen] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -53,54 +54,74 @@ export default function SiteHeader() {
     return () => document.removeEventListener('keydown', onKeyDown);
   }, [open]);
 
+  const menu = (
+    <>
+      {homeLinks.map((link) => (
+        <li key={link.to}>
+          <Link to={link.to} onClick={() => setOpen(false)}>{link.label}</Link>
+        </li>
+      ))}
+      {siteLinks.map((link) => (
+        <li key={link.to}>
+          <Link to={link.to} onClick={() => setOpen(false)}>{link.label}</Link>
+        </li>
+      ))}
+    </>
+  );
+
   return (
-    <header className="site-header">
-      <div className="shell header-bar">
-        <Link to="/" className="brand">David Aydin</Link>
-        <nav className="desktop-nav" aria-label="Primary">
-          {sectionLinks.map((link) => (
-            <Link key={link.to} to={link.to} className="nav-link">
-              {link.label}
-            </Link>
-          ))}
-          <Link to={onAboutPage ? '/' : '/about'} className="nav-link" aria-current={onAboutPage ? 'page' : undefined}>
-            {onAboutPage ? 'Portfolio' : 'About this site'}
-          </Link>
-        </nav>
-        <div className="header-actions">
-          <ThemeToggle />
-          <button
-            type="button"
-            className="menu-button"
-            aria-expanded={open}
-            aria-controls={menuId}
-            onClick={() => setOpen((current) => !current)}
-          >
-            <span className="sr-only">{open ? 'Close menu' : 'Open menu'}</span>
-            <span className="menu-bars" aria-hidden="true" />
-          </button>
-        </div>
-        <div className="progress" style={{ width: `${progress}%` }} aria-hidden="true" />
-      </div>
-      {open && (
-        <div className="drawer-root">
-          <button type="button" className="drawer-backdrop" aria-label="Close menu" onClick={() => setOpen(false)} />
-          <nav id={menuId} className="drawer" aria-label="Mobile">
-            <div className="drawer-header">
-              <span className="brand">David Aydin</span>
-              <button type="button" className="icon-button" onClick={() => setOpen(false)} aria-label="Close menu">
-                <span aria-hidden="true">×</span>
+    <div className="drawer">
+      <input
+        id={drawerId}
+        type="checkbox"
+        className="drawer-toggle"
+        checked={open}
+        onChange={(event) => setOpen(event.target.checked)}
+      />
+      <div className="drawer-content">
+        <header className="site-header">
+          <div className="navbar shell min-h-16 px-0">
+            <div className="navbar-start gap-1">
+              <button
+                type="button"
+                className="btn btn-ghost btn-circle drawer-button lg:hidden"
+                aria-expanded={open}
+                aria-controls={menuId}
+                onClick={() => setOpen((current) => !current)}
+              >
+                <span className="sr-only">{open ? 'Close menu' : 'Open menu'}</span>
+                <span className="menu-bars" aria-hidden="true" />
               </button>
+              <Link to="/" className="brand">David Aydin</Link>
             </div>
-            {homeLinks.map((link) => (
-              <Link key={link.to} to={link.to}>{link.label}</Link>
-            ))}
-            {siteLinks.map((link) => (
-              <Link key={link.to} to={link.to}>{link.label}</Link>
-            ))}
-          </nav>
-        </div>
-      )}
-    </header>
+            <nav className="navbar-center hidden lg:flex" aria-label="Primary">
+              <ul className="menu menu-horizontal px-1">
+                {sectionLinks.map((link) => (
+                  <li key={link.to}>
+                    <Link to={link.to}>{link.label}</Link>
+                  </li>
+                ))}
+                <li>
+                  <Link to={onAboutPage ? '/' : '/about'} aria-current={onAboutPage ? 'page' : undefined}>
+                    {onAboutPage ? 'Portfolio' : 'About this site'}
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+            <div className="navbar-end">
+              <ThemeToggle />
+            </div>
+          </div>
+          <div className="progress" style={{ width: `${progress}%` }} aria-hidden="true" />
+        </header>
+      </div>
+      <div className="drawer-side z-50">
+        <label htmlFor={drawerId} aria-label="Close menu" className="drawer-overlay" />
+        <nav id={menuId} className="menu min-h-full w-72 bg-base-100 p-4 text-base-content" aria-label="Mobile">
+          <p className="brand px-4 py-3">David Aydin</p>
+          <ul>{menu}</ul>
+        </nav>
+      </div>
+    </div>
   );
 }

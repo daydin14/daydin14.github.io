@@ -18,13 +18,14 @@
     />
     <script>
       (function () {
+        var theme = 'light';
         try {
-          if (localStorage.getItem('theme') === 'dark') {
-            document.documentElement.classList.add('dark');
-          }
+          if (localStorage.getItem('theme') === 'dark') theme = 'dark';
         } catch (error) {
           /* Storage can be blocked; the default theme still applies. */
         }
+        document.documentElement.setAttribute('data-theme', theme);
+        if (theme === 'dark') document.documentElement.classList.add('dark');
 
         var params = new URLSearchParams(location.search);
         var redirect = params.get('redirect');

@@ -13,7 +13,11 @@ export const googleTagManagerId = readEnv(
   'VITE_GOOGLE_TAG_MANAGER_ID',
   'REACT_APP_GOOGLE_TAG_MANAGER_ID',
 );
-export const googleMapsApiKey = readEnv(
-  'VITE_GOOGLE_MAPS_API_KEY',
-  'REACT_APP_GOOGLE_MAPS_API_KEY',
+
+export const emailJsServiceId = readEnv('VITE_EMAILJS_SERVICE_ID');
+export const emailJsTemplateId = readEnv('VITE_EMAILJS_TEMPLATE_ID');
+export const emailJsPublicKey = readEnv('VITE_EMAILJS_PUBLIC_KEY');
+
+export const emailJsConfigured = Boolean(
+  emailJsServiceId && emailJsTemplateId && emailJsPublicKey,
 );
