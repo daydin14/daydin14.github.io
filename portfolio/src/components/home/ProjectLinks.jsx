@@ -4,23 +4,24 @@ function IconLink({ href, label, children }) {
   if (!href) return null;
 
   return (
-    <a
-      className="icon-button"
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      title={label}
-      onClick={(event) => event.stopPropagation()}
-    >
-      {children}
-      <span className="sr-only">{label}</span>
-    </a>
+    <div className="tooltip" data-tip={label}>
+      <a
+        className="btn btn-ghost btn-sm btn-circle"
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={(event) => event.stopPropagation()}
+      >
+        {children}
+        <span className="sr-only">{label}</span>
+      </a>
+    </div>
   );
 }
 
 export default function ProjectLinks({ project }) {
   return (
-    <div className="project-links">
+    <div className="flex justify-end gap-1">
       <IconLink href={project.githubRepoLinks?.frontend} label="Frontend">
         <FaCode aria-hidden="true" />
       </IconLink>

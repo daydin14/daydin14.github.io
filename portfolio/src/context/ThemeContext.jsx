@@ -1,27 +1,33 @@
 import { createContext, useEffect, useMemo, useState } from 'react';
+import { themeFromPreference } from '../data/themes';
 
 export const ThemeContext = createContext({
   theme: 'light',
-  toggleTheme: () => {},
+  setTheme: () => {},
 });
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
+  const [theme, setThemeState] = useState(themeFromPreference);
 
   useEffect(() => {
-    localStorage.setItem('theme', theme);
     document.documentElement.setAttribute('data-theme', theme);
-    document.documentElement.classList.toggle('dark', theme === 'dark');
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) {
-      meta.setAttribute('content', theme === 'dark' ? '#0e1316' : '#f3efe7');
+      meta.setAttribute('content', getComputedStyle(document.body).backgroundColor);
     }
   }, [theme]);
 
   const value = useMemo(
     () => ({
       theme,
-      toggleTheme: () => setTheme((current) => (current === 'light' ? 'dark' : 'light')),
+      setTheme: (next) => {
+        try {
+          localStorage.setItem('theme', next);
+        } catch {
+          /* The theme still applies for this visit. */
+        }
+        setThemeState(next);
+      },
     }),
     [theme],
   );

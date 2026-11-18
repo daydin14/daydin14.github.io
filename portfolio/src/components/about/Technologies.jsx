@@ -1,6 +1,7 @@
 export default function Technologies() {
   return (
-    <article id="technologies" className="panel" aria-labelledby="technologies-heading">
+    <article id="technologies" className="card scroll-mt-24 bg-base-200 shadow-md" aria-labelledby="technologies-heading">
+      <div className="card-body">
       <h2 id="technologies-heading">Technologies Used</h2>
       <h3>IDEs/Editors</h3>
       <ul>
@@ -45,6 +46,7 @@ export default function Technologies() {
         <li><strong>@eslint/js</strong>: ESLint&apos;s built-in JavaScript rules.</li>
         <li><strong>globals</strong>: A library of global variables for ESLint.</li>
       </ul>
+      </div>
     </article>
   );
 }
