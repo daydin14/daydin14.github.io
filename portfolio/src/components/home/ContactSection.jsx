@@ -178,7 +178,7 @@ export default function ContactSection() {
                   <textarea
                     id="contact-message"
                     name="message"
-                    className="grow bg-transparent"
+                    className="w-full grow bg-transparent"
                     placeholder="Your Message"
                     rows="4"
                     maxLength={5000}

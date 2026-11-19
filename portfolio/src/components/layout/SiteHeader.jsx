@@ -41,6 +41,12 @@ function scrollToSection(id) {
   window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
 }
 
+function onBrandClick(event, pathname) {
+  if (pathname !== '/') return;
+  event.preventDefault();
+  scrollToSection('home');
+}
+
 export default function SiteHeader() {
   const location = useLocation();
   const stepsRef = useRef(null);
@@ -113,7 +119,13 @@ export default function SiteHeader() {
       <header data-site-header className="fixed inset-x-0 top-0 z-40 border-b border-base-300 bg-base-100/90 shadow-sm backdrop-blur">
         <div className="navbar min-h-14 w-full px-2">
           <div className="navbar-start">
-            <Link to="/" className="btn btn-ghost px-2 text-lg font-display normal-case sm:text-xl">David Aydin</Link>
+            <Link
+              to="/"
+              className="btn btn-ghost px-2 text-lg font-display normal-case sm:text-xl"
+              onClick={(event) => onBrandClick(event, location.pathname)}
+            >
+              David Aydin
+            </Link>
           </div>
           <div className="navbar-end gap-1">
             <Link to={onAboutPage ? '/' : '/about'} className="btn btn-ghost btn-sm" aria-current={onAboutPage ? 'page' : undefined}>
@@ -124,18 +136,27 @@ export default function SiteHeader() {
         </div>
         <nav ref={stepsRef} className="hidden w-full overflow-x-auto px-3 pb-2 md:block" aria-label="Sections">
           <ul className="steps mx-auto w-max min-w-full">
-            {sections.map((section, index) => (
-              <li key={section.id} className={`step whitespace-nowrap ${index <= activeIndex ? 'step-primary' : ''}`}>
-                <button
-                  type="button"
-                  className="btn btn-ghost btn-xs h-auto min-h-0 px-1 font-medium"
+            {sections.map((section, index) => {
+              const Icon = section.icon;
+              return (
+                <li
+                  key={section.id}
+                  className={`step relative whitespace-nowrap ${index <= activeIndex ? 'step-primary' : ''}`}
                   aria-current={section.id === activeId ? 'step' : undefined}
-                  onClick={() => scrollToSection(section.id)}
                 >
-                  {section.label}
-                </button>
-              </li>
-            ))}
+                  <span className="step-icon">
+                    <Icon aria-hidden="true" className="size-4" />
+                  </span>
+                  <span className="px-1 text-sm font-medium">{section.label}</span>
+                  <button
+                    type="button"
+                    className="absolute inset-0 z-10 cursor-pointer"
+                    aria-label={section.label}
+                    onClick={() => scrollToSection(section.id)}
+                  />
+                </li>
+              );
+            })}
           </ul>
         </nav>
         <progress
