@@ -16,12 +16,10 @@ export default function Hero() {
             Open to Connect
           </span>
           <div className="hover-3d w-44 sm:w-52">
-            <div className="aura aura-glow w-full text-primary">
-              <div className="mockup-phone">
-                <div className="mockup-phone-camera" />
-                <div className="mockup-phone-display">
-                  <img src={profilePicture} alt="Portrait of David Aydin" />
-                </div>
+            <div className="mockup-phone">
+              <div className="mockup-phone-camera" />
+              <div className="mockup-phone-display">
+                <img src={profilePicture} alt="Portrait of David Aydin" />
               </div>
             </div>
             {tiltZones.map((zone) => <div key={zone} aria-hidden="true" />)}

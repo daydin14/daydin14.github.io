@@ -58,9 +58,6 @@ export default function ProjectModal({ project, onClose }) {
         ) : (
           <div className="skeleton my-4 aspect-video w-full" aria-hidden="true" />
         )}
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="badge badge-primary badge-outline">{project.category}</span>
-        </div>
         <p className="text-base-content/80">{project.longDescription}</p>
         <div className="modal-action flex-wrap">
           <ProjectLinks project={project} />
