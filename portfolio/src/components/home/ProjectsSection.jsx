@@ -9,11 +9,18 @@ const categories = ['Recent', 'All', 'Udemy', 'GA', 'SJU'];
 const standoutTitles = new Set(['Chalkboard Games', 'JokerBlazor']);
 const pageSize = 6;
 
+function ProjectImage({ project }) {
+  if (!project.image) {
+    return <div className="skeleton aspect-video w-full" aria-hidden="true" />;
+  }
+  return <img className="aspect-video w-full object-cover" src={project.image} alt="" />;
+}
+
 function ProjectPreview({ project }) {
   if (!standoutTitles.has(project.title)) {
     return (
       <figure>
-        <img className="aspect-video w-full object-cover" src={project.image} alt="" />
+        <ProjectImage project={project} />
       </figure>
     );
   }
@@ -25,7 +32,7 @@ function ProjectPreview({ project }) {
       <div className="mockup-browser-toolbar">
         <div className="input truncate">{address}</div>
       </div>
-      <img className="aspect-video w-full bg-base-200 object-cover" src={project.image} alt="" />
+      <ProjectImage project={project} />
     </div>
   );
 }
@@ -69,7 +76,6 @@ function ProjectCard({ project, onOpen }) {
     >
       <ProjectPreview project={project} />
       <div className="card-body">
-        <span className="badge badge-primary badge-outline w-fit">{project.category}</span>
         <h3 className="card-title">{project.title}</h3>
         <p className="line-clamp-4 text-base-content/80">{project.shortDescription}</p>
         <div className="card-actions mt-auto flex-wrap items-center justify-end">

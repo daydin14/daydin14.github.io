@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
+import { FaTimes } from 'react-icons/fa';
 import ProjectLinks from './ProjectLinks';
-import techBadges from './techBadges';
 
 export default function ProjectModal({ project, onClose }) {
   const dialogRef = useRef(null);
@@ -49,16 +49,17 @@ export default function ProjectModal({ project, onClose }) {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.25 }}
         >
-        <button type="button" className="btn btn-sm btn-circle btn-ghost absolute right-3 top-3" data-close onClick={onClose} aria-label="Close">
-          ×
+        <button type="button" className="btn btn-circle btn-ghost absolute right-3 top-3 size-14 text-2xl" data-close onClick={onClose} aria-label="Close">
+          <FaTimes aria-hidden="true" className="size-7" />
         </button>
-        <h2 id="project-dialog-title" className="pr-10 text-3xl font-bold">{project.title}</h2>
-        <img className="my-4 aspect-video w-full rounded-box object-cover" src={project.image} alt={project.title} />
+        <h2 id="project-dialog-title" className="pr-16 text-3xl font-bold">{project.title}</h2>
+        {project.image ? (
+          <img className="my-4 aspect-video w-full rounded-box object-cover" src={project.image} alt={project.title} />
+        ) : (
+          <div className="skeleton my-4 aspect-video w-full" aria-hidden="true" />
+        )}
         <div className="mb-4 flex flex-wrap gap-2">
           <span className="badge badge-primary badge-outline">{project.category}</span>
-          {techBadges(project).map((tech) => (
-            <span key={tech} className="badge badge-outline">{tech}</span>
-          ))}
         </div>
         <p className="text-base-content/80">{project.longDescription}</p>
         <div className="modal-action flex-wrap">

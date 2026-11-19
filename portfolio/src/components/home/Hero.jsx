@@ -8,18 +8,20 @@ export default function Hero() {
     <section id="home" className="hero bg-base-200">
       <div className="hero-content w-full max-w-6xl flex-col gap-10 py-16 lg:flex-row lg:py-24">
         <div className="indicator">
-          <span className="indicator-item badge badge-success gap-2">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success-content opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-success-content" />
+          <span className="indicator-item badge badge-primary gap-2">
+            <span className="relative flex h-2 w-2" aria-hidden="true">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-content opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-primary-content" />
             </span>
             Open to Connect
           </span>
           <div className="hover-3d w-44 sm:w-52">
-            <div className="mockup-phone">
-              <div className="mockup-phone-camera" />
-              <div className="mockup-phone-display">
-                <img src={profilePicture} alt="Portrait of David Aydin" />
+            <div className="aura aura-glow w-full text-primary">
+              <div className="mockup-phone">
+                <div className="mockup-phone-camera" />
+                <div className="mockup-phone-display">
+                  <img src={profilePicture} alt="Portrait of David Aydin" />
+                </div>
               </div>
             </div>
             {tiltZones.map((zone) => <div key={zone} aria-hidden="true" />)}

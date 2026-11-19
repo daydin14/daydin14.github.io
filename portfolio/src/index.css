@@ -66,8 +66,13 @@ h2,
 }
 
 .aura > .card,
-.aura > .mockup-browser {
+.aura > .mockup-browser,
+.aura > .mockup-phone {
   color: var(--color-base-content);
+}
+
+#home .hover-3d > .aura {
+  overflow: visible;
 }
 
 #skills .hover-3d {
@@ -79,6 +84,38 @@ h2,
 #skills .hover-3d > :first-child {
   width: 100%;
   height: 100%;
+}
+
+#contact label.textarea {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+}
+
+#contact label.textarea > textarea {
+  width: 100%;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+#skills .aura::before,
+#skills .aura::after,
+#home .aura::before,
+#home .aura::after {
+  width: 118%;
+  height: 118%;
+}
+
+#skills .aura::before,
+#home .aura::before {
+  filter: blur(1rem);
+  opacity: 0.85;
+}
+
+#skills .aura::after,
+#home .aura::after {
+  filter: blur(2.6rem);
+  opacity: 0.5;
 }
 
 @media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
