@@ -2,10 +2,15 @@
 
 // Recents
 import DrinkGenerator from '../assets/images/project-cards/Recent/drink-generator.webp'
-import PasswordGenerator from '../assets/images/project-cards/Recent/password-generator.png'
-import ChalkboardGames from '../assets/images/project-cards/Recent/chalkboard-games.png'
+import FileConverter from '../assets/images/project-cards/Recent/file-converter.webp'
+import FileConverterMobile from '../assets/images/project-cards/Recent/file-converter-mobile.webp'
+import PasswordGenerator from '../assets/images/project-cards/Recent/password-generator.webp'
+import PasswordGeneratorMobile from '../assets/images/project-cards/Recent/password-generator-mobile.webp'
+import ChalkboardGames from '../assets/images/project-cards/Recent/chalkboard-games.webp'
+import ChalkboardGamesMobile from '../assets/images/project-cards/Recent/chalkboard-games-mobile.webp'
 import AllenhurstCleaners from '../assets/images/project-cards/Recent/allenhurst-cleaners.png'
-import JokerBlazor from '../assets/images/project-cards/Recent/joker-blazor.png'
+import JokerBlazor from '../assets/images/project-cards/Recent/joker-blazor.webp'
+import JokerBlazorMobile from '../assets/images/project-cards/Recent/joker-blazor-mobile.webp'
 import WhatsAppClone from '../assets/images/project-cards/Recent/whatsapp-clone.png'
 
 // GA
@@ -34,6 +39,18 @@ export const RecentProjects = [
         category: 'Recent',
         date: '2026-11-19',
         tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'daisyUI'],
+        image: FileConverter,
+        imageMobile: FileConverterMobile,
+        title: 'File Converter',
+        shortDescription: 'Convert images, PDFs, and data files in the browser. Nothing is uploaded to a server. Batch results can be downloaded as a ZIP.',
+        longDescription: 'File Converter is a free, private, browser-only converter for images, PDFs, and data files such as CSV, JSON, and XLSX. Files stay on the device and are never uploaded to a server. Several files can be converted together and downloaded as a ZIP. The app is built with React, TypeScript, and Vite, and styled with Tailwind CSS and daisyUI. It is deployed on GitHub Pages.',
+        githubRepoLink: 'https://github.com/daydin14/file-converter',
+        liveDemoLink: 'https://daydin14.github.io/file-converter/'
+    },
+    {
+        category: 'Recent',
+        date: '2026-11-19',
+        tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'daisyUI'],
         badges: ['Remade 2026'],
         image: DrinkGenerator,
         title: 'Drink Generator',
@@ -44,25 +61,42 @@ export const RecentProjects = [
     },
     {
         category: 'Recent',
-        date: '2024-10-08',
-        tags: ['JavaScript', 'React', 'Tailwind CSS', 'daisyUI'],
+        date: '2026-11-19',
+        tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'daisyUI'],
+        badges: ['Remade 2026'],
         image: PasswordGenerator,
+        imageMobile: PasswordGeneratorMobile,
         title: 'Password Generator',
-        shortDescription: 'A responsive React app for generating secure passwords with customizable options. Features include configurable settings for password length and character types, live preview, and copy-to-clipboard functionality. Utilizes Tailwind CSS, DaisyUI, and ESLint. Deployed on GitHub Pages.',
-        longDescription: 'Password Generator is a responsive React application designed to help users create secure passwords with customizable options. The app allows users to configure settings for password length and character types, providing a live preview of the generated password. It also includes a convenient copy-to-clipboard functionality. The project utilizes Tailwind CSS for styling, DaisyUI for UI components, and ESLint for code quality. The application is deployed on GitHub Pages, making it easily accessible online.',
+        shortDescription: 'Create cryptographically secure passwords in the browser, with optional dash grouping by 3, 4, or 5 characters. A 2026 remake.',
+        longDescription: 'Password Generator is a 2026 remake for creating cryptographically secure passwords in the browser with crypto.getRandomValues. Length and character sets are configurable, and the password can be grouped with dashes every 3, 4, or 5 characters. The app is built with React 19, TypeScript, and Vite, and styled with Tailwind CSS and daisyUI. It is deployed on GitHub Pages.',
         githubRepoLink: 'https://github.com/daydin14/password-generator',
-        liveDemoLink: 'https://daydin14.github.io/password-generator'
+        liveDemoLink: 'https://daydin14.github.io/password-generator/'
     },
     {
         category: 'Recent',
-        date: '2024-10-04',
-        tags: ['JavaScript', 'React', 'Tailwind CSS', 'daisyUI'],
+        date: '2026-11-19',
+        tags: ['React', 'Vite', 'Tailwind CSS', 'daisyUI', 'JavaScript'],
+        badges: ['Remade 2026'],
         image: ChalkboardGames,
+        imageMobile: ChalkboardGamesMobile,
         title: 'Chalkboard Games',
-        shortDescription: 'Chalkboard Games is a web application that hosts a collection of classic games, including Tic-Tac-Toe, Connect 4, and Snake. Built using React, Tailwind CSS and DaisyUI. Deployed on GH-Pages.',
-        longDescription: 'Chalkboard Games is a web application that offers a collection of classic games, including Tic-Tac-Toe, Connect 4, and Snake. The app is built using React for the front-end, Tailwind CSS for styling, and DaisyUI for UI components. It provides an engaging and interactive gaming experience for users. The project is deployed on GitHub Pages, allowing users to access and play the games online.',
+        shortDescription: 'Play classic games in the browser, including Dots & Boxes, Battleship, Connect 4, Hangman, and Snake. Rebuilt in 2026 so every game is playable.',
+        longDescription: 'Chalkboard Games is a 2026 remake of a collection of classic browser games. Dots & Boxes and Battleship are finished, and Connect 4, Hangman, Snake, and the other games are playable too. The app is built with Vite, React 19, Tailwind CSS, and daisyUI 5. It is deployed on GitHub Pages.',
         githubRepoLink: 'https://github.com/daydin14/chalkboard-games',
         liveDemoLink: 'https://daydin14.github.io/chalkboard-games/'
+    },
+    {
+        category: 'Recent',
+        date: '2026-11-19',
+        tags: ['C#', 'Blazor', '.NET'],
+        badges: ['Remade 2026'],
+        image: JokerBlazor,
+        imageMobile: JokerBlazorMobile,
+        title: 'JokerBlazor',
+        shortDescription: 'A standalone Blazor WebAssembly app that serves programming jokes from JokeAPI, with light and dark themes.',
+        longDescription: 'JokerBlazor is a 2026 remake: a standalone Blazor WebAssembly app on .NET 10. It loads programming jokes from JokeAPI and can switch between light and dark themes. The app is deployed on GitHub Pages.',
+        githubRepoLink: 'https://github.com/daydin14/JokerBlazor',
+        liveDemoLink: 'https://daydin14.github.io/JokerBlazor/'
     },
     {
         category: 'Recent',
@@ -74,17 +108,6 @@ export const RecentProjects = [
         longDescription: 'Allenhurst Cleaners is a web application designed to integrate with the Google Maps API Platform and Google Analytics. The app is built using React for the front-end and Material UI for the user interface components. It includes features such as environment variable management and dual deployment on both GitHub Pages and Netlify. The integration with Google Maps allows users to locate the cleaners easily, while Google Analytics provides insights into user interactions.',
         githubRepoLink: 'https://github.com/daydin14/allenhurstcleaners_v2',
         liveDemoLink: 'https://daydin14.github.io/allenhurstcleaners_v2/'
-    },
-    {
-        category: 'Recent',
-        date: '2024-08-17',
-        tags: ['C#', '.NET', 'Blazor', 'MudBlazor'],
-        image: JokerBlazor,
-        title: 'JokerBlazor',
-        shortDescription: 'JokerBlazor is a Blazor Web Application that delivers interactive web experiences with real-time updates and humor through JokeAPI integration and MudBlazor components.',
-        longDescription: 'JokerBlazor is a Blazor Web Application designed to deliver interactive web experiences with real-time updates and humor. The app integrates with JokeAPI to fetch and display programming jokes, providing a fun and engaging user experience. It utilizes MudBlazor components for the user interface, ensuring a modern and responsive design. JokerBlazor showcases the capabilities of Blazor for building dynamic web applications with real-time data updates.',
-        githubRepoLink: 'https://github.com/daydin14/JokerBlazor',
-        liveDemoLink: ''
     },
     {
         category: 'Recent',

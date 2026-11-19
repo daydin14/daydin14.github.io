@@ -60,7 +60,14 @@ export default function ProjectModal({ project, onClose }) {
           ))}
         </div>
         {project.image ? (
-          <img className="my-4 aspect-video w-full rounded-box object-cover" src={project.image} alt={project.title} />
+          project.imageMobile ? (
+            <picture>
+              <source media="(max-width: 767px)" srcSet={project.imageMobile} />
+              <img className="my-4 aspect-video w-full rounded-box object-cover" src={project.image} alt={project.title} />
+            </picture>
+          ) : (
+            <img className="my-4 aspect-video w-full rounded-box object-cover" src={project.image} alt={project.title} />
+          )
         ) : (
           <div className="skeleton my-4 aspect-video w-full" aria-hidden="true" />
         )}
