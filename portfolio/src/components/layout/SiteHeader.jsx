@@ -1,34 +1,54 @@
-import { useEffect, useId, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import {
+  FaCity,
+  FaEnvelope,
+  FaFolderOpen,
+  FaHome,
+  FaLaptopCode,
+  FaListUl,
+  FaSitemap,
+  FaStar,
+  FaUser,
+} from 'react-icons/fa';
 import ThemePicker from './ThemePicker';
 
-const homeLinks = [
-  { to: '/#home', label: 'Home' },
-  { to: '/#about', label: 'About' },
-  { to: '/#projects', label: 'Projects' },
-  { to: '/#github-city', label: 'GitHub City' },
-  { to: '/#skills', label: 'Skills' },
-  { to: '/#contact', label: 'Contact' },
+const homeSections = [
+  { id: 'home', label: 'Home', short: 'Home', icon: FaHome },
+  { id: 'about', label: 'About', short: 'About', icon: FaUser },
+  { id: 'projects', label: 'Projects', short: 'Projects', icon: FaFolderOpen },
+  { id: 'github-city', label: 'GitHub City', short: 'City', icon: FaCity },
+  { id: 'skills', label: 'Skills', short: 'Skills', icon: FaStar },
+  { id: 'contact', label: 'Contact', short: 'Contact', icon: FaEnvelope },
 ];
 
-const siteLinks = [
-  { to: '/about#features', label: 'Features' },
-  { to: '/about#technologies', label: 'Technologies' },
-  { to: '/about#project-structure', label: 'Project Structure' },
+const aboutSections = [
+  { id: 'features', label: 'Features', short: 'Features', icon: FaListUl },
+  { id: 'technologies', label: 'Technologies', short: 'Tech', icon: FaLaptopCode },
+  { id: 'project-structure', label: 'Project Structure', short: 'Structure', icon: FaSitemap },
 ];
+
+function headerOffset() {
+  const raw = getComputedStyle(document.documentElement).getPropertyValue('--site-header-offset');
+  const value = parseFloat(raw);
+  return Number.isFinite(value) ? value : 84;
+}
+
+function scrollToSection(id) {
+  const node = document.getElementById(id);
+  if (!node) return;
+  const top = node.getBoundingClientRect().top + window.scrollY - headerOffset();
+  window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+}
 
 export default function SiteHeader() {
   const location = useLocation();
-  const drawerId = useId();
-  const menuId = useId();
-  const [open, setOpen] = useState(false);
+  const stepsRef = useRef(null);
   const [progress, setProgress] = useState(0);
+  const [activeId, setActiveId] = useState(homeSections[0].id);
   const onAboutPage = location.pathname === '/about';
-  const sectionLinks = onAboutPage ? siteLinks : homeLinks;
-
-  useEffect(() => {
-    setOpen(false);
-  }, [location.pathname, location.hash]);
+  const sections = onAboutPage ? aboutSections : homeSections;
+  const activeIndex = Math.max(0, sections.findIndex((section) => section.id === activeId));
 
   useEffect(() => {
     const header = document.querySelector('[data-site-header]');
@@ -45,98 +65,105 @@ export default function SiteHeader() {
   }, []);
 
   useEffect(() => {
-    const update = () => {
+    const updateProgress = () => {
       const scrollable = document.documentElement.scrollHeight - window.innerHeight;
       const next = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
       setProgress(Math.min(100, Math.max(0, next)));
     };
 
-    update();
-    window.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update);
+    updateProgress();
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
     return () => {
-      window.removeEventListener('scroll', update);
-      window.removeEventListener('resize', update);
+      window.removeEventListener('scroll', updateProgress);
+      window.removeEventListener('resize', updateProgress);
     };
   }, [location.pathname]);
 
   useEffect(() => {
-    if (!open) return undefined;
-    const onKeyDown = (event) => {
-      if (event.key === 'Escape') setOpen(false);
+    const updateActive = () => {
+      const line = headerOffset() + 16;
+      let current = sections[0].id;
+      sections.forEach((section) => {
+        const node = document.getElementById(section.id);
+        if (node && node.getBoundingClientRect().top <= line) current = section.id;
+      });
+      setActiveId(current);
     };
-    document.addEventListener('keydown', onKeyDown);
-    return () => document.removeEventListener('keydown', onKeyDown);
-  }, [open]);
 
-  const linkItems = (links) => links.map((link) => (
-    <li key={link.to}>
-      <Link to={link.to} onClick={() => setOpen(false)}>{link.label}</Link>
-    </li>
-  ));
+    updateActive();
+    window.addEventListener('scroll', updateActive, { passive: true });
+    window.addEventListener('resize', updateActive);
+    return () => {
+      window.removeEventListener('scroll', updateActive);
+      window.removeEventListener('resize', updateActive);
+    };
+  }, [location.pathname, sections]);
+
+  useEffect(() => {
+    const scroller = stepsRef.current;
+    const current = scroller?.querySelector('[aria-current="step"]');
+    if (!scroller || !current) return;
+    const left = current.offsetLeft - (scroller.clientWidth - current.clientWidth) / 2;
+    scroller.scrollTo({ left: Math.max(0, left), behavior: 'smooth' });
+  }, [activeId, location.pathname]);
 
   return (
-    <div className="drawer">
-      <input
-        id={drawerId}
-        type="checkbox"
-        className="drawer-toggle"
-        checked={open}
-        onChange={(event) => setOpen(event.target.checked)}
-      />
-      <div className="drawer-content">
-        <header data-site-header className="navbar fixed inset-x-0 top-0 z-40 border-b border-base-300 bg-base-100/90 shadow-sm backdrop-blur">
-          <div className="navbar-start gap-1">
-            <button
-              type="button"
-              className="btn btn-ghost btn-circle lg:hidden"
-              aria-expanded={open}
-              aria-controls={menuId}
-              onClick={() => setOpen((current) => !current)}
-            >
-              <span className="sr-only">{open ? 'Close menu' : 'Open menu'}</span>
-              <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              </svg>
-            </button>
-            <Link to="/" className="btn btn-ghost px-2 text-xl font-display normal-case">David Aydin</Link>
+    <div>
+      <header data-site-header className="fixed inset-x-0 top-0 z-40 border-b border-base-300 bg-base-100/90 shadow-sm backdrop-blur">
+        <div className="navbar min-h-14 w-full px-2">
+          <div className="navbar-start">
+            <Link to="/" className="btn btn-ghost px-2 text-lg font-display normal-case sm:text-xl">David Aydin</Link>
           </div>
-          <nav className="navbar-center hidden lg:flex" aria-label="Primary">
-            <ul className="menu menu-horizontal px-1">
-              {sectionLinks.map((link) => (
-                <li key={link.to}>
-                  <Link to={link.to}>{link.label}</Link>
-                </li>
-              ))}
-              <li>
-                <Link to={onAboutPage ? '/' : '/about'} aria-current={onAboutPage ? 'page' : undefined}>
-                  {onAboutPage ? 'Portfolio' : 'About this site'}
-                </Link>
-              </li>
-            </ul>
-          </nav>
-          <div className="navbar-end">
+          <div className="navbar-end gap-1">
+            <Link to={onAboutPage ? '/' : '/about'} className="btn btn-ghost btn-sm" aria-current={onAboutPage ? 'page' : undefined}>
+              {onAboutPage ? 'Portfolio' : 'About this site'}
+            </Link>
             <ThemePicker />
           </div>
-          <progress
-            className="progress progress-primary absolute inset-x-0 bottom-0 h-1 rounded-none"
-            value={progress}
-            max="100"
-            aria-hidden="true"
-          />
-        </header>
-        <div aria-hidden="true" className="h-[var(--site-header-height)]" />
-      </div>
-      <div className="drawer-side z-50">
-        <label htmlFor={drawerId} aria-label="Close menu" className="drawer-overlay" />
-        <nav id={menuId} className="menu min-h-full w-72 bg-base-200 p-4 text-base-content" aria-label="Mobile">
-          <p className="px-4 py-3 font-display text-xl">David Aydin</p>
-          <ul>
-            {linkItems(homeLinks)}
-            {linkItems(siteLinks)}
+        </div>
+        <nav ref={stepsRef} className="hidden w-full overflow-x-auto px-3 pb-2 md:block" aria-label="Sections">
+          <ul className="steps mx-auto w-max min-w-full">
+            {sections.map((section, index) => (
+              <li key={section.id} className={`step whitespace-nowrap ${index <= activeIndex ? 'step-primary' : ''}`}>
+                <button
+                  type="button"
+                  className="btn btn-ghost btn-xs h-auto min-h-0 px-1 font-medium"
+                  aria-current={section.id === activeId ? 'step' : undefined}
+                  onClick={() => scrollToSection(section.id)}
+                >
+                  {section.label}
+                </button>
+              </li>
+            ))}
           </ul>
         </nav>
-      </div>
+        <progress
+          className="progress progress-primary absolute inset-x-0 bottom-0 h-1 rounded-none"
+          value={progress}
+          max="100"
+          aria-hidden="true"
+        />
+      </header>
+      <div aria-hidden="true" className="h-[var(--site-header-height)]" />
+      <nav className="section-dock dock md:hidden" aria-label="Sections">
+        {sections.map((section) => {
+          const Icon = section.icon;
+          const active = section.id === activeId;
+          return (
+            <button
+              key={section.id}
+              type="button"
+              className={active ? 'dock-active' : undefined}
+              aria-current={active ? 'page' : undefined}
+              onClick={() => scrollToSection(section.id)}
+            >
+              <Icon aria-hidden="true" className="size-5" />
+              <span className="dock-label">{section.short}</span>
+            </button>
+          );
+        })}
+      </nav>
     </div>
   );
 }

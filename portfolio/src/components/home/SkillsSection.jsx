@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import skills from '../../data/skills';
 import skillIcons from './skillIcons';
@@ -45,24 +46,55 @@ const brandColors = {
 const byName = Object.fromEntries(skills.map((skill) => [skill.name, skill]));
 const tiltZones = [0, 1, 2, 3, 4, 5, 6, 7];
 
+function cardHeight(card) {
+  const body = card.querySelector('.card-body');
+  const title = card.querySelector('.card-title');
+  const list = card.querySelector('ul');
+  const cardStyle = getComputedStyle(card);
+  const bodyStyle = body ? getComputedStyle(body) : null;
+  const padding = bodyStyle ? parseFloat(bodyStyle.paddingTop) + parseFloat(bodyStyle.paddingBottom) : 0;
+  const border = parseFloat(cardStyle.borderTopWidth) + parseFloat(cardStyle.borderBottomWidth);
+  const gap = bodyStyle ? parseFloat(bodyStyle.rowGap || bodyStyle.gap) || 0 : 0;
+  return Math.ceil((title?.offsetHeight ?? 0) + (list?.offsetHeight ?? 0) + padding + border + gap);
+}
+
 export default function SkillsSection() {
+  const gridRef = useRef(null);
+
+  useEffect(() => {
+    const grid = gridRef.current;
+    if (!grid) return undefined;
+    const apply = () => {
+      const cards = [...grid.querySelectorAll('article')];
+      if (!cards.length) return;
+      const height = Math.max(...cards.map(cardHeight));
+      cards.forEach((card) => {
+        card.style.minHeight = `${height}px`;
+      });
+    };
+    apply();
+    const observer = new ResizeObserver(apply);
+    observer.observe(grid);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="skills" className="bg-base-100 px-4 py-16 md:py-24" aria-labelledby="skills-heading">
       <div className="mx-auto w-full max-w-6xl">
         <h2 id="skills-heading" className="mb-8 text-4xl font-bold md:text-5xl">Skills</h2>
-        <div className="grid gap-5 md:grid-cols-2">
+        <div ref={gridRef} className="grid auto-rows-fr grid-cols-1 items-stretch gap-5 sm:grid-cols-2">
           {groups.map((group, index) => (
             <motion.div
               key={group.title}
-              className="w-full min-w-0"
+              className="h-full min-w-0"
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.4, delay: index * 0.08 }}
             >
-            <div className="hover-3d w-full">
-            <div className={`aura aura-glow w-full ${group.tone}`}>
-            <article className="card card-border w-full bg-base-200 shadow-md">
+            <div className="hover-3d h-full w-full">
+            <div className={`aura aura-glow h-full w-full ${group.tone}`}>
+            <article className="card card-border h-full w-full bg-base-200 shadow-md">
               <div className="card-body">
                 <h3 className="card-title text-lg">{group.title}</h3>
                 <ul className="flex flex-wrap gap-3">

@@ -3,8 +3,6 @@ import { motion } from 'motion/react';
 import ProjectLinks from './ProjectLinks';
 import techBadges from './techBadges';
 
-const todo = 'TODO: David has not written this yet.';
-
 export default function ProjectModal({ project, onClose }) {
   const dialogRef = useRef(null);
 
@@ -63,20 +61,6 @@ export default function ProjectModal({ project, onClose }) {
           ))}
         </div>
         <p className="text-base-content/80">{project.longDescription}</p>
-        <div className="mt-6 space-y-4">
-          <div>
-            <h3 className="text-lg font-bold">Problem</h3>
-            <p className="text-warning">{todo}</p>
-          </div>
-          <div>
-            <h3 className="text-lg font-bold">Solution</h3>
-            <p className="text-warning">{todo}</p>
-          </div>
-          <div>
-            <h3 className="text-lg font-bold">Challenges</h3>
-            <p className="text-warning">{todo}</p>
-          </div>
-        </div>
         <div className="modal-action flex-wrap">
           <ProjectLinks project={project} />
         </div>
