@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { MotionConfig } from 'motion/react';
 import { BrowserRouter, useLocation } from 'react-router-dom';
 import SiteHeader from './components/layout/SiteHeader';
@@ -9,6 +9,7 @@ import { initAnalytics, trackPageView } from './lib/analytics';
 
 function AppShell() {
   const location = useLocation();
+  const previousLocation = useRef({ pathname: '', hash: '' });
 
   useEffect(() => {
     initAnalytics();
@@ -16,8 +17,11 @@ function AppShell() {
 
   useEffect(() => {
     trackPageView(`${location.pathname}${location.search}`);
+    const pathChanged = previousLocation.current.pathname !== location.pathname;
+    const hashChanged = previousLocation.current.hash !== location.hash;
+    previousLocation.current = { pathname: location.pathname, hash: location.hash };
 
-    if (location.hash) {
+    if ((pathChanged || hashChanged) && location.hash) {
       const id = decodeURIComponent(location.hash.slice(1));
       const target = document.getElementById(id);
       if (target) {
@@ -26,7 +30,7 @@ function AppShell() {
       }
     }
 
-    window.scrollTo(0, 0);
+    if (pathChanged) window.scrollTo(0, 0);
   }, [location.pathname, location.search, location.hash]);
 
   return (
