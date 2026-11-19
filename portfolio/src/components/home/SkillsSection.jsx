@@ -43,22 +43,25 @@ const brandColors = {
 };
 
 const byName = Object.fromEntries(skills.map((skill) => [skill.name, skill]));
+const tiltZones = [0, 1, 2, 3, 4, 5, 6, 7];
 
 export default function SkillsSection() {
   return (
-    <section id="skills" className="scroll-mt-24 bg-base-100 px-4 py-16 md:py-24" aria-labelledby="skills-heading">
+    <section id="skills" className="bg-base-100 px-4 py-16 md:py-24" aria-labelledby="skills-heading">
       <div className="mx-auto w-full max-w-6xl">
         <h2 id="skills-heading" className="mb-8 text-4xl font-bold md:text-5xl">Skills</h2>
         <div className="grid gap-5 md:grid-cols-2">
           {groups.map((group, index) => (
             <motion.div
               key={group.title}
-              className={`aura aura-glow w-full ${group.tone}`}
+              className="w-full min-w-0"
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.4, delay: index * 0.08 }}
             >
+            <div className="hover-3d w-full">
+            <div className={`aura aura-glow w-full ${group.tone}`}>
             <article className="card card-border w-full bg-base-200 shadow-md">
               <div className="card-body">
                 <h3 className="card-title text-lg">{group.title}</h3>
@@ -78,6 +81,9 @@ export default function SkillsSection() {
                 </ul>
               </div>
             </article>
+            </div>
+            {tiltZones.map((zone) => <div key={zone} aria-hidden="true" />)}
+            </div>
             </motion.div>
           ))}
         </div>

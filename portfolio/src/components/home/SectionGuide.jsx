@@ -10,7 +10,11 @@ const sections = [
   { id: 'contact', label: 'Contact' },
 ];
 
-const ACTIVATION_LINE = 140;
+function headerOffset() {
+  const raw = getComputedStyle(document.documentElement).getPropertyValue('--site-header-offset');
+  const value = parseFloat(raw);
+  return Number.isFinite(value) ? value : 84;
+}
 
 function useActiveSection() {
   const [active, setActive] = useState('home');
@@ -20,7 +24,7 @@ function useActiveSection() {
       let current = sections[0].id;
       sections.forEach((section) => {
         const node = document.getElementById(section.id);
-        if (node && node.getBoundingClientRect().top <= ACTIVATION_LINE) {
+        if (node && node.getBoundingClientRect().top <= headerOffset() + 16) {
           current = section.id;
         }
       });
@@ -42,7 +46,7 @@ function useActiveSection() {
 function scrollToSection(id) {
   const node = document.getElementById(id);
   if (!node) return;
-  const top = node.getBoundingClientRect().top + window.scrollY - 96;
+  const top = node.getBoundingClientRect().top + window.scrollY - headerOffset();
   window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
 }
 
@@ -69,7 +73,7 @@ export function SideGuide() {
   }
 
   return (
-    <nav className="sticky top-0 hidden h-screen self-start xl:block" aria-label="On this page">
+    <nav className="sticky top-[var(--site-header-height)] hidden h-[calc(100dvh-var(--site-header-height))] self-start xl:block" aria-label="On this page">
       <ul className="page-guide timeline timeline-compact timeline-vertical h-full py-16">
         {sections.map((section, index) => (
           <li key={section.id}>

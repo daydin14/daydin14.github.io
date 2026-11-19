@@ -1,6 +1,6 @@
 export default function Features() {
   return (
-    <article id="features" className="card scroll-mt-24 bg-base-200 shadow-md" aria-labelledby="features-heading">
+    <article id="features" className="card bg-base-200 shadow-md" aria-labelledby="features-heading">
       <div className="card-body">
       <h2 id="features-heading">Features</h2>
       <ul>

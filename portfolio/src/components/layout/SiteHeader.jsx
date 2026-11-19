@@ -31,6 +31,20 @@ export default function SiteHeader() {
   }, [location.pathname, location.hash]);
 
   useEffect(() => {
+    const header = document.querySelector('[data-site-header]');
+    if (!header) return undefined;
+    const apply = () => {
+      const height = header.offsetHeight;
+      document.documentElement.style.setProperty('--site-header-height', `${height}px`);
+      document.documentElement.style.setProperty('--site-header-offset', `${height + 12}px`);
+    };
+    apply();
+    const observer = new ResizeObserver(apply);
+    observer.observe(header);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     const update = () => {
       const scrollable = document.documentElement.scrollHeight - window.innerHeight;
       const next = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
@@ -71,7 +85,7 @@ export default function SiteHeader() {
         onChange={(event) => setOpen(event.target.checked)}
       />
       <div className="drawer-content">
-        <header className="navbar sticky top-0 z-40 border-b border-base-300 bg-base-100/90 shadow-sm backdrop-blur">
+        <header data-site-header className="navbar fixed inset-x-0 top-0 z-40 border-b border-base-300 bg-base-100/90 shadow-sm backdrop-blur">
           <div className="navbar-start gap-1">
             <button
               type="button"
@@ -105,12 +119,13 @@ export default function SiteHeader() {
             <ThemePicker />
           </div>
           <progress
-            className="progress progress-primary absolute bottom-0 left-0 h-1 w-full rounded-none"
+            className="progress progress-primary absolute inset-x-0 bottom-0 h-1 rounded-none"
             value={progress}
             max="100"
             aria-hidden="true"
           />
         </header>
+        <div aria-hidden="true" className="h-[var(--site-header-height)]" />
       </div>
       <div className="drawer-side z-50">
         <label htmlFor={drawerId} aria-label="Close menu" className="drawer-overlay" />

@@ -5,7 +5,7 @@ const tiltZones = [0, 1, 2, 3, 4, 5, 6, 7];
 
 export default function Hero() {
   return (
-    <section id="home" className="hero scroll-mt-24 bg-base-200">
+    <section id="home" className="hero bg-base-200">
       <div className="hero-content w-full max-w-6xl flex-col gap-10 py-16 lg:flex-row lg:py-24">
         <div className="indicator">
           <span className="indicator-item badge badge-success gap-2">
