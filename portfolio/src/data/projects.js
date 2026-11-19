@@ -1,6 +1,7 @@
 // Images
 
 // Recents
+import DrinkGenerator from '../assets/images/project-cards/Recent/drink-generator.webp'
 import PasswordGenerator from '../assets/images/project-cards/Recent/password-generator.png'
 import ChalkboardGames from '../assets/images/project-cards/Recent/chalkboard-games.png'
 import AllenhurstCleaners from '../assets/images/project-cards/Recent/allenhurst-cleaners.png'
@@ -31,6 +32,20 @@ import Blog from '../assets/images/project-cards/Udemy/blog.png'
 export const RecentProjects = [
     {
         category: 'Recent',
+        date: '2026-11-19',
+        tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'daisyUI'],
+        badges: ['Remade 2026'],
+        image: DrinkGenerator,
+        title: 'Drink Generator',
+        shortDescription: 'Find a cocktail by name, by what is already in the cabinet, or pour one at random. A 2026 remake of an earlier recipe app, powered by TheCocktailDB API.',
+        longDescription: 'Drink Generator is a 2026 remake of an earlier cocktail recipe project. Search for a drink by name, filter by the ingredients already in the cabinet, or pour something at random. Recipes come from TheCocktailDB API. The app is built with React, TypeScript, and Vite, and styled with Tailwind CSS and daisyUI. It is deployed on GitHub Pages.',
+        githubRepoLink: 'https://github.com/daydin14/drink-generator',
+        liveDemoLink: 'https://daydin14.github.io/drink-generator/'
+    },
+    {
+        category: 'Recent',
+        date: '2024-10-08',
+        tags: ['JavaScript', 'React', 'Tailwind CSS', 'daisyUI'],
         image: PasswordGenerator,
         title: 'Password Generator',
         shortDescription: 'A responsive React app for generating secure passwords with customizable options. Features include configurable settings for password length and character types, live preview, and copy-to-clipboard functionality. Utilizes Tailwind CSS, DaisyUI, and ESLint. Deployed on GitHub Pages.',
@@ -40,6 +55,8 @@ export const RecentProjects = [
     },
     {
         category: 'Recent',
+        date: '2024-10-04',
+        tags: ['JavaScript', 'React', 'Tailwind CSS', 'daisyUI'],
         image: ChalkboardGames,
         title: 'Chalkboard Games',
         shortDescription: 'Chalkboard Games is a web application that hosts a collection of classic games, including Tic-Tac-Toe, Connect 4, and Snake. Built using React, Tailwind CSS and DaisyUI. Deployed on GH-Pages.',
@@ -49,6 +66,8 @@ export const RecentProjects = [
     },
     {
         category: 'Recent',
+        date: '2024-09-11',
+        tags: ['JavaScript', 'React', 'Material UI'],
         image: AllenhurstCleaners,
         title: 'Allenhurst Cleaners',
         shortDescription: 'This web application integrates with the Google Maps API Platform and Google Analytics. Built with React and Material UI. Environment variable management and dual deployment, GH-Pages & Netlify.',
@@ -58,6 +77,8 @@ export const RecentProjects = [
     },
     {
         category: 'Recent',
+        date: '2024-08-17',
+        tags: ['C#', '.NET', 'Blazor', 'MudBlazor'],
         image: JokerBlazor,
         title: 'JokerBlazor',
         shortDescription: 'JokerBlazor is a Blazor Web Application that delivers interactive web experiences with real-time updates and humor through JokeAPI integration and MudBlazor components.',
@@ -67,6 +88,8 @@ export const RecentProjects = [
     },
     {
         category: 'Recent',
+        date: '2023-11-09',
+        tags: ['C#', '.NET'],
         image: null,
         title: 'Joker Service',
         shortDescription: 'A .NET Worker Windows Service using BackgroundService. Logs Computer Programming Jokes and can send emails.',
@@ -76,6 +99,8 @@ export const RecentProjects = [
     },
     {
         category: 'Recent',
+        date: '2023-10-23',
+        tags: ['JavaScript', 'React', 'Material UI', 'Firebase', 'Node', 'Express', 'MongoDB'],
         image: WhatsAppClone,
         title: 'WhatsApp Clone',
         shortDescription: 'A real-time messaging app clone built with React, Firebase, and Material-UI.',
@@ -88,6 +113,8 @@ export const RecentProjects = [
 export const UdemyProjects = [
     {
         category: 'Udemy',
+        date: '2023-09-21',
+        tags: ['HTML', 'CSS', 'JavaScript'],
         image: FormValidator,
         title: 'Form Validator',
         shortDescription: 'A form validation app built with HTML, CSS, and JavaScript.',
@@ -97,6 +124,8 @@ export const UdemyProjects = [
     },
     {
         category: 'Udemy',
+        date: '2023-09-21',
+        tags: ['HTML', 'CSS', 'JavaScript'],
         image: MovieSeatBooking,
         title: 'Movie Seat Booking',
         shortDescription: 'An interactive movie seat booking app built with HTML, CSS, and JavaScript.',
@@ -106,6 +135,8 @@ export const UdemyProjects = [
     },
     {
         category: 'Udemy',
+        date: '2023-09-21',
+        tags: ['HTML', 'CSS', 'JavaScript'],
         image: CustomVideoPlayer,
         title: 'Custom Video Player',
         shortDescription: 'A custom video player built with HTML, CSS, and JavaScript.',
@@ -115,6 +146,8 @@ export const UdemyProjects = [
     },
     {
         category: 'Udemy',
+        date: '2023-09-21',
+        tags: ['HTML', 'CSS', 'JavaScript'],
         image: ExchangeRateCalculator,
         title: 'Exchange Rate Calculator',
         shortDescription: 'An exchange rate calculator app built with HTML, CSS, and JavaScript.',
@@ -124,6 +157,8 @@ export const UdemyProjects = [
     },
     {
         category: 'Udemy',
+        date: '2023-09-21',
+        tags: ['HTML', 'CSS', 'JavaScript'],
         image: DomArrayMethods,
         title: 'DOM Array Methods',
         shortDescription: 'A project demonstrating various DOM array methods using JavaScript.',
@@ -133,6 +168,8 @@ export const UdemyProjects = [
     },
     {
         category: 'Udemy',
+        date: '2023-09-21',
+        tags: ['HTML', 'CSS', 'JavaScript'],
         image: LandingPage,
         title: 'Landing Page',
         shortDescription: 'A responsive landing page built with HTML, CSS, and JavaScript.',
@@ -142,6 +179,8 @@ export const UdemyProjects = [
     },
     {
         category: 'Udemy',
+        date: '2023-09-21',
+        tags: ['HTML', 'CSS', 'JavaScript'],
         image: Hangman,
         title: 'Hangman',
         shortDescription: 'A classic hangman game built with HTML, CSS, and JavaScript.',
@@ -151,6 +190,8 @@ export const UdemyProjects = [
     },
     {
         category: 'Udemy',
+        date: '2023-09-21',
+        tags: ['HTML', 'CSS', 'JavaScript'],
         image: MealFinder,
         title: 'Meal Finder',
         shortDescription: 'A meal finder app built with HTML, CSS, and JavaScript.',
@@ -160,6 +201,8 @@ export const UdemyProjects = [
     },
     {
         category: 'Udemy',
+        date: '2023-09-21',
+        tags: ['HTML', 'CSS', 'JavaScript'],
         image: ExpenseTracker,
         title: 'Expense Tracker',
         shortDescription: 'An expense tracker app built with HTML, CSS, and JavaScript.',
@@ -169,6 +212,8 @@ export const UdemyProjects = [
     },
     {
         category: 'Udemy',
+        date: '2023-09-21',
+        tags: ['HTML', 'CSS', 'JavaScript'],
         image: MusicPlayer,
         title: 'Music Player',
         shortDescription: 'A custom music player built with HTML, CSS, and JavaScript.',
@@ -178,6 +223,8 @@ export const UdemyProjects = [
     },
     {
         category: 'Udemy',
+        date: '2023-09-21',
+        tags: ['HTML', 'CSS', 'JavaScript'],
         image: Blog,
         title: 'Blog',
         shortDescription: 'A simple blog platform built with HTML, CSS, and JavaScript.',
@@ -190,6 +237,8 @@ export const UdemyProjects = [
 export const GAProjects = [
     {
         category: 'GA',
+        date: '2022-05-09',
+        tags: ['HTML', 'CSS', 'JavaScript', 'jQuery'],
         image: CocktailRecipe,
         title: 'Cocktail Recipe',
         shortDescription: 'A cocktail recipe app built with HTML, CSS, JavaScript, and jQuery.',
@@ -199,6 +248,8 @@ export const GAProjects = [
     },
     {
         category: 'GA',
+        date: '2022-05-27',
+        tags: ['JavaScript', 'Node', 'Express', 'MongoDB', 'EJS'],
         image: OptioBlue,
         title: 'Optio Blue',
         shortDescription: 'A full-stack app with CRUD operations using MongoDB, Mongoose, and ExpressJS.',
@@ -208,6 +259,8 @@ export const GAProjects = [
     },
     {
         category: 'GA',
+        date: '2022-06-16',
+        tags: ['JavaScript', 'React', 'Node', 'Express', 'MongoDB', 'Firebase'],
         image: BuckT,
         title: 'BuckT',
         shortDescription: 'A team project creating a full-stack app with MERN stack.',
@@ -220,6 +273,8 @@ export const GAProjects = [
     },
     {
         category: 'GA',
+        date: '2022-07-10',
+        tags: ['Python', 'Django', 'PostgreSQL'],
         image: Gaflix,
         title: 'Gaflix',
         shortDescription: 'A full-stack app using the Python-based Django Web Framework.',
@@ -229,6 +284,8 @@ export const GAProjects = [
     },
     {
         category: 'GA',
+        date: '2022-07-18',
+        tags: ['JavaScript', 'React Native'],
         image: Capstone,
         title: 'Capstone',
         shortDescription: 'A capstone project using a new stack or technology.',
@@ -238,6 +295,8 @@ export const GAProjects = [
     },
     {
         category: 'GA',
+        date: '2022-11-19',
+        tags: ['JavaScript', 'React', 'Firebase'],
         image: LitterGame,
         title: 'Litter Game',
         shortDescription: 'GA Hackathon',
@@ -250,6 +309,8 @@ export const GAProjects = [
 export const SJUProjects = [
     {
         category: 'SJU',
+        date: '2021-03-01',
+        tags: ['PHP', 'MySQL', 'HTML'],
         image: null,
         title: 'SneakersDB',
         shortDescription: 'Database Management Systems Final Project, created a sneaker db using MySQL',
@@ -259,6 +320,8 @@ export const SJUProjects = [
     },
     {
         category: 'SJU',
+        date: '2021-03-01',
+        tags: ['PHP', 'MongoDB', 'HTML'],
         image: null,
         title: 'MongoBongo',
         shortDescription: 'Final Project for Internet Application Development, creating a database using Mongo, a nosql database, for a pharmaceutical company',
@@ -268,6 +331,8 @@ export const SJUProjects = [
     },
     {
         category: 'SJU',
+        date: '2021-03-01',
+        tags: ['C++', 'Unreal Engine'],
         image: null,
         title: 'SShooter_sju',
         shortDescription: 'Computer Science Senior Year Final Project, worked alongside my classmate Joe Toczylowskij. Together we created a puzzle shooter game using Epic Game\'s Unreal Engine 4.20 visual blueprints code as well as Microsoft\'s Visual Studio 2017 c++ code.',

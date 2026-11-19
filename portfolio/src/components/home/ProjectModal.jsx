@@ -53,6 +53,12 @@ export default function ProjectModal({ project, onClose }) {
           <FaTimes aria-hidden="true" className="size-7" />
         </button>
         <h2 id="project-dialog-title" className="pr-16 text-3xl font-bold">{project.title}</h2>
+        <div className="mt-3 flex flex-wrap gap-1">
+          {project.liveDemoLink?.trim() ? <span className="badge badge-success badge-sm">Live demo</span> : null}
+          {(project.badges || []).map((label) => (
+            <span key={label} className="badge badge-warning badge-sm">{label}</span>
+          ))}
+        </div>
         {project.image ? (
           <img className="my-4 aspect-video w-full rounded-box object-cover" src={project.image} alt={project.title} />
         ) : (
