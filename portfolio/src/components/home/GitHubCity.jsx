@@ -14,7 +14,7 @@ export default function GitHubCity() {
   const [year, setYear] = useState(currentYear);
   const [canRenderCity] = useState(supportsWebGL);
   const years = [];
-  for (let option = 2016; option <= currentYear; option += 1) years.push(option);
+  for (let option = 2020; option <= currentYear; option += 1) years.push(option);
   const src = `https://honzaap.github.io/GithubCity/?name=daydin14&year=${year}`;
 
   useEffect(() => {
