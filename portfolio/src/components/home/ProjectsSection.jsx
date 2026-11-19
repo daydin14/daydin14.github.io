@@ -16,7 +16,7 @@ import ProjectFilters from './ProjectFilters';
 import ProjectLinks from './ProjectLinks';
 import ProjectModal from './ProjectModal';
 
-const standoutTitles = new Set(['Drink Generator', 'Chalkboard Games', 'JokerBlazor']);
+const standoutTitles = new Set(['File Converter', 'Drink Generator', 'Chalkboard Games', 'JokerBlazor']);
 const pageSize = 6;
 
 function ProjectBadges({ project, className = '' }) {
@@ -34,11 +34,19 @@ function ProjectBadges({ project, className = '' }) {
   );
 }
 
-function ProjectImage({ project }) {
+function ProjectImage({ project, alt = '' }) {
   if (!project.image) {
     return <div className="skeleton aspect-video w-full" aria-hidden="true" />;
   }
-  return <img className="aspect-video w-full object-cover" src={project.image} alt="" />;
+  if (!project.imageMobile) {
+    return <img className="aspect-video w-full object-cover" src={project.image} alt={alt} />;
+  }
+  return (
+    <picture>
+      <source media="(max-width: 767px)" srcSet={project.imageMobile} />
+      <img className="aspect-video w-full object-cover" src={project.image} alt={alt} />
+    </picture>
+  );
 }
 
 function ProjectPreview({ project }) {
