@@ -166,7 +166,7 @@ export default function SiteHeader() {
           aria-hidden="true"
         />
       </header>
-      <div aria-hidden="true" className="h-[var(--site-header-height)]" />
+      <div aria-hidden="true" className="h-(--site-header-height)" />
       <nav className="section-dock dock md:hidden" aria-label="Sections">
         {sections.map((section) => {
           const Icon = section.icon;

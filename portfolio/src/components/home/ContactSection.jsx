@@ -203,7 +203,7 @@ export default function ContactSection() {
         )}
       </div>
       {toast && (
-        <div className="toast toast-end toast-bottom z-[70]">
+        <div className="toast toast-end toast-bottom z-70">
           <div className={`alert ${toast.type === 'success' ? 'alert-success' : 'alert-error'}`} role="status">
             <span>{toast.text}</span>
           </div>

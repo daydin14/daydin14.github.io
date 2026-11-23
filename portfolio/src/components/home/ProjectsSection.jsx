@@ -96,7 +96,7 @@ function ProjectCard({ project, onOpen }) {
 
   return (
     <motion.div
-      className="card card-border h-full min-w-0 cursor-pointer overflow-hidden bg-base-200 shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+      className="card card-border h-full min-w-0 cursor-pointer overflow-hidden bg-base-200 shadow-md focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-primary"
       whileHover={{ y: -6 }}
       transition={{ duration: 0.2 }}
       role="button"
