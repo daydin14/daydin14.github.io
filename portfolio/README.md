@@ -7,8 +7,14 @@
 - **Google Analytics**: Tracks and reports website traffic for better insights and analytics.
 - **React Icons**: Utilizes React Icons for a wide range of icons and symbols.
 - **Contact Form**: Includes a contact form for users to get in touch easily.
+- **Live Demo Section**: iFrame within DaisyUI Mockup that allows uers to test projects directly on portfolio site.
 
 # Commit History
+
+### Verion 2.0
+
+- Fixed Verion bc Rebuilt with Vite should have been 2.0
+- Refactored projects section and added Live Demo Section
 
 ### Version 1.1.2
 
