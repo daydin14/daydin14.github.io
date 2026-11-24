@@ -127,7 +127,9 @@ export default function ProjectFilters({
 }) {
   return (
     <div className="mb-8 flex flex-col gap-4">
-      <div role="tablist" className="tabs tabs-box w-full flex-nowrap overflow-x-auto" aria-label="Project categories">
+      
+      {/* Categories: Recents|Udemy|GA|SJU */}
+      {/* <div role="tablist" className="tabs tabs-box w-full flex-nowrap overflow-x-auto" aria-label="Project categories">
         {categories.map((item) => (
           <button
             key={item}
@@ -140,7 +142,8 @@ export default function ProjectFilters({
             {item}
           </button>
         ))}
-      </div>
+      </div> */}
+
       <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
         <div className="min-w-0 flex-1">
           <TechMenu
@@ -156,7 +159,9 @@ export default function ProjectFilters({
             onTechClear={onTechClear}
           />
         </div>
-        <label htmlFor="project-sort" className="flex shrink-0 items-center gap-2 text-sm font-medium">
+
+        {/* Sorting: Featured - Newest */}
+        {/* <label htmlFor="project-sort" className="flex shrink-0 items-center gap-2 text-sm font-medium">
           Sort
           <select
             id="project-sort"
@@ -167,7 +172,7 @@ export default function ProjectFilters({
             <option value="featured">Featured</option>
             <option value="newest">Newest</option>
           </select>
-        </label>
+        </label> */}
       </div>
     </div>
   );

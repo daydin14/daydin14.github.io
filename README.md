@@ -68,6 +68,7 @@ To get started with the project, follow these steps:
 - **Google Analytics**: Tracks and reports website traffic for better insights and analytics.
 - **React Icons**: Utilizes React Icons for a wide range of icons and symbols.
 - **Contact Form**: Includes a contact form for users to get in touch easily.
+- **Live Demo Section**: iFrame within DaisyUI Mockup that allows uers to test projects directly on portfolio site.
 
 ## Technologies Used
 

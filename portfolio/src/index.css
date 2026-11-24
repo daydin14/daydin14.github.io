@@ -1,6 +1,14 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: light --default, dark --prefersdark, corporate, emerald, nord, dim, business, synthwave;
+  themes:
+    light --default,
+    dark --prefersdark,
+    corporate,
+    emerald,
+    nord,
+    dim,
+    business,
+    synthwave;
 }
 
 @theme {
@@ -17,7 +25,17 @@ html {
   scroll-padding-top: var(--site-header-offset);
 }
 
-:where(#home, #about, #projects, #github-city, #skills, #contact, #features, #technologies, #project-structure) {
+:where(
+  #home,
+  #about,
+  #projects,
+  #github-city,
+  #skills,
+  #contact,
+  #features,
+  #technologies,
+  #project-structure
+) {
   scroll-margin-top: var(--site-header-offset);
 }
 

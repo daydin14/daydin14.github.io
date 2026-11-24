@@ -3,11 +3,11 @@ import { resolveTechTag, TECH_CATALOG } from '../data/techTags';
 export const PROJECT_CATEGORIES = ['Recent', 'All', 'Udemy', 'GA', 'SJU'];
 
 export function parseCategory(value) {
-  if (!value) return 'Recent';
+  if (!value) return 'All';
   const match = PROJECT_CATEGORIES.find(
     (category) => category.toLowerCase() === String(value).trim().toLowerCase(),
   );
-  return match || 'Recent';
+  return match || 'All';
 }
 
 export function parseSort(value) {
