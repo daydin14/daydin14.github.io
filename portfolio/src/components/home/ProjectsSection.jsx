@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { FaGithub } from 'react-icons/fa';
 import { useSearchParams } from 'react-router-dom';
 import ProjectDetails from '../../data/projects';
 import {
@@ -16,7 +15,7 @@ import ProjectFilters from './ProjectFilters';
 import ProjectLinks from './ProjectLinks';
 import ProjectModal from './ProjectModal';
 
-const standoutTitles = new Set(['File Converter', 'Drink Generator', 'Chalkboard Games', 'JokerBlazor']);
+const standoutTitles = new Set(['File Converter', 'Password Generator', 'Drink Generator', 'Chalkboard Games', 'JokerBlazor', 'Guess Number Game', 'Allenhurst Cleaners',]);
 const pageSize = 6;
 
 function ProjectBadges({ project, className = '' }) {
@@ -109,7 +108,7 @@ function ProjectCard({ project, onOpen }) {
     >
       <ProjectPreview project={project} />
       <div className="card-body">
-        <ProjectBadges project={project} />
+        {/* <ProjectBadges project={project} /> */}
         <h3 className="card-title">{project.title}</h3>
         <p className="line-clamp-4 text-base-content/80">{project.shortDescription}</p>
         <div className="card-actions mt-auto flex-wrap items-center justify-end">
@@ -234,20 +233,6 @@ export default function ProjectsSection() {
           onTechClear={onTechClear}
           onSortChange={onSortChange}
         />
-        {category === 'Udemy' && (
-          <div className="mb-6 flex items-center gap-3">
-            <h3 className="text-2xl font-bold">Udemy Projects</h3>
-            <a
-              className="btn btn-outline btn-sm"
-              href="https://github.com/daydin14/udemy"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaGithub aria-hidden="true" />
-              GitHub
-            </a>
-          </div>
-        )}
         {filteredProjects.length === 0 ? empty : (
           <>
             <div className="grid min-w-0 items-stretch gap-6 sm:grid-cols-2 md:hidden">
