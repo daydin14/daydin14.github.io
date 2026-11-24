@@ -10,14 +10,17 @@ import {
   FaSitemap,
   FaStar,
   FaUser,
+  
 } from 'react-icons/fa';
+import { BsWindowDesktop } from "react-icons/bs";
 import ThemePicker from './ThemePicker';
 
 const homeSections = [
   { id: 'home', label: 'Home', short: 'Home', icon: FaHome },
   { id: 'about', label: 'About', short: 'About', icon: FaUser },
   { id: 'projects', label: 'Projects', short: 'Projects', icon: FaFolderOpen },
-  { id: 'github-city', label: 'GitHub City', short: 'City', icon: FaCity },
+  // { id: 'github-city', label: 'GitHub City', short: 'City', icon: FaCity },
+  { id: 'live-demo', label: 'Live Demo', short: 'Demo', icon: BsWindowDesktop },
   { id: 'skills', label: 'Skills', short: 'Skills', icon: FaStar },
   { id: 'contact', label: 'Contact', short: 'Contact', icon: FaEnvelope },
 ];
