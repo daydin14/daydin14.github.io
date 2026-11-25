@@ -13,7 +13,7 @@ function getFaviconSrc(project) {
 
 export default function LiveDemoSection() {
     const [activeProject, setActiveProject] = useState(
-        () => demoProjects.find(({ title }) => title === 'Password Generator') ?? demoProjects[0],
+        () => demoProjects.find(({ title }) => title === 'Terminal') ?? demoProjects[0],
     )
 
     return (
@@ -27,28 +27,29 @@ export default function LiveDemoSection() {
                             <span className="truncate">daydin14 : {activeProject.title}</span>
                         </div>
                     </div>
-
-                    <div className="flex flex-wrap gap-2">
-                        {demoProjects.map((project) => (
-                            <button
-                                key={project.title}
-                                type="button"
-                                className="btn btn-square"
-                                aria-label={project.title}
-                                aria-pressed={activeProject.title === project.title}
-                                onClick={() => setActiveProject(project)}
-                            >
-                                <img className="size-6 object-contain" src={getFaviconSrc(project)} alt="" />
-                            </button>
-                        ))}
+                    {/* Could possibly move iframe above maping for project buttons and change flex-wrap-reverse to normal flex-wrap */}
+                    <div className="flex flex-wrap-reverse justify-evenly gap-2">
+                        {demoProjects.map((project) => {
+                            const isActive = activeProject.title === project.title
+                            return (
+                                <button
+                                    key={project.title}
+                                    type="button"
+                                    className={`btn btn-square ${isActive ? 'aura-glow text-primary' : ''}`}
+                                    aria-label={project.title}
+                                    aria-pressed={isActive}
+                                    onClick={() => setActiveProject(project)}
+                                >
+                                    <img className="size-6 object-contain" src={getFaviconSrc(project)} alt="" />
+                                </button>
+                            )
+                        })}
+                        <iframe
+                            className="h-200 w-full border-0 bg-base-200"
+                            src={activeProject.liveDemoLink}
+                            title={activeProject.title}
+                        />
                     </div>
-
-                    <iframe
-                        className="h-200 w-full border-0 bg-base-200"
-                        src={activeProject.liveDemoLink}
-                        title={activeProject.title}
-                    />
-                    &nbsp;
                 </div>
             </div>
         </div>

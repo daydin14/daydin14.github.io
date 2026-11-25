@@ -11,7 +11,7 @@ import JokerBlazor from '../assets/images/project-cards/joker-blazor.webp'
 import JokerBlazorMobile from '../assets/images/project-cards/joker-blazor-mobile.webp'
 import WhatsAppClone from '../assets/images/project-cards/whatsapp-clone.png'
 import GuessNumberGame from '../assets/images/project-cards/guess-number-game.png'
-
+import Terminal from '../assets/images/project-cards/terminal.png'
 
 export const RecentProjects = [
     {
@@ -36,6 +36,16 @@ export const RecentProjects = [
         githubRepoLink: 'https://github.com/daydin14/password-generator',
         liveDemoLink: 'https://daydin14.github.io/password-generator/',
         favicon: 'https://github.com/daydin14/password-generator/blob/master/app/public/favicon.svg',
+    },
+    {
+        tags: ['TypeScript', 'React', 'Vite', 'xterm'],
+        image: Terminal,
+        title: 'Terminal',
+        shortDescription: 'A replica terminal to showcase my personal .bash_profile from my dotfiles repository.',
+        longDescription: 'A replica terminal using my custom .bash_profile, which can be viewed within my dotfiles repository. This application allows for users to use basic commands like cd and ls, as well as, attempt to allow users to open projects via the terminal.',
+        githubRepoLink: 'https://github.com/daydin14/terminal',
+        liveDemoLink: 'https://daydin14.github.io/terminal',
+        favicon: 'https://github.com/daydin14/terminal/blob/master/public/favicon.svg',
     },
     {
         tags: ['JavaScript', 'React', 'Material UI', 'Google Maps', 'Netlify'],

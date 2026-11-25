@@ -11,6 +11,11 @@
 
 # Commit History
 
+### Version 2.1.0
+
+- Update active project to Terminal and enhance button styling in LiveDemoSection
+- Add Terminal project to RecentProjects and update standoutTitles
+
 ### Verion 2.0
 
 - Fixed Verion bc Rebuilt with Vite should have been 2.0
