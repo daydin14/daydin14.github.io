@@ -11,7 +11,7 @@ import JokerBlazor from '../assets/images/project-cards/joker-blazor.webp'
 import JokerBlazorMobile from '../assets/images/project-cards/joker-blazor-mobile.webp'
 import WhatsAppClone from '../assets/images/project-cards/whatsapp-clone.png'
 import GuessNumberGame from '../assets/images/project-cards/guess-number-game.png'
-
+import Terminal from '../assets/images/project-cards/terminal.png'
 
 export const RecentProjects = [
     {
@@ -39,7 +39,7 @@ export const RecentProjects = [
     },
     {
         tags: ['TypeScript', 'React', 'Vite', 'xterm'],
-        image: null,
+        image: Terminal,
         title: 'Terminal',
         shortDescription: 'A replica terminal to showcase my personal .bash_profile from my dotfiles repository.',
         longDescription: 'A replica terminal using my custom .bash_profile, which can be viewed within my dotfiles repository. This application allows for users to use basic commands like cd and ls, as well as, attempt to allow users to open projects via the terminal.',
