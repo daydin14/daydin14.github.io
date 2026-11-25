@@ -15,7 +15,7 @@ import ProjectFilters from './ProjectFilters';
 import ProjectLinks from './ProjectLinks';
 import ProjectModal from './ProjectModal';
 
-const standoutTitles = new Set(['File Converter', 'Password Generator', 'Drink Generator', 'Chalkboard Games', 'JokerBlazor', 'Guess Number Game', 'Allenhurst Cleaners',]);
+const standoutTitles = new Set(['File Converter', 'Password Generator', 'Drink Generator', 'Chalkboard Games', 'JokerBlazor', 'Guess Number Game', 'Allenhurst Cleaners', 'Terminal']);
 const pageSize = 6;
 
 function ProjectBadges({ project, className = '' }) {

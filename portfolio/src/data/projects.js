@@ -38,6 +38,16 @@ export const RecentProjects = [
         favicon: 'https://github.com/daydin14/password-generator/blob/master/app/public/favicon.svg',
     },
     {
+        tags: ['TypeScript', 'React', 'Vite', 'xterm'],
+        image: null,
+        title: 'Terminal',
+        shortDescription: 'A replica terminal to showcase my personal .bash_profile from my dotfiles repository.',
+        longDescription: 'A replica terminal using my custom .bash_profile, which can be viewed within my dotfiles repository. This application allows for users to use basic commands like cd and ls, as well as, attempt to allow users to open projects via the terminal.',
+        githubRepoLink: 'https://github.com/daydin14/terminal',
+        liveDemoLink: 'https://daydin14.github.io/terminal',
+        favicon: 'https://github.com/daydin14/terminal/blob/master/public/favicon.svg',
+    },
+    {
         tags: ['JavaScript', 'React', 'Material UI', 'Google Maps', 'Netlify'],
         image: AllenhurstCleaners,
         title: 'Allenhurst Cleaners',
